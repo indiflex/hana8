@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tailwindcss-animate@1.0.7/dist/index.umd.js"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:is(.dark *));
+    
+    @theme {
+      --color-clifford: #da373d;
+    }
+
+    @layer base {
+      button {
+        @apply border border-green-500 bg-green-300 px-2 rounded-md cursor-pointer hover:bg-green-400 hover:text-white active:ring-2 active:scale-105;
+      }
+    }
+
+    @layer utility {
+      .btn {
+        background-color: skyblue;
+      }
+    }
+  </style>
+</head>
+<!-- xs sm md lg xl 2xl 3xl -->
+
+<body class="h-screen bg-green-100 grid place-items-center">
+  <div class="group flex flex-col md:flex-row [&>button]:shadow-md [&>button]:hover:shadow-xl border p-3 gap-2">
+    <button class="">Button</button>
+    <button class="btn text-white group-hover:border-black">Button2</button>
+    <button class="btn text-black dark:text-white">Button2</button>
+
+    <h1 class="text-3xl font-bold underline text-clifford animate-spinX">
+      Hello world!
+    </h1>
+  </div>
+
+  <div class="group container flex gap-2 bg-white rounded-md p-2 shadow-md w-80">
+    <img id="ix" src="https://avatars.githubusercontent.com/u/5843964?v=4" alt="Jade Profile Image"
+      class="rounded-full size-16 group-hover:border border-gray-300">
+    <div class="[&>small]:block [&>small]:text-gray-500">
+      <div>indiflex.corp@gmail.com</div>
+      <small>description..111</small>
+      <small class="group-hover:hidden">description..222</small>
+    </div>
+  </div>
+</body>
+
+</html>

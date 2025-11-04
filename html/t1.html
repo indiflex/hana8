@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>first html</title>
+  <style>
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    main,
+    article,
+    aside {
+      border: 1px solid red;
+    }
+
+    main section {
+      border: 1px dotted blue;
+    }
+
+    .container {
+      background-color: yellow;
+      width: 100px;
+    }
+
+    ul li:first-child {
+      font-weight: 700;
+    }
+
+    ol li:nth-child(odd):not(.x) {
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Title</h1>
+    <nav>Nav</nav>
+  </header>
+
+  <main style="display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+      <section aria-label="section1" onclick="console.log('xxx')" aria-hidden="true">
+        <h3>Section</h3>
+        <ul>
+          <li>111</li>
+          <li><a href="#" onClick="" role="button">22</a></li>
+          <li>333</li>
+        </ul>
+      </section>
+      <article draggable="true">
+        <h3>Article</h3>
+        <!-- ol>li{$}*3 -->
+        <ol>
+          <li>1</li>
+          <li>2</li>
+          <li class="x">3</li>
+          <li>4</li>
+          <li>5</li>
+        </ol>
+      </article>
+    </div>
+
+    <!-- <aside style="text-align: center; width: 100px;">Aside</aside> -->
+    <aside style="display: flex;justify-content: center; width: 100px; height: 200px; align-items: end;">Aside
+    </aside>
+  </main>
+
+  <footer style="text-align: center;">&#169; Hanaro 2025</footer>
+</body>
+
+</html>

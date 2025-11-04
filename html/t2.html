@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>second html</title>
+  <style>
+    header,
+    footer {
+      margin: 5px;
+      border: 1px solid #999;
+    }
+
+    nav {
+      margin: 5px 20px 35px;
+      padding: 20px;
+      border: 1px solid #999;
+      border-radius: 50px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .container {
+      background-color: yellow;
+    }
+
+    .dot-red {
+      border: 2px dotted red;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>header</header>
+  <nav>nav</nav>
+  <main style="border: 1px solid red; padding: 5px;display: flex; align-items: center; justify-content: space-between;">
+    <div class="container">
+      <h1>main > container</h1>
+      <section>section</section>
+      <article style="font-size: 2rem;">
+        <h3 style="font-size: 1.2rem;">article - h3 title</h3>
+        <figure style="display: inline-flex;">
+          <img src="https://avatar.vercel.sh/s" alt="S" class="x" />
+          <img
+            src="https://unsplash.com/photos/b51xWeb75R4/download?ixid=M3wxMjA3fDB8MXxhbGx8M3x8fHx8fHx8MTc2MTg3OTc1M3w&force=true"
+            alt="lion" width="150" class="dot-red">
+        </figure>
+      </article>
+    </div>
+    <aside style="align-items: center;">aside</aside>
+  </main>
+  <footer class="text-center"><b>&#169; 시니어코딩</b></footer>
+</body>
+
+</html>
