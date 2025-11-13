@@ -37,3 +37,37 @@ function factorialTCO(n, acc = 1) {
   // f(5, 1) --> f(4, 5) --> f(3, 5 * 4) --> f(2, 5 * 4 * 3)
 }
 console.log('🚀 ~ factorialTCO:', factorialTCO(5));
+
+const ma10 = makeArray(10);
+console.log('🚀 ~ ma10:', ma10);
+// ⇒ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+function makeArray(n) {
+  if (n === 1) return [1];
+  // return [...makeArray(n - 1), n]; // asc
+  return [n, ...makeArray(n - 1)];
+  // [10] --> [9, 10] --> [8, 9, 10]
+}
+
+function makeArrayLoop(n) {
+  const arr = [];
+  for (let i = n; i > 0; i--) {
+    arr.push(i);
+  }
+  return arr;
+  // if (n === 1) return 1;
+  // return [10];
+  // [10] -->
+}
+
+// return Array.from({ length: n }, (_, i) => i + 1);
+// cf. 위 makeArray를 TCO로 작성하시오.
+const maTCO = makeArrayTCO(10);
+console.log('🚀 ~ maTCO:', maTCO);
+function makeArrayTCO(n, acc = []) {
+  if (n === 1) return [1, ...acc];
+  return makeArrayTCO(n - 1, [n, ...acc]);
+  // [10] --> [9, ...[10]] --> [8, ...[9, 10]]
+  // makeArrayTCO(2, [3])
+  // makeArrayTCO(1, [2, ...[3]])
+}
