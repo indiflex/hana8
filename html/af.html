@@ -11,21 +11,47 @@
   <div id="timer">00:00.000</div>
   <button id="btn">START</button>
   <script>
-    let msec = 0;
     const $btn = document.getElementById('btn');
     const $timer = document.getElementById('timer');
 
-    setInterval(() => {
-      $timer.innerHTML = ++msec;
-    }, 1);
+    let isRunning = false;
+    function rendering() {
+      // const now = new Date().getTime();
+      const now = Date.now();
+      $timer.innerHTML = formatTime(now - start - idle);
+      const left = 10 - now % 10;
+      if (isRunning)
+        setTimeout(() => {
+          rendering();
+        }, left);
+    }
 
+    let start;
+    let stop;
+    let idle = 0;
     $btn.addEventListener('click', function () {
-      console.log(this.innerText);
-      if (this.innerText === 'START')
+      if (this.innerText === 'START') {
         this.innerText = 'STOP';
-      else
+        isRunning = true;
+        if (start === undefined) {
+          start = stop = Date.now();
+        }
+        idle += Date.now() - stop;
+        rendering();
+
+      } else {
         this.innerText = 'START';
+        isRunning = false;
+        stop = Date.now();
+      }
     });
+
+    function formatTime(millis) {
+      const m = Math.trunc(millis / 60000).toString().padStart(2, '0');
+      const s = Math.trunc((millis % 60000) / 1000).toString().padStart(2, '0');
+      const ms = Math.trunc(millis % 1000).toString().padStart(3, '0');
+      return `${m}:${s}.${ms}`;
+    }
   </script>
 </body>
 
