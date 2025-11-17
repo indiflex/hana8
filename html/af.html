@@ -9,9 +9,11 @@
 
 <body>
   <div id="timer">00:00.000</div>
-  <button id="btn">START</button>
+  <button id="btnStart">START</button>
+  <button id="btnClear">Clear</button>
   <script>
-    const $btn = document.getElementById('btn');
+    const $btnStart = document.getElementById('btnStart');
+    const $btnClear = document.getElementById('btnClear');
     const $timer = document.getElementById('timer');
 
     let isRunning = false;
@@ -26,10 +28,17 @@
         }, left);
     }
 
+    $btnClear.addEventListener('click', function () {
+      $btnClear.disabled = false;
+      start = undefined;
+      idle = 0;
+      $timer.innerText = "00:00.000";
+    });
+
     let start;
     let stop;
     let idle = 0;
-    $btn.addEventListener('click', function () {
+    $btnStart.addEventListener('click', function () {
       if (this.innerText === 'START') {
         this.innerText = 'STOP';
         isRunning = true;
@@ -44,6 +53,8 @@
         isRunning = false;
         stop = Date.now();
       }
+
+      $btnClear.disabled = isRunning;
     });
 
     function formatTime(millis) {
