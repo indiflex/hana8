@@ -67,3 +67,40 @@ const a = [1, 2, 3, 4, 5, 6, 7];
 //        [1, 2, 3, 4, 3, 4, 7];
 a.copyWithin(4, 2, 4);
 console.log('🚀 ~ a:', a);
+a.push('02', '01', '03', 'a', 'c', '나', 'b', 'ba', '다');
+let b = a;
+const s1 = b.sort();
+console.log('🚀 ~ s1:', s1);
+b = a;
+const s2 = b.sort((a, b) => a - b);
+console.log('🚀 ~ s2:', s2);
+b = a;
+const s3 = b.sort((a, b) => (a < b ? -1 : 1));
+console.log('🚀 ~ s3:', s3);
+b = a;
+const s4 = b.sort((a, b) => (a < b ? 1 : -1));
+console.log('🚀 ~ s4:', s4);
+
+[users[1], users[2]] = [users[2], users[1]];
+console.log(users);
+// const us1 = users.sort((a, b) => a.id - b.id);
+const us1 = users.sort(({ id }, { id: id2 }) => id - id2);
+console.log('🚀 ~ us1:', us1);
+console.log('------------', arr2);
+const shallow = arr2.slice();
+console.log('🚀 ~ shallow:', shallow);
+const shallow2 = [...arr2];
+console.log('🚀 ~ shallow2:', shallow2);
+console.log('------------', arr2);
+//   0, 1, 2, 3, 4
+// [ 1, 2, 3, 4, 5 ]
+const sp1 = arr2.splice(1, 3);
+console.log('🚀 ~ sp1:', sp1, arr2);
+// [1, 5]
+// arr2.splice(1, 0, 2, 3, 4);
+arr2.splice(1, 0, ...sp1);
+console.log('🚀 ~ arr2:', arr2);
+const sp2 = arr2.splice(2);
+console.log('🚀 ~ arr2:', arr2);
+arr2.splice(2, 0, ...sp2);
+console.log('🚀 ~ arr2:', arr2);
