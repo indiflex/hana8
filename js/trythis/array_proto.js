@@ -68,6 +68,60 @@ users.firstObject = kim;
 assert.deepStrictEqual(users.firstObject, kim);
 users.lastObject = hong;
 assert.deepStrictEqual(users.lastObject, hong);
+//-------------- groupBy
+const hongx = { id: 1, name: 'Hong', dept: 'HR' };
+const kimx = { id: 2, name: 'Kim', dept: 'Server' };
+const leex = { id: 3, name: 'Lee', dept: 'Front' };
+const park = { id: 4, name: 'Park', dept: 'HR' };
+const ko = { id: 7, name: 'Ko', dept: 'Server' };
+const loon = { id: 6, name: 'Loon', dept: 'Sales' };
+const choi = { id: 5, name: 'Choi', dept: 'Front' };
+const usersx = [hongx, kimx, leex, park, ko, loon, choi];
+
+Array.prototype.uniqBy = function (prop) {
+  return [...new Set(this.map(a => a[prop]))];
+};
+assert.deepStrictEqual(usersx.uniqBy('dept'), [
+  'HR',
+  'Server',
+  'Front',
+  'Sales',
+]);
+Array.prototype.groupByMap = function (prop) {
+  const map = new Map();
+  for (const a of this) {
+    const key = a[prop]; // 'HR'
+    const val = map.get(key);
+    if (val)
+      val.push(a); // Map() {'HR': [emp1]}
+    else map.set(key, [a]); // set('HR', a);
+  }
+  return map; // 'HR': [emp1, emp2], 'Sales':..
+};
+Array.prototype.groupBy = function (prop) {
+  const ret = { HR: [] };
+  for (const a of this) {
+    const key = a[prop];
+    // ret[key] = ret[key] || [];
+    ret[key] ||= [];
+    // a =        a        +   b;
+    // a += b
+    ret[key].push(a);
+  }
+  return ret;
+
+  // return this.groupByMap(prop)
+  //   .entries()
+  //   .reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {});
+};
+assert.deepStrictEqual(
+  usersx.groupByMap('dept'),
+  Map.groupBy(usersx, user => user.dept)
+);
+assert.deepEqual(
+  usersx.groupBy('dept'),
+  Object.groupBy(usersx, user => user.dept)
+);
 
 //---------------------
 class Dog {
