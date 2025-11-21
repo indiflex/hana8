@@ -1,5 +1,8 @@
 var X = 999;
 export default X;
+Array.prototype.mapBy = function (prop) {
+  return this.map(a => a[prop]);
+};
 export const isEndJaum = str => {
   const lastChar = str.at(-1);
   if (/[lmnr136780]/i.test(lastChar)) return true;

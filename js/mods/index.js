@@ -1,15 +1,17 @@
 // const assert = require('assert'); // CJS
 import assert from 'assert'; // ESM
-import X, {
+import {
+  X,
   eulul,
   eunun,
   eyuya,
   iga as igaga,
   isEndJaum,
+  range,
   searchByKoreanInitialSound,
-} from './hangul.js';
+} from './mods.js';
 
-console.log('Hello mods!', X);
+console.log('Hello mods!', X, range(1, 5));
 
 const add = (...args) => args.reduce((acc, a) => acc + a);
 
@@ -64,3 +66,13 @@ assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㅂㅁ'), [
 assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㅍㅁ'), []);
 assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㄱ1ㅅ'), ['김1수']);
 assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㅎㄱ'), ['홍길동']);
+
+const hongx = { id: 1, name: 'Hong', dept: 'HR' };
+const kimx = { id: 2, name: 'Kim', dept: 'Server' };
+const leex = { id: 3, name: 'Lee', dept: 'Front' };
+const park = { id: 4, name: 'Park', dept: 'HR' };
+const ko = { id: 7, name: 'Ko', dept: 'Server' };
+const loon = { id: 6, name: 'Loon', dept: 'Sales' };
+const choi = { id: 5, name: 'Choi', dept: 'Front' };
+const usersx = [hongx, kimx, leex, park, ko, loon, choi];
+console.log(usersx.mapBy('name'));
