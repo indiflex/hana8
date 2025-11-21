@@ -56,17 +56,25 @@ const searchByKoreanInitialSound = (data, first) => {
   // ㄱㄴ => [ㄱ가-깋][ㄴ나-닣]
   const ㄱㄴㄷ = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
   const 가나다 = '가까나다따라마바빠사싸아자짜차카타파하';
+  const 힣nextCode = '힣'.charCodeAt(0) + 1;
   const regStr = [...first].reduce((reg, c) => {
     const idx = ㄱㄴㄷ.indexOf(c);
     const S = 가나다[idx];
-    const eCode = 가나다[idx + 1].charCodeAt() - 1;
+    const eCode = (가나다[idx + 1]?.charCodeAt() ?? 힣nextCode) - 1;
 
     return `${reg}[${c}${S}-${String.fromCharCode(eCode)}]`;
   }, '');
   const regexp = new RegExp(regStr);
   return data.filter(d => regexp.test(d));
 };
-const s = ['강원도 고성군', '고성군 토성면', '토성면 북면', '북면', '김1수'];
+const s = [
+  '강원도 고성군',
+  '고성군 토성면',
+  '토성면 북면',
+  '북면',
+  '김1수',
+  '홍길동',
+];
 assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㄱㅇ'), [
   '강원도 고성군',
 ]);
@@ -84,3 +92,4 @@ assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㅂㅁ'), [
 ]);
 assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㅍㅁ'), []);
 assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㄱ1ㅅ'), ['김1수']);
+assert.deepStrictEqual(searchByKoreanInitialSound(s, 'ㅎㄱ'), ['홍길동']);
