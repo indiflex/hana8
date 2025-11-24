@@ -33,7 +33,7 @@
 <body>
   <h1 class="text-center">Sign In</h1>
 
-  <form id="frm" class="">
+  <form id="frm" class="" novalidate>
     <input type="email" id="email" placeholder="email@gmail.com">
     <input type="password" id="passwd" placeholder="password...">
 
@@ -42,11 +42,12 @@
       <button type="submit">login ✔️</button>
     </div>
 
-    <div id="sign-out" class="text-center">
+    <div id="sign-out" class="text-center" style="display: none;">
       <p><strong id="login-email">...</strong> logined</p>
-      <button>Logout</button>
+      <button id="btn-logout">Logout</button>
     </div>
   </form>
+
 </body>
 
 </html>
