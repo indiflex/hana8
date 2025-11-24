@@ -1,0 +1,25 @@
+{
+  "name": "hana8",
+  "version": "0.0.1",
+  "description": "hanaro 8",
+  "keywords": [
+    "javascript"
+  ],
+  "homepage": "https://github.com/indiflex/hana8#readme",
+  "bugs": {
+    "url": "https://github.com/indiflex/hana8/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indiflex/hana8.git"
+  },
+  "license": "MIT",
+  "author": "indiflex",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "dev:watch": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

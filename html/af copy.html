@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Timer</title>
+</head>
+
+<body>
+  <div id="timer">00:00.000</div>
+  <button id="btn">START</button>
+  <script>
+    let msec = 0;
+    const $btn = document.getElementById('btn');
+    const $timer = document.getElementById('timer');
+
+    let timer;
+    $btn.addEventListener('click', function () {
+      console.log(this.innerText);
+      if (this.innerText === 'START') {
+        this.innerText = 'STOP';
+        timer = setInterval(() => {
+          $timer.innerHTML = formatTime(++msec);
+        }, 10);
+
+      } else {
+        this.innerText = 'START';
+        clearInterval(timer);
+      }
+    });
+
+    function formatTime(millis) {
+      const m = Math.trunc(millis / 6000).toString().padStart(2, '0');
+      const s = Math.trunc(millis / 100).toString().padStart(2, '0');
+      const ms = Math.trunc(millis % 100).toString().padStart(2, '0');
+      return `${m}:${s}:${ms}`;
+    }
+  </script>
+</body>
+
+</html>
