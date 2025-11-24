@@ -37,9 +37,9 @@ $frm.addEventListener('submit', e => {
   toggleInputsAndButtons();
   document.querySelector('#sign-out').style.display = 'block';
 
-  const $div = document.createElement('div');
-  $div.innerHTML = `<p class="text-center">${email}</p>`;
-  $frm.appendChild($div);
+  // const $div = document.createElement('div');
+  // $div.innerHTML = `<p class="text-center">${email}</p>`;
+  // $frm.appendChild($div);
 });
 
 function toggleInputsAndButtons() {
