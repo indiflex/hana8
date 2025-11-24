@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    form {
+      border: 1px solid skyblue;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      border-radius: .5rem;
+    }
+
+    input {
+      padding: 2px 5px;
+    }
+
+    .buttons>button {
+      text-transform: capitalize;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+  </style>
+  <script src="login.js" defer></script>
+</head>
+
+<body>
+  <h1 class="text-center">Sign In</h1>
+
+  <form id="frm" class="">
+    <input type="email" id="email" placeholder="email@gmail.com">
+    <input type="password" id="passwd" placeholder="password...">
+
+    <div class="buttons text-center">
+      <button type="reset">cancel</button>
+      <button type="submit">login ✔️</button>
+    </div>
+
+    <div id="sign-out" class="text-center">
+      <p><strong id="login-email">...</strong> logined</p>
+      <button>Logout</button>
+    </div>
+  </form>
+</body>
+
+</html>
