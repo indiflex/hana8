@@ -34,6 +34,7 @@
 
     // Recommended Options
     "strict": true,
+    // "strictNullChecks": false,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
