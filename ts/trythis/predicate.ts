@@ -108,10 +108,27 @@ const deleteArray1 = (
           a[startOrKey] !== endOrValue
   );
 
-const deleteArray = (
+const deleteArray2 = (
   array: number[] | TUser[],
   startOrKey: number | keyof TUser,
   endOrValue: number | TUser[keyof TUser] = array.length
+) =>
+  array.filter(
+    typeof startOrKey === 'number'
+      ? (_, i) =>
+          i < Math.min(startOrKey, endOrValue as number) ||
+          i >= Math.max(startOrKey, endOrValue as number)
+      : a => typeof a !== 'number' && a[startOrKey] !== endOrValue
+  );
+
+// type T01 = Omit<'a' | 'b' | 'c', 'a'>;
+
+// function deleteArray<T>(array: T) {...}
+// const Compo = <h1>aaa</h1>;
+const deleteArray = <T>(
+  array: T[],
+  startOrKey: number | keyof T,
+  endOrValue: number | T[keyof T] = array.length
 ) =>
   array.filter(
     typeof startOrKey === 'number'
@@ -131,7 +148,9 @@ console.log(deleteArray(users, 'id', 2)); // [Hong, Lee]
 console.log(deleteArray(users, 'name', 'Lee')); // [Hong, Kim]
 
 import assert from 'assert';
-assert.deepStrictEqual(deleteArray(arr, 2), [1, 2]);
-assert.deepStrictEqual(deleteArray(arr, 1, 3), [1, 4]);
+assert.deepStrictEqual(deleteArray2(arr, 2), [1, 2]);
+assert.deepStrictEqual(deleteArray2(arr, 1, 3), [1, 4]);
 assert.deepStrictEqual(deleteArray(users, 2), [Hong, Kim]);
 assert.deepStrictEqual(deleteArray(users, 'id', 2), [Hong, Lee]);
+
+console.log(deleteArray(['A', 'B', 'C'], 1, 2));
