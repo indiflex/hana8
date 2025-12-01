@@ -25,6 +25,7 @@ declare global {
     groupByFn<K extends T[keyof T] & PropertyKey>(
       gfn: (a: T) => K
     ): Partial<Record<K, T[]>>;
+    // ): Partial<Record<ReturnType<typeof gfn>, T[]>>;
     groupBy<K extends T[keyof T] & PropertyKey>(
       prop: keyof T
     ): Partial<Record<K, T[]>>;
