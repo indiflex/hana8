@@ -99,7 +99,7 @@ Array.prototype.groupByMap = function (prop) {
   return map; // 'HR': [emp1, emp2], 'Sales':..
 };
 Array.prototype.groupBy = function (prop) {
-  const ret = { HR: [] };
+  const ret = {};
   for (const a of this) {
     const key = a[prop];
     // ret[key] = ret[key] || [];

@@ -39,6 +39,7 @@ interface IDept {
   dname: string;
   captain: string;
 }
+// type X = IUser & IDept;
 type Change<T, K extends keyof T, U> = {
   [k in keyof T]: k extends K ? U : T[k];
 };
