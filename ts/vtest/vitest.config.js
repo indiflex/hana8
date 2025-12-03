@@ -5,5 +5,8 @@ export default defineConfig({
   test: {
     globals: true,
     exclude: [],
+    coverage: {
+      reporter: ['html', 'text'],
+    },
   },
 });

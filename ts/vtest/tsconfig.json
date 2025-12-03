@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "types": ["vite/client", "vitest/globals", "vitest"],
+    "types": ["vite/client", "vitest/globals", "vitest", "node"],
     "skipLibCheck": true,
 
     /* Bundler mode */
