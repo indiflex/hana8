@@ -2,7 +2,7 @@ import { fetchUser, sum, sumId } from './sum';
 
 describe('sum - integer', () => {
   beforeAll(() => {
-    console.log('beforeAll!!');
+    // console.log('beforeAll!!');
   });
 
   test('sum - 3 with 1, 2', () => {
@@ -15,7 +15,7 @@ describe('sum - integer', () => {
   });
 });
 
-describe.skip('user-fetch-test', () => {
+describe('user-fetch-test', () => {
   test('users sum of ids', async () => {
     const sumUserId = await sumId();
     expect(sumUserId).toBe(55);

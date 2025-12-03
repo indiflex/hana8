@@ -1,8 +1,8 @@
 // sum.test.ts
 import { sumId } from './sum';
 
-describe.only('sum', () => {
-  // ToDo sdlfjdslfj
+describe('sum', () => {
+  // ToDo Remove when server api completed.
   beforeAll(() => {
     const mockFetch = jest.fn();
     global.fetch = mockFetch;
