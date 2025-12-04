@@ -35,8 +35,10 @@ CREATE TABLE `Student` (
   `gender` bit(1) NOT NULL DEFAULT b'0' COMMENT '성별(0: 남, 1:여)',
   `graduatedat` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_Student_email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `unique_Student_email` (`email`),
+  KEY `fk_Student_Major` (`major`),
+  CONSTRAINT `student_ibfk_1` FOREIGN KEY (`major`) REFERENCES `Major` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 create table Major(
   id tinyint unsigned auto_increment primary key,
@@ -53,7 +55,7 @@ alter table Student add constraint foreign key fk_Student_Major (major)
     references Major(id);
     
 select * from Student where major not in (select id from Major);
-select * from Major;
+select * from schooldb.Major;
 update Student set major = 1 where id = 1; -- Hong
 
 show index from Student;
