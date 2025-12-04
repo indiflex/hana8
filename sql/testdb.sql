@@ -21,7 +21,7 @@ create table EmpBackup AS select * from Emp;
 insert into Emp select * from EmpBackup;
 drop table EmpBackup;
 select * from Emp;
-
+select last_insert_id();
 select current_user();
 
 create database schooldb;
@@ -52,12 +52,23 @@ alter table T modify column score enum('A', 'B', 'C', 'D', 'F') default 'F' comm
 select * from T where score = 'F';
 
 insert into T(name, score) values('Han', 'D');
+select * from T;
+select last_insert_id();
+select * from T where id = last_insert_id();
 
 select 16 * 1024 * 4;
 select 16382 * 4 + 8; -- 65536
 select 16382 * 4 + 4;
 select 256 * 256;
 
+select now(), sysdate(), curdate(), curtime(), unix_timestamp();
+select now(), current_time(), current_date(), curdate(), current_timestamp();
+
+select second(now(3)), microsecond(now(3)) / 1000, microsecond(now(6));
+
+show variables like '%time_zone%';
+
+set time_zone = 'Asia/Seoul';
 
 
 
