@@ -24,12 +24,6 @@ select * from Emp;
 select last_insert_id();
 select current_user();
 
-create database schooldb;
-
-create user school@'%' identified by 'Schooldb1!';
-
-grant all privileges on schooldb.* to school@'%';
-
 select 256 * 256 * 256 * 256;
 
 create table T (
@@ -71,7 +65,8 @@ show variables like '%time_zone%';
 set time_zone = 'Asia/Seoul';
 
 
-
+use testdb;
+select * from Emp;
 
 
 
