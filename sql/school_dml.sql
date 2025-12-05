@@ -72,3 +72,45 @@ select s1.id, (case when s1.id = s2.id then '-' else s2.id end), if(s1.id = s2.i
 select s2.id, (@rownum := @rownum + 1) rn
   from Student s2, (select @rownum := 0) rnum;
   
+select *, (case when building = '인문관' then 1
+                when building = '공학관' then 2
+                else 0 end) building_code
+  from Major;
+  
+select m.*, (case building
+             when '인문관' then 1
+             when '공학관' then 2
+             else 0 end) building_code
+  from Major m;
+  
+select *, if(building = '인문관', 1, if(building = '공학관', 2, 0)) from Major;
+select * from Prof;
+select * from Subject;
+update Subject set prof = null where id = 3;
+select s.*, (select name from Prof where id = s.prof) from Subject s;
+select s.*, (select ifnull(name, '공석') from Prof where id = s.prof) from Subject s;
+select s.*, ifnull((select name from Prof where id = s.prof), '공석') from Subject s;
+
+select * from Subject where prof not in (2, 4); -- prof = 2 or prof = 4
+
+select * from Subject where prof < ANY(select id from Prof where id % 2 = 0);
+select * from Subject where prof < (select max(id) from Prof where id % 2 = 0);
+select * from Subject where prof < (select min(id) from Prof where id % 2 = 0);
+select * from Subject where prof = (select min(id) from Prof where id % 2 = 0);
+
+select * from Student where name not like '김%'; -- ^김.*
+select * from Student where name like '_마%'; -- .{1}마.*
+select * from Student where name like '%나';  -- .*나$
+select distinct building, count(*) from Major;
+select building, count(*), max(name) from Major group by building;
+select building '건물명', count(*) '학과 개수', group_concat(name order by name separator ', ') '학과'
+  from Major group by building;
+  
+select * from Student order by id desc limit 0, 10; -- 1 page
+select * from Student order by id desc limit 10, 10; -- 10 * (pageNo - 1), 10
+select * from Student order by id desc limit 10, 10; -- 3 page
+
+select * from Student where id > 0 order by id limit 5;
+select * from Student where id > 10 order by id limit 5;
+select * from Student where id > 15 order by id limit 5;
+
