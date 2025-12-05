@@ -114,3 +114,7 @@ select * from Student where id > 0 order by id limit 5;
 select * from Student where id > 10 order by id limit 5;
 select * from Student where id > 15 order by id limit 5;
 
+select * from Subject;
+select * from Subject s inner join Prof p on s.prof = p.id;
+-- 과목 전체 목록에 담당 교수가 있으면 교과명 출력
+select * from Subject s left outer join Prof p on s.prof = p.id;
