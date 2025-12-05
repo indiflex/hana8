@@ -59,3 +59,16 @@ select * from schooldb.Major;
 update Student set major = 1 where id = 1; -- Hong
 
 show index from Student;
+
+show create table Enroll;
+
+CREATE TABLE `Enroll` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `subject` smallint unsigned NOT NULL,
+  `student` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_Enroll_subject_student` (`subject`,`student`),
+  KEY `fk_Enroll_Student` (`student`),
+  CONSTRAINT `enroll_ibfk_1` FOREIGN KEY (`subject`) REFERENCES `Subject` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `enroll_ibfk_2` FOREIGN KEY (`student`) REFERENCES `Student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
