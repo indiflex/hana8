@@ -64,3 +64,32 @@ select p.*, (select count(*) from Subject where prof = p.id) cnt
  from Prof p;
  
 update Prof p set subjectcnt = (select count(*) from Subject where prof = p.id);
+
+select * from Subject where id < 5
+UNION
+select * from Subject where id > 3 order by id;
+
+select * from dept;
+select now(), f_dt(now());
+
+use testdb;
+select * from Dept;
+call sp_emps_by_deptid(2);
+call sp_emps_by_deptid(-1);
+
+desc Dept;
+desc Emp;
+
+-- grant all privileges on schooldb.sp_emps_by_deptid to kildong@'%';
+
+call sp_depts_by_cursor();
+
+
+
+
+
+
+
+
+
+
