@@ -52,3 +52,39 @@ select e.*
  order by e.dept;
 
 select * from Dept;
+select * from Emp where id in (26, 30);
+-- 김나나, 김바순, 
+select dept, min(ename), group_concat(ename order by ename) from Emp group by dept;
+select d.id, d.dname, (select id from Emp where dept = d.id order by ename limit 1) from Dept d
+-- update Dept d set d.captain = (select id from Emp where dept = d.id order by ename limit 1) 
+where d.id > 0;
+ 
+select d.*, e.ename
+  from Dept d inner join Emp e on d.captain = e.id;
+  
+select d.id, d.dname, e.id eid, e.ename
+  from Dept d inner join Emp e on d.id = e.dept;
+
+alter table Emp add column outdt date null comment '퇴사일' after salary;
+
+select * from Emp
+-- update Emp set outdt = '2025-11-25'
+ where id in (14, 26);
+ 
+select * from Emp where id in (14, 26);
+select * from Dept where captain in (14, 26);
+
+select d.*, e.*
+  from Dept d inner join Emp e on d.captain = e.id
+ where e.id in (14, 26);
+ 
+select current_date();
+select e.*, d.*, (case when e.id = d.captain then null else d.captain end)
+ from Emp e inner join Dept d on e.dept = d.id where e.id in (14, 26);
+-- 
+update Emp e inner join Dept d on e.dept = d.id
+  -- set e.outdt = current_date(), d.captain = (case when e.id = d.captain then null else d.captain end)
+  set e.outdt = current_date(), d.captain = (case when d.captain in (14, 26) then null else d.captain end)
+ where e.id in (14, 26);
+ 
+select * from Dept;
