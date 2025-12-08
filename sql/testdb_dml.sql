@@ -81,10 +81,24 @@ select d.*, e.*
 select current_date();
 select e.*, d.*, (case when e.id = d.captain then null else d.captain end)
  from Emp e inner join Dept d on e.dept = d.id where e.id in (14, 26);
--- 
+-- 방식1) inner join 방식
 update Emp e inner join Dept d on e.dept = d.id
   -- set e.outdt = current_date(), d.captain = (case when e.id = d.captain then null else d.captain end)
+  -- set e.outdt = current_date(), d.captain = e.id
+  -- 
   set e.outdt = current_date(), d.captain = (case when d.captain in (14, 26) then null else d.captain end)
+ where e.id in (14, 26);
+ 
+update Emp set outdt = null where id in (14, 26);
+update Dept set captain = 26 where id = 1;
+
+-- 방식2) outer join 활용
+select *
+  from Emp e left outer join Dept d on e.id = d.captain 
+ where e.id in (14, 26);
+ 
+update Emp e left outer join Dept d on e.id = d.captain 
+   set e.outdt = curdate(), d.captain = null
  where e.id in (14, 26);
  
 select * from Dept;
