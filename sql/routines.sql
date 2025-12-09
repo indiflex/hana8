@@ -83,8 +83,13 @@ desc Emp;
 -- grant all privileges on schooldb.sp_emps_by_deptid to kildong@'%';
 
 call sp_depts_by_cursor();
+desc Emp;
 
+select concat(e.ename, '(', d.dname, ')'), f_empinfo(e.id)
+  from Emp e inner join Dept d on e.dept = d.id
+ where e.id = 2;
 
+select f_empinfo(5);
 
 
 
