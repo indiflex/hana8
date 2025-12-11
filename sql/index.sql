@@ -77,10 +77,50 @@ select * from Notice where match(title, contents) against('*조선*' IN boolean 
 
 select * from Notice where match(title, contents) against('이순신' IN boolean mode);
 select * from Notice where contents like concat('%', '본관', '%');
-select * from Notice where match(title, contents) against('이순신+본관*' IN boolean mode);
+select * from Notice where match(title, contents) against('이순신 +본관*' IN boolean mode);
 
 select * from Notice where match(title, contents) against('고조선 조선*' IN boolean mode);
 select * from Notice where match(title, contents) against('고조선 조선* -이순신' IN boolean mode);
 
-select * from Notice
- where match(title, contents) against(concat('고조선', '*') IN boolean mode);
+select * from Notice where match(title, contents) against(concat('고조선', '*') IN boolean mode);
+
+-- ex1) 문신과 무신 모두 출력하시오.
+select * from Notice where match(title, contents) against('문신* 무신*' IN boolean mode);
+
+-- ex2) 문신과 무신 중 후기 인물은 제외하시오.
+select * from Notice where match(title, contents) against('문신* 무신* -후기*' IN boolean mode);
+
+-- ex3) 문신과 무신 중 중기 인물만 출력하시오.
+select * from Notice where match(title, contents) against('문신* 무신* +중기*' IN boolean mode);
+
+select count(*), count(1), avg(case when id % 2 = 1 then 1 else ~0 end) from Emp;
+
+-- create table TestEmp AS select * from Emp;
+create table TestEmp like Emp;
+show create table TestEmp;
+
+insert into TestEmp select * from Emp;
+select * from TestEmp;
+
+alter table TestEmp partition by range(id) (
+    partition p1 values less than(100),
+    partition p2 values less than(200),
+    partition p3 values less than MAXVALUE
+);
+
+select * from TestEmp where id = 200;
+
+alter table TestEmp drop partition p2;
+insert into TestEmp(id, ename, dept, salary) values(150, '김찬라', 1, 200);
+explain select * from TestEmp where id = 150;
+
+alter table TestEmp reorganize partition p3 into (
+    partition p3 values less than(200),
+    partition p4 values less than MAXVALUE
+);
+
+show index from TestEmp;
+show table status like '%Emp%';
+
+select * from INFORMATION_SCHEMA.LIBRARIES;
+
