@@ -1,21 +1,26 @@
 import { useState } from 'react';
 import './App.css';
-
-const Hello = () => <h2>Hello</h2>;
+import Hello from './components/Hello';
 
 function App() {
   const [count, setCount] = useState(0)
+  const x = count;
+  console.log('🚀 ~ x:', x);
+  // const f = () => { };
   
   return (
-    <>
+    <div className='grid place-items-center h-screen'>
       <h1 className='text-3xl'>React {1 + 2}</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button className='border py-1 px-2 rounded-md cursor-pointer' onClick={() => setCount((c) => c + 1)}>
           count is {count}
         </button>
-        <Hello />
+        <Hello name="Jade">
+          hhh
+        </Hello>
+
       </div>
-    </>
+    </div>
   )
 }
 
