@@ -7,32 +7,33 @@ type Item = {
   name: string;
   price: number;
   isSoldOut?: boolean;
-}
+};
 type Session = {
-  loginUser: { id: number;  name: string} | null;
+  loginUser: { id: number; name: string; age: number } | null;
   cart: Item[];
 };
 
-const DefaultSession: Session = {
+const DefaultSession = {
   // loginUser: null,
-  loginUser: {id: 1, name: "Hong"},
-  cart: []
-}
+  loginUser: { id: 1, name: 'Hong', age: 33 },
+  cart: [],
+};
 
 function App() {
   const [count, setCount] = useState(0);
+  const [session] = useState<Session>(DefaultSession);
 
   return (
     <div className='grid place-items-center h-screen'>
-      <h1 className='text-3xl'>React {1 + 2}</h1>
+      <h1 className='text-3xl'>count: {count}</h1>
       <div className='card'>
-        <button
-          className='border py-1 px-2 rounded-md cursor-pointer'
-          onClick={() => setCount((c) => c + 1)}
+        <Hello
+          name={session.loginUser?.name}
+          age={session.loginUser?.age}
+          setCount={setCount}
         >
-          count is {count}
-        </button>
-        <Hello name='Jade'>hhh</Hello>
+          반갑습니다
+        </Hello>
       </div>
     </div>
   );
