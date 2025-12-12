@@ -2,7 +2,7 @@
 
 @layer base {
   button {
-    @apply hover:bg-gray-100;
+    @apply hover:bg-gray-100 border py-1 px-2 rounded-md cursor-pointer;
   }
   
   input {

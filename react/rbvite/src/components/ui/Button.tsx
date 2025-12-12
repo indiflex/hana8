@@ -11,10 +11,7 @@ export default function Button({
   children,
 }: PropsWithChildren<Prop>) {
   return (
-    <button
-      className={`border py-1 px-2 rounded-md cursor-pointer ${className}`}
-      onClick={onClick}
-    >
+    <button className={` ${className}`} onClick={onClick}>
       {children}
     </button>
   );
