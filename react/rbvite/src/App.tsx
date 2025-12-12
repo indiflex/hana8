@@ -14,6 +14,7 @@ export type Session = {
   loginUser: LoginUser | null;
   cart: Item[];
 };
+export type LoginFunction = (name: string, age: number) => void;
 
 const DefaultSession = {
   loginUser: null,
@@ -37,10 +38,16 @@ function App() {
     setSession({ ...session, loginUser: null });
   };
 
+  const login: LoginFunction = (name, age) => {
+    if (!name || !age) return alert('Input Name and Age, plz!');
+
+    setSession({ ...session, loginUser: { id: 1, name, age } });
+  };
+
   return (
     <div className='grid place-items-center h-screen'>
       <h1 className='text-3xl'>count: {count}</h1>
-      <My session={session} logout={logout} />
+      <My session={session} logout={logout} login={login} />
       <Hello
         name={session.loginUser?.name}
         age={session.loginUser?.age}
