@@ -16,8 +16,8 @@ export type Session = {
 };
 
 const DefaultSession = {
-  // loginUser: null,
-  loginUser: { id: 1, name: 'Hong', age: 33 },
+  loginUser: null,
+  // loginUser: { id: 1, name: 'Hong', age: 33 },
   cart: [
     { id: 100, name: '라면', price: 3000 },
     { id: 101, name: '컵라면', price: 2000 },
@@ -28,6 +28,9 @@ const DefaultSession = {
 function App() {
   const [count, setCount] = useState(0);
   const [session, setSession] = useState<Session>(DefaultSession);
+
+  // plusCount(100)
+  const plusCount = () => setCount((prevCount) => prevCount + 1);
 
   const logout = () => {
     // session.loginUser = null; // fail!!
@@ -41,7 +44,7 @@ function App() {
       <Hello
         name={session.loginUser?.name}
         age={session.loginUser?.age}
-        setCount={setCount}
+        plusCount={plusCount}
       >
         반갑습니다
       </Hello>

@@ -12,7 +12,7 @@ export default function Button({
 }: PropsWithChildren<Prop>) {
   return (
     <button
-      className={`border py-1 px-2 rounded-md cursor-pointer hover:bg-gray-100 ${className}`}
+      className={`border py-1 px-2 rounded-md cursor-pointer ${className}`}
       onClick={onClick}
     >
       {children}

@@ -1,7 +1,13 @@
 @import 'tailwindcss';
 
 @layer base {
-  /* button @apply  */
+  button {
+    @apply hover:bg-gray-100;
+  }
+  
+  input {
+    @apply border border-gray-400 rounded-lg py-1 px-2 focus:ring-1 focus:ring-green-300 focus:border-transparent;
+  }
 }
 
 /* :root {
