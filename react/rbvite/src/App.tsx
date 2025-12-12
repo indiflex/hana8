@@ -17,8 +17,8 @@ export type Session = {
 export type LoginFunction = (name: string, age: number) => void;
 
 const DefaultSession = {
-  loginUser: null,
-  // loginUser: { id: 1, name: 'Hong', age: 33 },
+  // loginUser: null,
+  loginUser: { id: 1, name: 'Hong', age: 33 },
   cart: [
     { id: 100, name: '라면', price: 3000 },
     { id: 101, name: '컵라면', price: 2000 },
@@ -31,6 +31,7 @@ function App() {
   const [session, setSession] = useState<Session>(DefaultSession);
 
   // plusCount(100)
+  // const pc = () => setCount(count + 1);
   const plusCount = () => setCount((prevCount) => prevCount + 1);
 
   const logout = () => {
