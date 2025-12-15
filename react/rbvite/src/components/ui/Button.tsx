@@ -4,7 +4,7 @@ type Prop = {
   onClick?: () => void;
   type?: 'reset' | 'submit';
   disabled?: boolean;
-  className: string;
+  className?: string;
 };
 
 export default function Button({

@@ -1,9 +1,9 @@
 import { PlusIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ItemType, LoginFunction, Session } from '../App';
 import Item from './Item';
 import Login from './Login';
-import Profile from './Profile';
+import Profile, { type ProfileHandler } from './Profile';
 import Button from './ui/Button';
 
 type Prop = {
@@ -22,6 +22,7 @@ export default function My({
   saveItem,
 }: Prop) {
   const [isAdding, setAdding] = useState(false);
+  const profileHandlerRef = useRef<ProfileHandler>(null);
 
   const item101 = session.cart.find((item) => item.id === 101);
   useEffect(() => {
@@ -31,7 +32,11 @@ export default function My({
   return (
     <>
       {session?.loginUser ? (
-        <Profile loginUser={session.loginUser} logout={logout} />
+        <Profile
+          loginUser={session.loginUser}
+          logout={logout}
+          ref={profileHandlerRef}
+        />
       ) : (
         <Login login={login} />
       )}
