@@ -3,7 +3,7 @@ import './App.css';
 import Hello from './components/Hello';
 import My from './components/My';
 
-type Item = {
+export type ItemType = {
   id: number;
   name: string;
   price: number;
@@ -12,7 +12,7 @@ type Item = {
 export type LoginUser = { id: number; name: string; age: number };
 export type Session = {
   loginUser: LoginUser | null;
-  cart: Item[];
+  cart: ItemType[];
 };
 export type LoginFunction = (name: string, age: number) => void;
 
@@ -59,14 +59,38 @@ function App() {
     });
   };
 
-  const addItem = (name: string, price: number) => {
-    const newItem = {
-      id: Math.max(...session.cart.map((item) => item.id), 0) + 1,
-      name,
-      price,
-    };
-    setSession({ ...session, cart: [...session.cart, newItem] });
+  const saveItem = ({ id, name, price }: ItemType) => {
+    const item = id && session.cart.find((item) => item.id === id);
+
+    // updateItem
+    // session.cart.map(item => item.id === id ? { id: item.id, name, price } : item);
+
+    if (item) {
+      item.name = name;
+      item.price = price;
+    } else {
+      const newItem = {
+        id: Math.max(...session.cart.map((item) => item.id), 0) + 1,
+        name,
+        price,
+      };
+      session.cart.push(newItem);
+    }
+
+    // session.cart = [...session.cart];
+    setSession({ ...session, cart: [...session.cart] });
   };
+
+  // const addItem = (name: string, price: number) => {
+  //   const newItem = {
+  //     id: Math.max(...session.cart.map((item) => item.id), 0) + 1,
+  //     name,
+  //     price,
+  //   };
+  //   // session.cart.push(newItem);
+  //   // setSession({ ...session });
+  //   setSession({ ...session, cart: [...session.cart, newItem] });
+  // };
 
   return (
     <div className='grid place-items-center h-screen'>
@@ -76,7 +100,7 @@ function App() {
         logout={logout}
         login={login}
         removeItem={removeItem}
-        addItem={addItem}
+        saveItem={saveItem}
       />
       <Hello
         name={session.loginUser?.name}
