@@ -1,10 +1,8 @@
 import { useImperativeHandle, type RefObject } from 'react';
-import type { LoginUser } from '../App';
+import { useSession } from '../hooks/SessionContext';
 import Button from './ui/Button';
 
 type Prop = {
-  loginUser: LoginUser;
-  logout: () => void;
   ref: RefObject<ProfileHandler | null>;
 };
 
@@ -14,9 +12,14 @@ export type ProfileHandler = {
   logout: () => void;
 };
 
-export default function Profile({ loginUser, logout, ref }: Prop) {
+export default function Profile({ ref }: Prop) {
+  const {
+    session: { loginUser },
+    logout,
+  } = useSession();
+
   const showLoginUser = () => {
-    alert(loginUser.name);
+    alert(loginUser?.name);
   };
 
   const xxx = 'sdfdsfdfsfs';
@@ -29,7 +32,7 @@ export default function Profile({ loginUser, logout, ref }: Prop) {
 
   return (
     <>
-      <h1 className='text-2xl'>LoginUser: {loginUser.name}</h1>
+      <h1 className='text-2xl'>LoginUser: {loginUser?.name}</h1>
       <div className='flex gap-5'>
         <Button
           onClick={logout}

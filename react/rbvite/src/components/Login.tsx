@@ -1,11 +1,5 @@
-import {
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  type FormEvent,
-  type RefObject,
-} from 'react';
-import type { LoginFunction } from '../App';
+import { useEffect, useImperativeHandle, useRef, type FormEvent } from 'react';
+import { useSession } from '../hooks/SessionContext';
 import Button from './ui/Button';
 import LabelInput from './ui/LabelInput';
 
@@ -14,15 +8,8 @@ export type LoginHandler = {
   focusName: () => void;
 };
 
-type Props = {
-  login: LoginFunction;
-  ref: RefObject<LoginHandler | null>;
-};
-export default function Login({ login, ref }: Props) {
-  // const [name, setName] = useState('');
-  // const [age, setAge] = useState(0);
-  // console.log('🚀 ~ name/age:', name, age);
-
+export default function Login() {
+  const { login, loginHandlerRef: ref } = useSession();
   const nameRef = useRef<HTMLInputElement>(null);
   const ageRef = useRef<HTMLInputElement>(null);
 

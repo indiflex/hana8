@@ -1,17 +1,15 @@
 import type { PropsWithChildren } from 'react';
-// import { useCounter } from '../hooks/CounterContext';
 import { useCounter } from '../hooks/CounterContext';
+import { useSession } from '../hooks/SessionContext';
 import Button from './ui/Button';
 
-type Prop = PropsWithChildren<{
-  name?: string;
-  age?: number;
-  // setCount: (cb: (c: number) => number) => void;
-  // plusCount: () => void;
-}>;
-
-export default function Hello({ name = 'guest', age, children }: Prop) {
+export default function Hello({ children }: PropsWithChildren) {
   const { plusCount } = useCounter();
+  const {
+    session: { loginUser },
+  } = useSession();
+  const { name = 'Guest', age } = loginUser || {};
+
   return (
     <div className='border border-red-300 p-3 text-center'>
       <h2 className='text-2xl'>

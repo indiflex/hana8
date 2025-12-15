@@ -1,28 +1,13 @@
 import { PlusIcon } from 'lucide-react';
-import { useEffect, useRef, useState, type RefObject } from 'react';
-import type { ItemType, LoginFunction, Session } from '../App';
+import { useEffect, useRef, useState } from 'react';
+import { useSession } from '../hooks/SessionContext';
 import Item from './Item';
-import Login, { type LoginHandler } from './Login';
+import Login from './Login';
 import Profile, { type ProfileHandler } from './Profile';
 import Button from './ui/Button';
 
-type Prop = {
-  session: Session;
-  logout: () => void;
-  login: LoginFunction;
-  loginHandlerRef: RefObject<LoginHandler | null>;
-  removeItem: (id: number) => void;
-  saveItem: ({ id, name, price }: ItemType) => void;
-};
-
-export default function My({
-  session,
-  logout,
-  login,
-  loginHandlerRef,
-  removeItem,
-  saveItem,
-}: Prop) {
+export default function My() {
+  const { session } = useSession();
   const [isAdding, setAdding] = useState(false);
   const profileHandlerRef = useRef<ProfileHandler>(null);
 
@@ -33,15 +18,7 @@ export default function My({
 
   return (
     <>
-      {session?.loginUser ? (
-        <Profile
-          loginUser={session.loginUser}
-          logout={logout}
-          ref={profileHandlerRef}
-        />
-      ) : (
-        <Login login={login} ref={loginHandlerRef} />
-      )}
+      {session?.loginUser ? <Profile ref={profileHandlerRef} /> : <Login />}
       <hr />
       <a
         href='#!'
@@ -56,14 +33,13 @@ export default function My({
       <ul>
         {session.cart.map((item) => (
           <li key={item.id}>
-            <Item item={item} removeItem={removeItem} saveItem={saveItem} />
+            <Item item={item} />
           </li>
         ))}
         <li className='text-center'>
           {isAdding ? (
             <Item
               item={{ id: 0, name: 'New Item', price: 3000 }}
-              saveItem={saveItem}
               toggleAdding={() => setAdding(false)}
             />
           ) : (
