@@ -93,7 +93,7 @@ function App() {
   // };
 
   return (
-    <div className='grid place-items-center h-screen'>
+    <div className='grid place-items-center h-screen mx-2'>
       <h1 className='text-3xl'>count: {count}</h1>
       <My
         session={session}
