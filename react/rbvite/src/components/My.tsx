@@ -1,5 +1,5 @@
 import { PlusIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { ItemType, LoginFunction, Session } from '../App';
 import Item from './Item';
 import Login from './Login';
@@ -23,6 +23,11 @@ export default function My({
 }: Prop) {
   const [isAdding, setAdding] = useState(false);
 
+  const item101 = session.cart.find((item) => item.id === 101);
+  useEffect(() => {
+    console.log('🚀 ~ item101:', item101);
+  }, [item101]);
+
   return (
     <>
       {session?.loginUser ? (
@@ -31,6 +36,7 @@ export default function My({
         <Login login={login} />
       )}
       <hr />
+      {item101?.name}
       <ul>
         {session.cart.map((item) => (
           <li key={item.id}>
@@ -41,8 +47,8 @@ export default function My({
           {isAdding ? (
             <Item
               item={{ id: 0, name: 'New Item', price: 3000 }}
-              removeItem={removeItem}
               saveItem={saveItem}
+              toggleAdding={() => setAdding(false)}
             />
           ) : (
             <Button onClick={() => setAdding(true)} className=''>

@@ -7,13 +7,19 @@ import Small from './ui/Small';
 
 type Props = {
   item: ItemType;
-  removeItem: (id: number) => void;
+  removeItem?: (id: number) => void;
   // saveItem: (id: number, name: string, price: number) => void;
   // saveItem: (item: Item) => void;
   saveItem: ({ id, name, price }: ItemType) => void;
+  toggleAdding?: () => void;
 };
 
-export default function Item({ item, removeItem, saveItem }: Props) {
+export default function Item({
+  item,
+  removeItem,
+  saveItem,
+  toggleAdding,
+}: Props) {
   const [isEditing, setEditing] = useState(!item.id);
   const [hasDirty, setDirty] = useState(false);
   const nameRef = useRef<HTMLInputElement>(null);
@@ -54,12 +60,15 @@ export default function Item({ item, removeItem, saveItem }: Props) {
 
     saveItem({ id: item.id, name: name ?? '', price: Number(price) });
 
+    // 정리작업..
     if (nameRef.current && priceRef.current) {
       nameRef.current.value = '';
       priceRef.current.value = '';
       nameRef.current.focus();
     }
     setEditing(false);
+    setDirty(false);
+    if (toggleAdding) toggleAdding();
   };
 
   const makeEdit = () => {
@@ -72,6 +81,8 @@ export default function Item({ item, removeItem, saveItem }: Props) {
       nameRef.current.value = item.name;
       priceRef.current.value = String(item.price);
     }
+
+    if (toggleAdding) toggleAdding();
   };
 
   return (
@@ -95,9 +106,15 @@ export default function Item({ item, removeItem, saveItem }: Props) {
           <Button onClick={cancelEdit} type='reset' className=''>
             <RotateCcwIcon />
           </Button>
-          <Button type='submit' className='text-blue-500' disabled={!hasDirty}>
-            {item.id ? <SaveIcon /> : <FilePlus2Icon />}
-          </Button>
+          {hasDirty && (
+            <Button
+              type='submit'
+              className='text-blue-500'
+              disabled={!hasDirty}
+            >
+              {item.id ? <SaveIcon /> : <FilePlus2Icon />}
+            </Button>
+          )}
         </form>
       ) : (
         <>
@@ -110,7 +127,9 @@ export default function Item({ item, removeItem, saveItem }: Props) {
           </button>
           <Small>{item.price.toLocaleString()}원</Small>
           <Button
-            onClick={() => removeItem(item.id)}
+            onClick={() => {
+              if (removeItem) removeItem(item.id);
+            }}
             className='ml-2 px-1 py-0 text-sm bg-red-500 hover:bg-red-600 text-white shadow-lg hover:shadow-2xl active:scale-150 transition duration-300'
           >
             X

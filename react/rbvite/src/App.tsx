@@ -66,19 +66,22 @@ function App() {
     // session.cart.map(item => item.id === id ? { id: item.id, name, price } : item);
 
     if (item) {
-      item.name = name;
-      item.price = price;
+      // item.name = name;
+      // item.price = price;
+      setSession({
+        ...session,
+        cart: session.cart.map((item) =>
+          item.id === id ? { id, name, price } : item
+        ),
+      });
     } else {
       const newItem = {
         id: Math.max(...session.cart.map((item) => item.id), 0) + 1,
         name,
         price,
       };
-      session.cart.push(newItem);
+      setSession({ ...session, cart: [...session.cart, newItem] });
     }
-
-    // session.cart = [...session.cart];
-    setSession({ ...session, cart: [...session.cart] });
   };
 
   // const addItem = (name: string, price: number) => {
