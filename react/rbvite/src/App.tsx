@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
 import Hello from './components/Hello';
+import type { LoginHandler } from './components/Login';
 import My from './components/My';
+import { useCounter } from './hooks/CounterContext';
 
 export type ItemType = {
   id: number;
@@ -27,12 +29,11 @@ const DefaultSession = {
 };
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  const { count } = useCounter();
   const [session, setSession] = useState<Session>(DefaultSession);
 
-  // plusCount(100)
-  // const pc = () => setCount(count + 1);
-  const plusCount = () => setCount((prevCount) => prevCount + 1);
+  const loginHandlerRef = useRef<LoginHandler>(null);
 
   const logout = () => {
     // session.loginUser = null; // fail!!
@@ -40,9 +41,9 @@ function App() {
   };
 
   const login: LoginFunction = (name, age) => {
-    if (!name || !age) return alert('Input Name and Age, plz!');
-
-    setSession({ ...session, loginUser: { id: 1, name, age } });
+    // if (!name || !age) return alert('Input Name and Age, plz!');
+    if (loginHandlerRef.current?.validate())
+      setSession({ ...session, loginUser: { id: 1, name, age } });
   };
 
   const removeItem = (id: number) => {
@@ -102,14 +103,11 @@ function App() {
         session={session}
         logout={logout}
         login={login}
+        loginHandlerRef={loginHandlerRef}
         removeItem={removeItem}
         saveItem={saveItem}
       />
-      <Hello
-        name={session.loginUser?.name}
-        age={session.loginUser?.age}
-        plusCount={plusCount}
-      >
+      <Hello name={session.loginUser?.name} age={session.loginUser?.age}>
         반갑습니다
       </Hello>
     </div>

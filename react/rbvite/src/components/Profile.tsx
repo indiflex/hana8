@@ -9,6 +9,7 @@ type Prop = {
 };
 
 export type ProfileHandler = {
+  xxx: string;
   showLoginUser: () => void;
   logout: () => void;
 };
@@ -18,12 +19,13 @@ export default function Profile({ loginUser, logout, ref }: Prop) {
     alert(loginUser.name);
   };
 
-  const profileHandler: ProfileHandler = {
+  const xxx = 'sdfdsfdfsfs';
+
+  useImperativeHandle(ref, () => ({
+    xxx,
     showLoginUser,
     logout,
-  };
-
-  useImperativeHandle(ref, () => profileHandler);
+  }));
 
   return (
     <>
