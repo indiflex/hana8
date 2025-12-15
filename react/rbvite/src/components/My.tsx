@@ -1,5 +1,5 @@
 import { PlusIcon } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useReducer, useRef } from 'react';
 import { useSession } from '../hooks/SessionContext';
 import Item from './Item';
 import Login from './Login';
@@ -8,13 +8,28 @@ import Button from './ui/Button';
 
 export default function My() {
   const { session } = useSession();
-  const [isAdding, setAdding] = useState(false);
+  // const [isAdding, setAdding] = useState(false);
+  // const toggleAdding = () => setAdding((pre) => !pre);
+  const [isAdding, toggleAdding] = useReducer((pre) => !pre, false);
+  // const [totalPrice, addPrice] = useReducer((pre, action) => pre + action, 0);
+  // addPrice(1000)
+  /*
+  function useReducer(reducer, initValueOrFunction) {
+    const [state, setState] = useState(initValueOrFunction);
+    const dispatch = (action) => {
+      setState(reducer(preState, action));
+    };
+
+    return [state, dispatch];
+  }
+  */
+
   const profileHandlerRef = useRef<ProfileHandler>(null);
 
   const item101 = session.cart.find((item) => item.id === 101);
-  useEffect(() => {
-    console.log('🚀 ~ item101:', item101);
-  }, [item101]);
+  // useEffect(() => {
+  //   console.log('🚀 ~ item101:', item101);
+  // }, [item101]);
 
   return (
     <>
@@ -40,10 +55,10 @@ export default function My() {
           {isAdding ? (
             <Item
               item={{ id: 0, name: 'New Item', price: 3000 }}
-              toggleAdding={() => setAdding(false)}
+              toggleAdding={toggleAdding}
             />
           ) : (
-            <Button onClick={() => setAdding(true)} className=''>
+            <Button onClick={toggleAdding} className=''>
               <PlusIcon />
             </Button>
           )}
