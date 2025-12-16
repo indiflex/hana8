@@ -130,7 +130,7 @@ export function SessionProvider({ children }: PropsWithChildren) {
         price,
       };
       // setSession({ ...session, cart: [...session.cart, newItem] });
-      dispatch({ type: 'EDIT-ITEM', payload: newItem });
+      dispatch({ type: 'ADD-ITEM', payload: newItem });
     }
   };
 
