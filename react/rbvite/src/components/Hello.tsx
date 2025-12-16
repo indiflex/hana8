@@ -1,11 +1,13 @@
-import { useEffect, useReducer, type PropsWithChildren } from 'react';
+import { useEffect, type PropsWithChildren } from 'react';
 import { useCounter } from '../hooks/CounterContext';
 import { useSession } from '../hooks/SessionContext';
+import { useToggle } from '../hooks/toggle';
 import Button from './ui/Button';
 
 export default function Hello({ children }: PropsWithChildren) {
   const { plusCount, minusCount } = useCounter();
-  const [toggler, toggle] = useReducer((p) => !p, false);
+  // const [toggler, toggle] = useReducer((p) => !p, false);
+  const [toggler, toggle] = useToggle();
   const {
     session: { loginUser },
   } = useSession();
