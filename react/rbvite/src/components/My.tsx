@@ -1,13 +1,8 @@
 import { PlusIcon } from 'lucide-react';
-import {
-  useEffect,
-  useLayoutEffect,
-  useReducer,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { useInterval } from '../hooks/interval';
 import { ItemType, useSession } from '../hooks/SessionContext';
+import { useFetch } from '../hooks/useFetch';
 import Item from './Item';
 import Login from './Login';
 import Profile, { type ProfileHandler } from './Profile';
@@ -58,22 +53,28 @@ export default function My() {
     setGoodSec((p) => p + 1);
   };
   // goodSec + 1 의 값이
-  console.log('🚀 ~ goodSec:', goodSec);
+  // console.log('🚀 ~ goodSec:', goodSec);
   const { reset, clear } = useInterval(ff, 1000, goodSec + 1);
   // useInterval(setGoodSec, 1000, goodSec + 1);
   // useInterval(() => setGoodSec((p) => p + 1), 1000);
   // useInterval(f, 1000);
 
-  const [data, setData] = useState<ItemType[]>([]);
-  useLayoutEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-    fetch('/data/sample.json', { signal })
-      .then((res) => res.json())
-      .then(setData);
+  // const [data, setData] = useState<ItemType[]>([]);
+  // useLayoutEffect(() => {
+  //   const controller = new AbortController();
+  //   const { signal } = controller;
+  //   fetch('/data/sample.json', { signal })
+  //     .then((res) => res.json())
+  //     .then(setData);
 
-    return () => controller.abort();
-  }, []);
+  //   return () => controller.abort();
+  // }, []);
+  const { data } = useFetch<ItemType[]>('/data/sample.json');
+
+  const totalPrice = useMemo(
+    () => session.cart.reduce((acc, item) => acc + item.price, 0),
+    [session.cart]
+  );
 
   return (
     <>
@@ -96,8 +97,9 @@ export default function My() {
       >
         {item101?.name}
       </a>
+      <h2 className='text-xl'>Tot: {totalPrice.toLocaleString()}원</h2>
       <ul>
-        {data.map((item) => (
+        {(session.cart.length ? session.cart : data)?.map((item) => (
           <li key={item.id}>
             <Item item={item} />
           </li>
