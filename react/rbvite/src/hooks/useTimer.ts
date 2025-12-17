@@ -30,6 +30,7 @@ function useTime<T extends (...args: Parameters<T>) => void>(
   ...args: Parameters<T>
 ) {
   // const [timer, setTimer] = useState<ReturnType<typeof f>>();
+  // const dtimer = useDeferredValue(timer);
   const timerRef = useRef<ReturnType<typeof f>>(undefined);
 
   const setTime = () => {

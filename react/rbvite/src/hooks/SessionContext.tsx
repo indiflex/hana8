@@ -30,6 +30,8 @@ const DefaultSession = {
   ],
 };
 
+localStorage.setItem('CART', JSON.stringify(DefaultSession.cart));
+
 type SessionContextValue = {
   session: Session;
   login: LoginFunction;

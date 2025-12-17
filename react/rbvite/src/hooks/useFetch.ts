@@ -8,7 +8,7 @@ export function useFetch<T>(url: string, deps: unknown[] = []) {
   const [error, setError] = useState<string | null>(null);
 
   useLayoutEffect(() => {
-    console.log('🚀 ~ url:', url);
+    // console.log('🚀 ~ url:', url);
     const controller = new AbortController();
     const { signal } = controller;
 
