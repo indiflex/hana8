@@ -2,7 +2,7 @@ import { PlusIcon } from 'lucide-react';
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { type ItemType, useSession } from '../hooks/SessionContext';
 import { useFetch } from '../hooks/useFetch';
-import { useDebounce, useInterval } from '../hooks/useTimer';
+import { useInterval, useThrottle } from '../hooks/useTimer';
 import Item from './Item';
 import Login from './Login';
 import Profile, { type ProfileHandler } from './Profile';
