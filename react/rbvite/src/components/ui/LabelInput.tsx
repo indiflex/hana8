@@ -36,6 +36,7 @@ export default function LabelInput({
       <input
         type={type || 'text'}
         id={inputId}
+        name={label}
         ref={ref}
         defaultValue={defaultValue}
         onChange={onChange}

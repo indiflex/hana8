@@ -41,16 +41,31 @@ export default function Login() {
     login(nameRef.current?.value ?? '', Number(ageRef.current?.value));
   };
 
+  const loginAction = (formData: FormData) => {
+    const formObj = Object.fromEntries(formData.entries());
+    console.log('🚀 ~ formData:', formObj);
+    const name = formData.get('name') as string;
+    const age = Number(formData.get('age'));
+    login(name, age);
+  };
+
   useEffect(() => {
-    alert('Login plz...');
+    console.log('Login plz...');
     nameRef.current?.focus();
 
-    return () => alert('Login success!!');
+    return () => console.log('Login success!!');
   }, []);
 
   return (
     <div className='border border-red-300 p-3 rounded-lg'>
       <h1 className='text-2xl text-center font-medium'>Login</h1>
+      <form action={loginAction} className='space-y-3'>
+        <input type='text' name='name' />
+        <input type='number' name='age' />
+        <Button className='bg-blue-500 text-white hover:bg-blue-600'>
+          LoginAction
+        </Button>
+      </form>
       <form onSubmit={makeLogin} className='space-y-3'>
         <LabelInput label='Name' ref={nameRef} />
         <LabelInput
