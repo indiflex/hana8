@@ -21,6 +21,7 @@ export function useFetch<T>(url: string, deps: unknown[] = []) {
     //     setData(data);
     //     ...
     //   } catch(err) {}
+    //   } finally() {}
     // };
     // f();
 

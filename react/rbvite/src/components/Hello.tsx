@@ -8,7 +8,7 @@ import Button from './ui/Button';
 export default function Hello({ children }: PropsWithChildren) {
   const { count, plusCount } = useCounter();
   // const [toggler, toggle] = useReducer((p) => !p, false);
-  const [toggler, toggle] = useToggle();
+  const [, toggle] = useToggle();
   const {
     session: { loginUser },
   } = useSession();
