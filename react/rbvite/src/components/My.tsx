@@ -9,8 +9,7 @@ import {
   useTransition,
   type ChangeEvent,
 } from 'react';
-import { useSession, type ItemType } from '../hooks/SessionContext';
-import { useFetch } from '../hooks/useFetch';
+import { useSession } from '../hooks/SessionContext';
 import { useInterval, useThrottle } from '../hooks/useTimer';
 import Item from './Item';
 import Login from './Login';
@@ -81,7 +80,6 @@ export default function My() {
 
   //   return () => controller.abort();
   // }, []);
-  const { data } = useFetch<ItemType[]>('/data/sample.json');
 
   const totalPrice = useMemo(
     () => session.cart.reduce((acc, item) => acc + item.price, 0),
@@ -136,7 +134,7 @@ export default function My() {
       )}
       <LabelInput label='search' onChange={handleSearch} autoComplete='off' />
       <ul>
-        {(session.cart.length ? session.cart : data)
+        {session.cart
           ?.filter((item) => item.name.includes(debouncedSearchStr))
           .map((item) => (
             <li key={item.id}>
