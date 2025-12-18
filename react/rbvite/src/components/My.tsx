@@ -17,9 +17,10 @@ import Item from './Item';
 import Login from './Login';
 import Posts from './Posts';
 import Profile, { type ProfileHandler } from './Profile';
-import Button from './ui/Button';
+import Btn from './ui/Btn';
 import LabelInput from './ui/LabelInput';
 import Spinner from './ui/Spinner';
+import { Button } from './ui/button';
 
 export default function My() {
   const { session } = useSession();
@@ -162,9 +163,9 @@ export default function My() {
       )}
 
       {/* <form action={search}> */}
-      <form className='flex gap-2'>
+      <form className='flex gap-2 items-end'>
         <LabelInput label='ActionState' autoComplete='off' />
-        <button formAction={search}>Action</button>
+        <Button formAction={search}>Action</Button>
         <SearchButton />
       </form>
 
@@ -188,9 +189,9 @@ export default function My() {
               toggleAdding={toggleAdding}
             />
           ) : (
-            <Button onClick={toggleAdding} className=''>
+            <Btn onClick={toggleAdding} className=''>
               <PlusIcon />
-            </Button>
+            </Btn>
           )}
         </li>
       </ul>
@@ -201,5 +202,9 @@ export default function My() {
 function SearchButton() {
   const { pending, data } = useFormStatus();
   if (data) console.log('ddddddd>>', data, pending);
-  return <button disabled={pending}>SearchButton</button>;
+  return (
+    <Button variant={'secondary'} disabled={pending}>
+      SearchButton
+    </Button>
+  );
 }

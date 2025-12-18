@@ -1,8 +1,10 @@
 import { useActionState, useOptimistic, useState } from 'react';
 import { useFormStatus } from 'react-dom';
+import Alerter from './ui/Alerter';
 import Spinner from './ui/Spinner';
+import { Button } from './ui/button';
 
-type Post = { id: number; title: string; userId: number };
+type Post = { id: number; title: string; userId: number; body: string };
 const searchPosts = (userId: string): Promise<Post[]> =>
   fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`).then(
     (res) => res.json()
@@ -54,9 +56,13 @@ export default function Posts() {
         <Spinner />
       ) : (
         <ul className='w-80 truncate'>
-          {posts.map(({ id, title }) => (
+          {posts.map(({ id, title, body }) => (
             <li key={id}>
-              {id}. {title}
+              <Alerter title={title}>
+                <Button variant='ghost'>
+                  {id}. {title}
+                </Button>
+              </Alerter>
             </li>
           ))}
         </ul>
@@ -76,8 +82,8 @@ function SearchButton({
   const searchStr = data?.get(inpName);
 
   return (
-    <button type='submit'>
+    <Button type='submit'>
       {pending ? `searching...${searchStr}` : label}
-    </button>
+    </Button>
   );
 }

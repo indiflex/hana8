@@ -159,11 +159,11 @@ export function SessionProvider({ children }: PropsWithChildren) {
   };
 
   return (
-    <SessionContext.Provider
+    <SessionContext
       value={{ session, login, logout, loginHandlerRef, removeItem, saveItem }}
     >
       {children}
-    </SessionContext.Provider>
+    </SessionContext>
   );
 }
 

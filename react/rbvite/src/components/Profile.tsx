@@ -1,6 +1,6 @@
 import { useImperativeHandle, type RefObject } from 'react';
 import { useSession } from '../hooks/SessionContext';
-import Button from './ui/Button';
+import Btn from './ui/Btn';
 
 type Prop = {
   ref: RefObject<ProfileHandler | null>;
@@ -34,13 +34,13 @@ export default function Profile({ ref }: Prop) {
     <>
       <h1 className='text-2xl'>LoginUser: {loginUser?.name}</h1>
       <div className='flex gap-5'>
-        <Button
+        <Btn
           onClick={logout}
           className='bg-red-500 hover:bg-red-400 text-white'
         >
           LogOut
-        </Button>
-        <Button onClick={showLoginUser}>Show LoginUser</Button>
+        </Btn>
+        <Btn onClick={showLoginUser}>Show LoginUser</Btn>
       </div>
     </>
   );

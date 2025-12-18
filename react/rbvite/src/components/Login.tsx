@@ -1,6 +1,6 @@
 import { useEffect, useImperativeHandle, useRef, type FormEvent } from 'react';
 import { useSession } from '../hooks/SessionContext';
-import Button from './ui/Button';
+import Btn from './ui/Btn';
 import LabelInput from './ui/LabelInput';
 
 export type LoginHandler = {
@@ -62,9 +62,9 @@ export default function Login() {
       <form action={loginAction} className='space-y-3'>
         <input type='text' name='name' />
         <input type='number' name='age' />
-        <Button className='bg-blue-500 text-white hover:bg-blue-600'>
+        <Btn className='bg-blue-500 text-white hover:bg-blue-600'>
           LoginAction
-        </Button>
+        </Btn>
       </form>
       <form onSubmit={makeLogin} className='space-y-3'>
         <LabelInput label='Name' ref={nameRef} />
@@ -91,13 +91,13 @@ export default function Login() {
 
         <div className='text-center'>
           <button type='reset'>Cancel</button>
-          <Button
+          <Btn
             // type='submit'
             // onClick={() => login(name, age)}
             className='bg-blue-500 text-white hover:bg-blue-600'
           >
             Login
-          </Button>
+          </Btn>
         </div>
       </form>
     </div>
