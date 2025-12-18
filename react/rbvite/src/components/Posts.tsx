@@ -58,7 +58,7 @@ export default function Posts() {
         <ul className='w-80 truncate'>
           {posts.map(({ id, title, body }) => (
             <li key={id}>
-              <Alerter title={title}>
+              <Alerter title={title} description={body}>
                 <Button variant='ghost'>
                   {id}. {title}
                 </Button>

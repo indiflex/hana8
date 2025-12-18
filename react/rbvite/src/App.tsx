@@ -1,21 +1,24 @@
+import { Route, Routes } from 'react-router-dom';
 import Hello from './components/Hello';
+import Home from './components/Home';
 import My from './components/My';
-import { useCounter } from './hooks/CounterContext';
+import Posts from './components/Posts';
 import { SessionProvider } from './hooks/SessionContext';
-import { cn } from './lib/utils';
+import Nav from './Nav';
 
 function App() {
-  // const [count, setCount] = useState(0);
-  const { count } = useCounter();
-
   return (
-    <div className='grid place-items-center h-screen mx-2'>
-      <h1 className={cn('text-3xl mt-3 m-5')}>count: {count}</h1>
-      <SessionProvider>
-        <My />
-        {count < 50 && <Hello>반갑습니다</Hello>}
-      </SessionProvider>
-    </div>
+    <SessionProvider>
+      <Nav />
+      <div className='grid place-items-center h-screen mx-2'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/my' element={<My />} />
+          <Route path='/posts' element={<Posts />} />
+          <Route path='/hello' element={<Hello />} />
+        </Routes>
+      </div>
+    </SessionProvider>
   );
 }
 
