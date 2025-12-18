@@ -4,6 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
+  a.active {
+    color: blue;
+  }
+
   input {
     @apply border border-gray-400 rounded-lg py-1 px-2 focus:ring-1 focus:ring-green-300 focus:border-transparent;
   }
