@@ -22,7 +22,7 @@ import { useSession } from '../hooks/SessionContext';
 import Btn from './ui/Btn';
 import LabelInput from './ui/LabelInput';
 import Small from './ui/Small';
-import { Button } from './ui/b';
+import { Button } from './ui/button';
 
 export default function Item() {
   const {

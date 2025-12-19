@@ -5,7 +5,7 @@ import { useSession } from '../hooks/SessionContext';
 import { useFetch } from '../hooks/useFetch';
 import { useToggle } from '../hooks/useToggle';
 import Btn from './ui/Btn';
-import { Button } from './ui/b';
+import { Button } from './ui/button';
 
 export default function Hello({ children }: PropsWithChildren) {
   const { count, plusCount } = useCounter();

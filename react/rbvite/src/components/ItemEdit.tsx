@@ -13,8 +13,8 @@ import {
   type RefObject,
 } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import { Button } from './ui/b';
 import Btn from './ui/Btn';
+import { Button } from './ui/button';
 import LabelInput from './ui/LabelInput';
 
 export default function ItemEdit() {

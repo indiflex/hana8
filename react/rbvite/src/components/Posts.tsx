@@ -2,7 +2,7 @@ import { useActionState, useOptimistic, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import Alerter from './ui/Alerter';
 import Spinner from './ui/Spinner';
-import { Button } from './ui/b';
+import { Button } from './ui/button';
 
 type Post = { id: number; title: string; userId: number; body: string };
 const searchPosts = (userId: string): Promise<Post[]> =>
