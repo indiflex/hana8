@@ -1,7 +1,9 @@
-import { useSession } from '@/hooks/SessionContext';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
-import Btn from './ui/Btn';
+import { type ItemType, useSession } from '@/hooks/SessionContext';
 import { PlusIcon } from 'lucide-react';
+import { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import Btn from './ui/Btn';
+import { Button } from './ui/button';
 
 export default function ItemLayout() {
   const {
@@ -9,6 +11,8 @@ export default function ItemLayout() {
   } = useSession();
 
   const navigate = useNavigate();
+  const [item, setItem] = useState<ItemType>();
+  console.log('🚀 ~ ~~~~~~~', item);
 
   return (
     <div className='w-full'>
@@ -16,9 +20,19 @@ export default function ItemLayout() {
         <div className='borderx'>
           <h2 className='text-xl mb-3'>Cart</h2>
           <ul className='ml-2'>
-            {cart.map(({ id, name }) => (
-              <li key={id}>
-                <Link to={`${id}`}>{name}</Link>
+            {cart.map((item) => (
+              <li key={item.id}>
+                {/* <Link to={`${id}`}>{item.name}</Link> */}
+                <Button
+                  onClick={() => {
+                    setItem(item);
+                    navigate(`${item.id}`);
+                  }}
+                  variant={'link'}
+                  className='h-4'
+                >
+                  {item.name}
+                </Button>
               </li>
             ))}
             <li className='text-center'>
@@ -32,7 +46,7 @@ export default function ItemLayout() {
         <div className='col-span-3'>
           <h1 className='text-xl'>ItemsLayout</h1>
           <div className='border-2 p-3'>
-            <Outlet />
+            <Outlet context={item} />
           </div>
         </div>
       </div>
