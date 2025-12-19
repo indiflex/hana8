@@ -3,7 +3,7 @@ import { PlusIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Btn from './ui/Btn';
-import { Button } from './ui/button';
+import { Button } from './ui/b';
 
 export default function ItemLayout() {
   const {

@@ -4,7 +4,7 @@ import { useSession, type ItemType } from '../hooks/SessionContext';
 import { useInterval } from '../hooks/useTimer';
 import LabelInput from './ui/LabelInput';
 import Spinner from './ui/Spinner';
-import { Button } from './ui/button';
+import { Button } from './ui/b';
 
 export default function My() {
   const { session } = useSession();
