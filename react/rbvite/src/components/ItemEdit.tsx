@@ -73,7 +73,7 @@ export default function ItemEdit() {
     }
     setDirty(false);
 
-    navigate(`/items/${savedId}`);
+    navigate(`/items/${savedId}?renew=1`);
   };
 
   const cancelEdit = () => {
@@ -85,9 +85,7 @@ export default function ItemEdit() {
   };
 
   const deleteItem = () => {
-    console.log('*******>>', item.id);
-    removeItem(item.id);
-    navigate('/items');
+    if (removeItem(item.id)) navigate('/items');
   };
 
   return (
@@ -108,10 +106,10 @@ export default function ItemEdit() {
           onChange={checkDirty}
           placeholder='price...'
         />
-        <Btn onClick={cancelEdit} type='reset' className=''>
+        <Btn type='reset' onClick={cancelEdit} className=''>
           <RotateCcwIcon />
         </Btn>
-        <Button onClick={deleteItem} variant={'destructive'}>
+        <Button type='button' onClick={deleteItem} variant={'destructive'}>
           <Trash2Icon />
         </Button>
         {hasDirty && (

@@ -12,7 +12,6 @@ export default function ItemLayout() {
 
   const navigate = useNavigate();
   const [item, setItem] = useState<ItemType>();
-  console.log('🚀 ~ ~~~~~~~', item);
 
   return (
     <div className='w-full'>

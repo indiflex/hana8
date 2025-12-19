@@ -1,5 +1,10 @@
 import { type ItemType, useSession } from '@/hooks/SessionContext';
-import { Outlet, useOutletContext, useParams } from 'react-router-dom';
+import {
+  Outlet,
+  useOutletContext,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 
 export default function ItemDetailLayout() {
   const {
@@ -7,9 +12,12 @@ export default function ItemDetailLayout() {
   } = useSession();
   const params = useParams();
   const id = Number(params.id);
+  const [searchParam] = useSearchParams();
+  const renew = searchParam.get('renew');
+  console.log('🚀 ~ renew:', renew);
   const contextItem = useOutletContext<ItemType>();
-  console.log('🚀 ~ contextItem:', contextItem);
-  const item = contextItem || cart.find((item) => item.id === id);
+  // console.log('🚀 ~ contextItem:', contextItem);
+  const item = (!renew && contextItem) || cart.find((item) => item.id === id);
 
   return (
     <>
