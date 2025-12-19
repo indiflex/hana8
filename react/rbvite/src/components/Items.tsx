@@ -3,26 +3,23 @@ import { useThrottle } from '@/hooks/useTimer';
 import { PlusIcon } from 'lucide-react';
 import {
   useDeferredValue,
-  useReducer,
   useState,
   useTransition,
   type ChangeEvent,
 } from 'react';
-import Item from './Item';
+import { Link, useNavigate } from 'react-router-dom';
 import Btn from './ui/Btn';
 import LabelInput from './ui/LabelInput';
 import Spinner from './ui/Spinner';
 
 export default function Items() {
   const { session } = useSession();
-
-  const [isAdding, toggleAdding] = useReducer((pre) => !pre, false);
-
   const [searchResult, setSearchResult] = useState<ItemType[]>([]);
+  const navigate = useNavigate();
   const [isSearching, startSearchTransition] = useTransition();
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     startSearchTransition(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 500));
       const str = e.target.value;
       setSearchStr(str);
       setSearchResult(session.cart.filter((item) => item.name.includes(str)));
@@ -54,20 +51,15 @@ export default function Items() {
           ?.filter((item) => item.name.includes(debouncedSearchStr))
           .map((item) => (
             <li key={item.id}>
-              <Item item={item} />
+              <Link to={item.id.toString()}>
+                {item.id}. {item.name}
+              </Link>
             </li>
           ))}
         <li className='text-center'>
-          {isAdding ? (
-            <Item
-              item={{ id: 0, name: 'New Item', price: 3000 }}
-              toggleAdding={toggleAdding}
-            />
-          ) : (
-            <Btn onClick={toggleAdding} className=''>
-              <PlusIcon />
-            </Btn>
-          )}
+          <Btn onClick={() => navigate('0')} className=''>
+            <PlusIcon />
+          </Btn>
         </li>
       </ul>
     </>

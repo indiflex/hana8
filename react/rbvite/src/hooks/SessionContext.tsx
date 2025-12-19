@@ -44,7 +44,7 @@ type SessionContextValue = {
   logout: () => void;
   loginHandlerRef: RefObject<LoginHandler | null> | null;
   removeItem: (id: number) => void;
-  saveItem: (item: ItemType) => void;
+  saveItem: (item: ItemType) => number;
 };
 const SessionContext = createContext<SessionContextValue>({
   session: { loginUser: null, cart: [] },
@@ -52,7 +52,7 @@ const SessionContext = createContext<SessionContextValue>({
   logout: () => {},
   loginHandlerRef: null,
   removeItem: () => {},
-  saveItem: () => {},
+  saveItem: () => 0,
 });
 
 type Action =
@@ -134,28 +134,18 @@ export function SessionProvider({ children }: PropsWithChildren) {
   const saveItem = ({ id, name, price }: ItemType) => {
     const item = id && session.cart.find((item) => item.id === id);
 
-    // updateItem
-    // session.cart.map(item => item.id === id ? { id: item.id, name, price } : item);
-
     if (item) {
-      // item.name = name;
-      // item.price = price;
-      // setSession({
-      //   ...session,
-      //   cart: session.cart.map((item) =>
-      //     item.id === id ? { id, name, price } : item
-      //   ),
-      // });
       dispatch({ type: 'EDIT-ITEM', payload: { id, name, price } });
-    } else {
-      const newItem = {
-        id: Math.max(...session.cart.map((item) => item.id), 0) + 1,
-        name,
-        price,
-      };
-      // setSession({ ...session, cart: [...session.cart, newItem] });
-      dispatch({ type: 'ADD-ITEM', payload: newItem });
+      return id;
     }
+
+    const newItem = {
+      id: Math.max(...session.cart.map((item) => item.id), 0) + 1,
+      name,
+      price,
+    };
+    dispatch({ type: 'ADD-ITEM', payload: newItem });
+    return newItem.id;
   };
 
   return (

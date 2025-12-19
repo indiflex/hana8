@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Hello from './components/Hello';
 import Home from './components/Home';
-import ItemRoute from './components/ItemRoute';
+import Item from './components/Item';
 import Items from './components/Items';
 import My from './components/My';
 import Posts from './components/Posts';
@@ -26,24 +26,25 @@ function App() {
             path='/profile'
             element={<Profile ref={profileHandlerRef} />}
           />
-          <Route path='/items' element={<Items />} />
-          <Route path='/items/:id' element={<ItemRoute />} />
+          <Route path='/items'>
+            <Route index element={<Items />} />
+            <Route path=':id' element={<Item />} />
+          </Route>
           <Route path='/posts' element={<Posts />} />
           <Route path='/hello' element={<Hello />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
+        <a
+          href='#!'
+          onClick={(e) => {
+            e.preventDefault();
+            profileHandlerRef.current?.showLoginUser();
+            console.log('xxx>>', profileHandlerRef.current?.xxx);
+          }}
+        >
+          Show LoginUser
+        </a>
       </div>
-
-      <a
-        href='#!'
-        onClick={(e) => {
-          e.preventDefault();
-          profileHandlerRef.current?.showLoginUser();
-          console.log('xxx>>', profileHandlerRef.current?.xxx);
-        }}
-      >
-        Show LoginUser
-      </a>
     </SessionProvider>
   );
 }

@@ -4,8 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
+  a:hover {
+    @apply underline underline-offset-2;
+  }
   a.active {
-    color: blue;
+    @apply text-blue-400 no-underline;
   }
 
   input {
