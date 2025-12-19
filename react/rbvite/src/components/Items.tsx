@@ -1,21 +1,18 @@
 import { useSession, type ItemType } from '@/hooks/SessionContext';
 import { useThrottle } from '@/hooks/useTimer';
-import { PlusIcon } from 'lucide-react';
 import {
   useDeferredValue,
   useState,
   useTransition,
   type ChangeEvent,
 } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Btn from './ui/Btn';
+import { Link } from 'react-router-dom';
 import LabelInput from './ui/LabelInput';
 import Spinner from './ui/Spinner';
 
 export default function Items() {
   const { session } = useSession();
   const [searchResult, setSearchResult] = useState<ItemType[]>([]);
-  const navigate = useNavigate();
   const [isSearching, startSearchTransition] = useTransition();
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     startSearchTransition(async () => {
