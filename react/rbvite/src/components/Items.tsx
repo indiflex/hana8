@@ -41,26 +41,17 @@ export default function Items() {
           {searchStr} : {deferredStr} : {debouncedSearchStr}
         </h2>
       )}
-      <LabelInput
-        label='Transition'
-        onChange={handleSearch}
-        autoComplete='off'
-      />
+      <LabelInput label='Search' onChange={handleSearch} autoComplete='off' />
       <ul>
         {session.cart
           ?.filter((item) => item.name.includes(debouncedSearchStr))
           .map((item) => (
             <li key={item.id}>
-              <Link to={item.id.toString()}>
+              <Link to={`${item.id}?q=111`}>
                 {item.id}. {item.name}
               </Link>
             </li>
           ))}
-        <li className='text-center'>
-          <Btn onClick={() => navigate('0')} className=''>
-            <PlusIcon />
-          </Btn>
-        </li>
       </ul>
     </>
   );

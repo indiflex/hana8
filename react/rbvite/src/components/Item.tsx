@@ -11,7 +11,13 @@ import {
   type FormEvent,
   type RefObject,
 } from 'react';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import {
+  Link,
+  Navigate,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 import { useSession } from '../hooks/SessionContext';
 import Btn from './ui/Btn';
 import LabelInput from './ui/LabelInput';
@@ -23,8 +29,11 @@ export default function Item() {
     session: { cart },
   } = useSession();
   const navigate = useNavigate();
+  // q=111&p=222
   const params = useParams<{ id: string }>();
   const id = Number(params.id);
+  const [searchParam, setSearchParam] = useSearchParams({ q: '', p: 'xxx' });
+  console.log('🚀 ~ searchParam:', Object.fromEntries(searchParam.entries()));
 
   const { removeItem, saveItem } = useSession();
   const [isEditing, setEditing] = useState(!id);
@@ -34,6 +43,8 @@ export default function Item() {
 
   useEffect(() => {
     if (isEditing) nameRef.current?.focus();
+    // setSearchParam('q=100');
+    // setSearchParam({ q: '1000' });
   }, [isEditing]);
 
   const item = !id
@@ -85,7 +96,7 @@ export default function Item() {
     setEditing(false);
     setDirty(false);
 
-    if (!id) navigate(`/items/${savedId}`);
+    if (!id) navigate(`/items/${savedId}`, { replace: true });
   };
 
   const makeEdit = () => {

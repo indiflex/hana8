@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Hello from './components/Hello';
 import Home from './components/Home';
 import Item from './components/Item';
+import ItemLayout from './components/ItemLayout';
 import Items from './components/Items';
 import My from './components/My';
 import Posts from './components/Posts';
@@ -26,7 +27,7 @@ function App() {
             path='/profile'
             element={<Profile ref={profileHandlerRef} />}
           />
-          <Route path='/items'>
+          <Route path='/items' element={<ItemLayout />}>
             <Route index element={<Items />} />
             <Route path=':id' element={<Item />} />
           </Route>
