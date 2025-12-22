@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+  a:hover {
+    @apply underline underline-offset-2;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
