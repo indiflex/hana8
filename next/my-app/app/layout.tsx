@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} mx-5 antialiased`}
       >
         <nav>
-          Navigator <Link href="/hello">Hello</Link>
+          Navigator <Link href="/hello">Hello</Link>|<Link href="/hi">Hi</Link>
         </nav>
         <div className="border">{children}</div>
         <footer className="text-center">Footer</footer>
