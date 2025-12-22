@@ -1,18 +1,13 @@
 'use client';
 
-import {
-  useParams,
-  usePathname,
-  useRouter,
-  useSearchParams,
-} from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import SayHello from './SayHello';
 
 export default function HelloPage() {
   const pathname = usePathname();
-  const p = useParams();
-  console.log('🚀 ~ p:', p);
+  // const p = useParams();
+  // console.log('🚀 ~ p:', p);
 
   return (
     <>
