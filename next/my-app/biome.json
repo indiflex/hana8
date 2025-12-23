@@ -21,6 +21,9 @@
       "suspicious": {
         "noUnknownAtRules": "off"
       },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
       "nursery": {
         "useSortedClasses": {
           "level": "error",

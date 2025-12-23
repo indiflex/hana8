@@ -18,8 +18,8 @@ export default function ParallelLayout({ children, login, profile }: Props) {
       <div>{children}</div>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="border">{login}</div>
         <div className="border">{profile}</div>
+        <div className="border">{login}</div>
       </div>
     </div>
   );

@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 @layer base {
+  a {
+    @apply text-blue-400;
+  }
   a:hover {
-    @apply underline underline-offset-2;
+    @apply underline underline-offset-2 text-blue-600;
   }
 }
 
