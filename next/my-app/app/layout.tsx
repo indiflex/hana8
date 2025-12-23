@@ -33,7 +33,7 @@ export default function RootLayout({
           <Link href="/shop/123">123</Link>|
           <Link href="/shop/123/456">456</Link>
         </nav>
-        <div className="border">{children}</div>
+        <div className="border p-3">{children}</div>
         <footer className="text-center">Footer</footer>
       </body>
     </html>

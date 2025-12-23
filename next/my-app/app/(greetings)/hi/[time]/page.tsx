@@ -9,6 +9,7 @@ type Props = {
 //   return [{ time: 'morning' }, { time: 'afternoon' }, { time: 'evening' }];
 // }
 
+// [{time: 'morning'}]
 export const generateStaticParams = async () => TIMES.map((time) => ({ time }));
 
 export default function Hi({ params }: Props) {
