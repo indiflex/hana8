@@ -2,6 +2,7 @@
 
 import { useParams } from 'next/navigation';
 
+// export const generateStaticParams = async () => [{ id: '0' }];
 export default function HelloId() {
   const { id } = useParams<{ id: string }>();
   return `Hello id is ${id}`;

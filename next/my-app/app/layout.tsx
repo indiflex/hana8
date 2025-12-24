@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Link from 'next/link';
+import { ModeToggle } from '@/components/ModeToggle';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Button } from '@/components/ui/button';
 import './globals.css';
 
 const geistSans = Geist({
@@ -24,19 +27,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} mx-5 antialiased`}
       >
-        <nav>
-          Navigator <Link href="/hello">Hello</Link>|<Link href="/hi">Hi</Link>|
-          <Link href="/shop/123">123</Link>|
-          <Link href="/shop/123/456">456</Link>
-          <Link href="/intercept">Intercept</Link>
-          <Link href="/photos">Photos</Link>
-        </nav>
-        <div className="border p-3">{children}</div>
-        <footer className="text-center">Footer</footer>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <nav className="flex items-center justify-between">
+            <div>
+              Navigator <Link href="/hello">Hello</Link>|
+              <Link href="/hi">Hi</Link>|<Link href="/shop/123">123</Link>|
+              <Link href="/shop/123/456">456</Link>
+              <Link href="/intercept">Intercept</Link>
+              <Link href="/photos">Photos</Link>|{' '}
+              <Link href="/caches">caches</Link>
+              <Button variant={'apply'}>SignIn</Button>
+            </div>
+            <ModeToggle />
+          </nav>
+          <div className="border p-3">{children}</div>
+          <footer className="text-center">Footer</footer>
+        </ThemeProvider>
       </body>
     </html>
   );
