@@ -10,10 +10,12 @@ export type Photo = {
   height: number;
 };
 
+export const revalidate = 86400; // 1 day
+
 const getPhotos = async (n: number = 20): Promise<Photo[]> =>
-  fetch(`https://picsum.photos/v2/list?limit=${n}`, { cache: 'no-store' }).then(
-    (res) => res.json(),
-  );
+  fetch(`https://picsum.photos/v2/list?limit=${n}`, {
+    cache: 'force-cache',
+  }).then((res) => res.json());
 
 export default function Photos() {
   const photos = use(getPhotos());

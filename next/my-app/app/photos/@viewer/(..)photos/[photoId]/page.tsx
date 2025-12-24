@@ -12,7 +12,7 @@ export const dynamicParams = false;
 
 export const generateStaticParams = async () => {
   const photos: Awaited<Photo[]> = await fetch(
-    `https://picsum.photos/v2/list?limit=${10}`,
+    `https://picsum.photos/v2/list?limit=${20}`,
   ).then((res) => res.json());
 
   // [{photoId: '0'}, {photoId: '1'}, ... ]
