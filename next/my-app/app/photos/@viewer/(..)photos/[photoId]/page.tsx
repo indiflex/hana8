@@ -1,5 +1,6 @@
+'use cache';
+
 import Image from 'next/image';
-import { use } from 'react';
 import { blurDataURL } from '@/app/(greetings)/hi/constants';
 import Modal from '@/components/Modal';
 import type { Photo } from '../../../page';
@@ -8,7 +9,7 @@ type Props = {
   params: Promise<{ photoId: string }>;
 };
 
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
 export const generateStaticParams = async () => {
   const photos: Awaited<Photo[]> = await fetch(
@@ -19,11 +20,11 @@ export const generateStaticParams = async () => {
   return photos.map(({ id: photoId }) => ({ photoId }));
 };
 
-export default function PhotoView({ params }: Props) {
-  const { photoId } = use(params);
-  const { author, download_url, width, height } = use(
-    fetch(`https://picsum.photos/id/${photoId}/info`).then((res) => res.json()),
-  ) as Photo;
+export default async function PhotoView({ params }: Props) {
+  const { photoId } = await params;
+  const { author, download_url, width, height } = (await fetch(
+    `https://picsum.photos/id/${photoId}/info`,
+  ).then((res) => res.json())) as Photo;
 
   return (
     <Modal>

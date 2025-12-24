@@ -14,9 +14,8 @@ export default function HelloPage() {
     <>
       <h1>Hello Page: {pathname}</h1>
       <div>
-        <SayHello name={'Next'} />
-
         <Suspense fallback={<h1>...</h1>}>
+          <SayHello name={'Next'} />
           <SearchParamId />
         </Suspense>
       </div>

@@ -1,6 +1,7 @@
+'use cache';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { use } from 'react';
 import { blurDataURL_dark } from '@/app/(greetings)/hi/constants';
 import type { Photo } from '../page';
 
@@ -11,7 +12,7 @@ type Props = {
 // export const dynamic = 'force-static';
 
 // 미리 generate한 페이지 외엔 404!
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
 export const generateStaticParams = async () => {
   const photos: Awaited<Photo[]> = await fetch(
@@ -22,11 +23,12 @@ export const generateStaticParams = async () => {
   return photos.map(({ id: photoId }) => ({ photoId }));
 };
 
-export default function PhotoView({ params }: Props) {
-  const { photoId } = use(params);
-  const { author, download_url, width, height } = use(
-    fetch(`https://picsum.photos/id/${photoId}/info`).then((res) => res.json()),
-  ) as Photo;
+export default async function PhotoView({ params }: Props) {
+  const { photoId } = await params;
+  // if (photoId > '10') notFound();
+  const { author, download_url, width, height } = (await fetch(
+    `https://picsum.photos/id/${photoId}/info`,
+  ).then((res) => res.json())) as Photo;
 
   return (
     <>
