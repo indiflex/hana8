@@ -1,5 +1,6 @@
 'use client';
 
+import type { Route } from 'next';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import SayHello from './SayHello';
@@ -35,7 +36,7 @@ function SearchParamId() {
 
   const make200 = () => {
     params.set('id', `200`);
-    router.push(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}` as Route);
     // router.push('/');
   };
 

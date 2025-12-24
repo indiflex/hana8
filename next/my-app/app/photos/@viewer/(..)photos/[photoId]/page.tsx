@@ -1,10 +1,20 @@
 import Image from 'next/image';
 import { use } from 'react';
+import { blurDataURL } from '@/app/(greetings)/hi/constants';
 import Modal from '@/components/Modal';
 import type { Photo } from '../../../page';
 
 type Props = {
   params: Promise<{ photoId: string }>;
+};
+
+export const generateStaticParams = async () => {
+  const photos: Awaited<Photo[]> = await fetch(
+    `https://picsum.photos/v2/list?limit=${10}`,
+  ).then((res) => res.json());
+
+  // [{photoId: '0'}, {photoId: '1'}, ... ]
+  return photos.map(({ id: photoId }) => ({ photoId }));
 };
 
 export default function PhotoView({ params }: Props) {
@@ -22,7 +32,7 @@ export default function PhotoView({ params }: Props) {
           width={width}
           height={height}
           placeholder="blur"
-          blurDataURL="/file.svg"
+          blurDataURL={blurDataURL}
         />
       </div>
     </Modal>
