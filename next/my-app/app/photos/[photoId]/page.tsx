@@ -8,6 +8,8 @@ type Props = {
   params: Promise<{ photoId: string }>;
 };
 
+export const dynamic = 'force-static';
+
 export default function PhotoView({ params }: Props) {
   const { photoId } = use(params);
   const { author, download_url, width, height } = use(
