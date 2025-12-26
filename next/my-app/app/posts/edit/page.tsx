@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
 import { type Post, type PostError, savePost } from './posts.action';
 
@@ -34,6 +35,7 @@ export default function PostEdit() {
   const [folder, setFolder] = useState<Folder>(FOLDERS[0]);
   const [post, setPost] = useState<Partial<Post>>();
   const [localPrivate, togglePrivate] = useReducer((p) => !p, false);
+  // const [localPublic, togglePublic] = useReducer((p) => !p, false);
 
   const [postError, save, isPending] = useActionState(
     async (_: PostError | undefined, formData: FormData) => {
@@ -75,7 +77,7 @@ export default function PostEdit() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Input type="text" name="folder" defaultValue={folder.id} />
+          <Input type="hidden" name="folder" defaultValue={folder.id} />
 
           <Input
             type="text"
@@ -85,21 +87,21 @@ export default function PostEdit() {
           />
         </div>
 
-        <div className="flex gap-2">
+        <div className="grid grid-cols-2 gap-2">
           <Label htmlFor="isPrivate">
             <Checkbox
               id="isPrivate"
               name="isprivate"
               checked={localPrivate}
-              // onCheckedChange={(checked) => {
-              //   console.log('🚀 ~ isprivate:', checked);
-              //   // setLocalPrivate(checked === true || !!post?.isprivate);
-              //   setLocalPrivate(!!checked);
-              // }}
               onClick={togglePrivate}
+              className="data-[state=checked]:bg-blue-500"
             />
             비공개 글 {post?.isprivate ? 'True' : 'False'}::
             {localPrivate ? 'True' : 'False'}
+          </Label>
+          <Label htmlFor="isPublic">
+            <Switch id="isPublic" name="ispublic" />
+            홈에 공개
           </Label>
         </div>
 

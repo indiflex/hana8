@@ -4,6 +4,7 @@ export type Post = {
   title: string;
   content: string;
   isprivate: boolean;
+  ispublic: boolean;
 };
 
 export type PostError = { error: string; data: Partial<Post> };
@@ -18,8 +19,9 @@ export const savePost = async (
   const folder = Number(formData.get('folder'));
   const title = formData.get('title') as string;
   const isprivate = formData.get('isprivate') === 'on';
+  const ispublic = formData.get('ispublic') === 'on';
   const content = formData.get('content') as string;
-  const data = { folder, title, content, isprivate };
+  const data = { folder, title, content, isprivate, ispublic };
 
   if (!title) return [{ error: 'Input the title!', data }];
 
