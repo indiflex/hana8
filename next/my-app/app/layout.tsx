@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import Link from 'next/link';
 import { ModeToggle } from '@/components/ModeToggle';
 import { ThemeProvider } from '@/components/theme-provider';
+import UserProfile from '@/components/UserProfile';
 import { Button } from '@/components/ui/button';
 import './globals.css';
 
@@ -47,7 +48,10 @@ export default function RootLayout({
               <Link href="/caches">caches</Link>
               <Button variant={'apply'}>SignIn</Button>
             </div>
-            <ModeToggle />
+            <div className="flex items-center">
+              <ModeToggle />
+              <UserProfile />
+            </div>
           </nav>
           <div className="border p-3">{children}</div>
           <footer className="text-center">Footer</footer>
