@@ -2,8 +2,8 @@
 
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { useActionState, useReducer, useState } from 'react';
+import CheckSwitch from '@/components/CheckSwitch';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,8 +13,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
 import { type Post, type PostError, savePost } from './posts.action';
 
@@ -34,12 +32,14 @@ export default function PostEdit() {
   const [isOpen, toggleOpen] = useReducer((p) => !p, false);
   const [folder, setFolder] = useState<Folder>(FOLDERS[0]);
   const [post, setPost] = useState<Partial<Post>>();
-  const [localPrivate, togglePrivate] = useReducer((p) => !p, false);
+  // const [localPrivate, togglePrivate] = useReducer((p) => !p, false);
   // const [localPublic, togglePublic] = useReducer((p) => !p, false);
+  const [isShowButtons, setShowButtons] = useState(false);
 
   const [postError, save, isPending] = useActionState(
     async (_: PostError | undefined, formData: FormData) => {
-      formData.set('isprivate', localPrivate ? 'on' : '');
+      // formData.set('isprivate', localPrivate ? 'on' : '');
+      // console.log('fff>>', formData.get('isprivate'));
       const [err, data] = await savePost(formData);
       if (err) {
         setPost(err.data);
@@ -83,12 +83,13 @@ export default function PostEdit() {
             type="text"
             name="title"
             defaultValue={post?.title}
+            className="bg-muted"
             placeholder="title..."
           />
         </div>
 
         <div className="grid grid-cols-2 gap-2">
-          <Label htmlFor="isPrivate">
+          {/* <Label htmlFor="isPrivate">
             <Checkbox
               id="isPrivate"
               name="isprivate"
@@ -98,11 +99,55 @@ export default function PostEdit() {
             />
             비공개 글 {post?.isprivate ? 'True' : 'False'}::
             {localPrivate ? 'True' : 'False'}
-          </Label>
-          <Label htmlFor="isPublic">
-            <Switch id="isPublic" name="ispublic" />
-            홈에 공개
-          </Label>
+          </Label> */}
+
+          <CheckSwitch
+            label="default"
+            name="isprivate"
+            checked={post?.isprivate}
+            setCheckedAction={setShowButtons}
+          />
+          <CheckSwitch
+            label="destructive"
+            name="isprivate"
+            checked={post?.isprivate}
+            variant="destructive"
+            setCheckedAction={setShowButtons}
+          />
+          <CheckSwitch
+            label="secondary"
+            name="isprivate"
+            checked={post?.isprivate}
+            variant="secondary"
+            setCheckedAction={setShowButtons}
+          />
+          <CheckSwitch
+            label="muted"
+            name="isprivate"
+            checked={post?.isprivate}
+            variant="muted"
+            setCheckedAction={setShowButtons}
+          />
+
+          <CheckSwitch label="홈에 공개" type="switch" name="ispublic" />
+          <CheckSwitch
+            label="secondary"
+            type="switch"
+            variant="secondary"
+            name="ispublic"
+          />
+          <CheckSwitch
+            label="destructive"
+            type="switch"
+            variant="destructive"
+            name="ispublic"
+          />
+          <CheckSwitch
+            label="muted"
+            type="switch"
+            variant="muted"
+            name="ispublic"
+          />
         </div>
 
         {folder.type === 'file' ? (
@@ -116,22 +161,25 @@ export default function PostEdit() {
             name="content"
             defaultValue={post?.content}
             placeholder="content..."
+            className={`bg-${post?.isprivate ? 'red-900' : 'blue-900'}`}
           />
         )}
 
         {!!postError && <span className="text-red-500">{postError.error}</span>}
 
-        <div className="flex justify-around">
-          <Button type="reset" variant={'secondary'}>
-            취소
-          </Button>
-          <Button type="button" variant={'destructive'}>
-            삭제
-          </Button>
-          <Button type="submit" variant={'apply'} disabled={isPending}>
-            저장{isPending && '...'}
-          </Button>
-        </div>
+        {isShowButtons && (
+          <div className="flex justify-around">
+            <Button type="reset" variant={'secondary'}>
+              취소
+            </Button>
+            <Button type="button" variant={'destructive'}>
+              삭제
+            </Button>
+            <Button type="submit" variant={'apply'} disabled={isPending}>
+              저장{isPending && '...'}
+            </Button>
+          </div>
+        )}
       </form>
     </>
   );
