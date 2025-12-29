@@ -1,5 +1,7 @@
 'use client';
 
+import { redirect } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 // import Image from 'next/image';
 // import d from '@/public/profile_dummy.png';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -11,6 +13,11 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 const DummyProfileImage = '/profile_dummy.png';
 
 export default function UserProfile() {
+  const { data } = useSession();
+  console.log('🚀 ~ UserProfile - session:', data);
+  if (!data || !data.user) redirect('/sign');
+
+  const profileImg = data.user.image || DummyProfileImage;
   const isMobile = useIsMobile();
 
   // const Comp = isMobile ? Popover : HoverCard;
@@ -30,7 +37,7 @@ export default function UserProfile() {
           className="touch-none md:pointer-events-auto md:touch-auto"
         >
           <Avatar>
-            <AvatarImage src={isMobile ? DummyProfileImage : undefined} />
+            <AvatarImage src={isMobile ? profileImg : undefined} />
             <AvatarFallback className="text-xl uppercase">
               {'guest'.substring(0, 2)}
             </AvatarFallback>
@@ -41,13 +48,13 @@ export default function UserProfile() {
         <div className="flex justify-between gap-1">
           <div className="w-20">
             <Avatar className="h-16 w-16">
-              <AvatarImage src={DummyProfileImage} className="" />
+              <AvatarImage src={profileImg} className="" />
               <AvatarFallback>DP</AvatarFallback>
             </Avatar>
           </div>
           <div className="shrink-0 space-y-1">
-            <h4 className="font-semibold text-sm">@guest</h4>
-            <p className="text-muted-foreground text-sm">guest@gmail.com</p>
+            <h4 className="font-semibold text-sm">@{data.user.name}</h4>
+            <p className="text-muted-foreground text-sm">{data.user.email}</p>
             <div className="text-muted-foreground text-xs">
               {12} Books
               {23} Marks 00 Followers
