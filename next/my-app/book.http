@@ -1,0 +1,16 @@
+@api=http://localhost:3000/api
+# @api=https://dev.hana.com/api
+
+### book list
+GET {{api}}/books
+
+### add book
+POST {{api}}/books
+
+{
+  "title": "New book",
+  "writer": "jade"
+}
+
+### get a book   fetch().then(res => res.json())
+GET {{api}}/books/22

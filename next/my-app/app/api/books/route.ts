@@ -10,6 +10,15 @@ export async function GET(req: NextRequest) {
   );
 }
 
+export async function POST(req: NextRequest) {
+  const { title, writer } = await req.json();
+  const id = Math.max(...books.map((book) => book.id), 0) + 1;
+  const newer = { id, title, writer };
+  books.push(newer);
+
+  return NextResponse.json(newer);
+}
+
 export async function GET1(req: NextRequest) {
   const { host, hostname, searchParams, origin, pathname, basePath } =
     req.nextUrl;
