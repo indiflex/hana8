@@ -16,7 +16,7 @@ POST {{api}}/books
 GET {{api}}/books/2
 
 ### patch a book
-PATCH {{api}}/books/23
+PATCH {{api}}/books/2
 
 {
   "title": "New title",

@@ -6,19 +6,27 @@ type Params = {
   params: Promise<{ bookId: string }>;
 };
 
-const getBook = async ({ params }: Params, isIndex: boolean = false) => {
+type ReturnBookOrIndex<T extends boolean = false> = T extends true
+  ? number
+  : Book;
+
+const getBook = async <T extends boolean = false>(
+  { params }: Params,
+  isIndex?: T,
+) => {
   const { bookId } = await params;
   const fn = isIndex ? books.findIndex : books.find;
-  const book = fn((book) => book.id === +bookId);
+  const book = fn.bind(books)((book) => book.id === +bookId);
 
-  if (!book) throw new HttpError(`Not found book (id: #${bookId})`, 404);
+  if (book === -1 || book === undefined)
+    throw new HttpError(`Not found book (id: #${bookId})`, 404);
 
-  return book;
+  return book as ReturnBookOrIndex<T>;
 };
 
 export async function PATCH(req: NextRequest, { params }: Params) {
   try {
-    const book = (await getBook({ params })) as Book;
+    const book = await getBook({ params });
     const { title, writer } = await req.json();
     book.title = title;
     book.writer = writer;
@@ -31,17 +39,19 @@ export async function PATCH(req: NextRequest, { params }: Params) {
 
 export async function DELETE(_req: NextRequest, { params }: Params) {
   try {
-    const bookIdx = (await getBook({ params }, true)) as number;
+    const bookIdx = await getBook({ params }, true);
     console.log('🚀 ~ bookIdx:', bookIdx);
 
-    books.splice(bookIdx, 1);
+    return NextResponse.json(books.splice(bookIdx, 1));
   } catch (err) {
     return errorResponse(err);
   }
 }
 
-export async function GET(_req: NextRequest, { params }: Params) {
+export async function GET(_req: Request, { params }: Params) {
   try {
+    console.log('*****', process.env.DB_PASSWD);
+    console.log('*****', process.env);
     const book = await getBook({ params });
 
     return NextResponse.json(book);
