@@ -41,9 +41,7 @@ export const loginEmail = async (
     if (err instanceof AuthError) {
       const msg = err.message || 'EmailSignInError';
       const email = msg.substring(0, msg.indexOf('Read more'));
-      if (err.type === 'EmailSignInError') {
-        return [{ error: { email }, data }];
-      }
+      return [{ error: { email }, data }];
     }
     return [{ error: { email: JSON.stringify(err) }, data }];
   }

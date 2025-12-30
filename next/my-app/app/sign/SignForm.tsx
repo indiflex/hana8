@@ -12,10 +12,6 @@ import {
   type ValidError,
 } from '@/lib/sign.action';
 
-// type Props = {
-//   redirectTo?: string;
-// };
-
 export default function SignForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -37,7 +33,7 @@ export default function SignForm() {
 
   return (
     <div className="grid place-items-center">
-      <form action={login} className="w-96 space-y-3">
+      <form action={login} className="w-full space-y-3">
         <input type="hidden" name="redirectTo" value={redirectTo} />
 
         <div className="space-y-1">
