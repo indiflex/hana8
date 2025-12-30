@@ -1,17 +1,41 @@
 'use client';
 
+import { useActionState, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { loginEmail } from '@/lib/sign.action';
+import {
+  type EmailPasswd,
+  loginEmail,
+  type ValidError,
+} from '@/lib/sign.action';
 
 type Props = {
   redirectTo?: string;
 };
+
 export default function SignForm({ redirectTo = '/hello' }: Props) {
+  const [credential, setCredential] = useState<EmailPasswd>({
+    email: '',
+    passwd: '',
+  });
+
+  const [validError, login, isPending] = useActionState(
+    async (_: ValidError<EmailPasswd> | undefined, formData: FormData) => {
+      const [err, data] = await loginEmail(formData);
+      console.log('🚀 ~ err:', data);
+      if (err) {
+        setCredential(err.data);
+        return err;
+      }
+      setCredential(data);
+    },
+    undefined,
+  );
+
   return (
     <div className="grid place-items-center">
-      <form action={loginEmail} className="w-96 space-y-3">
+      <form action={login} className="w-96 space-y-3">
         <input type="hidden" name="redirectTo" value={redirectTo} />
 
         <div className="space-y-1">
@@ -20,6 +44,7 @@ export default function SignForm({ redirectTo = '/hello' }: Props) {
             id="email"
             name="email"
             type="email"
+            defaultValue={'abc@gmail.com'}
             placeholder="user@email.com"
             className="w-full"
           />
@@ -39,7 +64,9 @@ export default function SignForm({ redirectTo = '/hello' }: Props) {
           <Button variant={'outline'} type="reset">
             Cancel
           </Button>
-          <Button type="submit">LogIn</Button>
+          <Button type="submit" disabled={isPending}>
+            LogIn{isPending && '...'}
+          </Button>
         </div>
       </form>
     </div>
