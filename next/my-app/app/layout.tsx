@@ -46,12 +46,23 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <nav className="flex items-center justify-between">
-              <div>
-                Navigator <Link href="/hello">Hello</Link>|
-                <Link href="/hi">Hi</Link>|<Link href="/shop/123">123</Link>|
+              <div className="flex h-5 [&>div.shrink-0]:m-1 [&>div.shrink-0]:bg-red-500">
+                Navigator
+                <Link href="/hello">Hello</Link>
+                <Separator
+                  orientation="vertical"
+                  className="bg-secondary-foreground"
+                />
+                <Link href="/hi">Hi</Link>
+                <Separator orientation="vertical" />
+                <Link href="/shop/123">123</Link>
+                <Separator orientation="vertical" />
                 <Link href="/shop/123/456">456</Link>
+                <Separator orientation="vertical" />
                 <Link href="/intercept">Intercept</Link>
-                <Link href="/photos">Photos</Link>|{' '}
+                <Separator orientation="vertical" />
+                <Link href="/photos">Photos</Link>
+                <Separator orientation="vertical" />
                 <Link href="/caches">caches</Link>
                 <Separator orientation="vertical" />
                 {session?.user ? (

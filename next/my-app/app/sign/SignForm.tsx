@@ -1,6 +1,8 @@
 'use client';
 
-import { useActionState, useState } from 'react';
+import type { Route } from 'next';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useActionState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,25 +12,25 @@ import {
   type ValidError,
 } from '@/lib/sign.action';
 
-type Props = {
-  redirectTo?: string;
-};
+// type Props = {
+//   redirectTo?: string;
+// };
 
-export default function SignForm({ redirectTo = '/hello' }: Props) {
-  const [credential, setCredential] = useState<EmailPasswd>({
-    email: '',
-    passwd: '',
-  });
+export default function SignForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('callbackUrl') || '/hello';
 
   const [validError, login, isPending] = useActionState(
     async (_: ValidError<EmailPasswd> | undefined, formData: FormData) => {
       const [err, data] = await loginEmail(formData);
-      console.log('🚀 ~ err:', data);
+      console.log('🚀 ~ err:', err, data);
       if (err) {
-        setCredential(err.data);
         return err;
       }
-      setCredential(data);
+
+      console.log('🚀 ~ redirectTo:', redirectTo);
+      router.push(redirectTo as Route);
     },
     undefined,
   );
@@ -44,10 +46,13 @@ export default function SignForm({ redirectTo = '/hello' }: Props) {
             id="email"
             name="email"
             type="email"
-            defaultValue={'abc@gmail.com'}
+            defaultValue={validError?.data.email}
             placeholder="user@email.com"
             className="w-full"
           />
+          {validError?.error.email && (
+            <p className="text-red-500">{validError.error.email}</p>
+          )}
         </div>
 
         <div className="space-y-1">
@@ -56,8 +61,12 @@ export default function SignForm({ redirectTo = '/hello' }: Props) {
             id="passwd"
             name="passwd"
             type="password"
+            defaultValue={validError?.data.passwd}
             placeholder="password..."
           />
+          {validError?.error.passwd && (
+            <p className="text-red-500">{validError.error.passwd}</p>
+          )}
         </div>
 
         <div className="flex justify-center gap-5">
