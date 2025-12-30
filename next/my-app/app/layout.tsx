@@ -6,6 +6,7 @@ import { use } from 'react';
 import { ModeToggle } from '@/components/ModeToggle';
 import { ThemeProvider } from '@/components/theme-provider';
 import UserProfile from '@/components/UserProfile';
+import { Separator } from '@/components/ui/separator';
 import { auth } from '@/lib/auth';
 import './globals.css';
 
@@ -51,7 +52,8 @@ export default function RootLayout({
                 <Link href="/shop/123/456">456</Link>
                 <Link href="/intercept">Intercept</Link>
                 <Link href="/photos">Photos</Link>|{' '}
-                <Link href="/caches">caches</Link>|
+                <Link href="/caches">caches</Link>
+                <Separator orientation="vertical" />
                 {session?.user ? (
                   <Link href="/api/auth/signout">{session.user.name}</Link>
                 ) : (
