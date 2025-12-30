@@ -1,9 +1,15 @@
+import type { Metadata } from 'next';
 import { use } from 'react';
 import { Separator } from '@/components/ui/separator';
 import { loginGithub, loginGoogle } from '@/lib/sign.action';
 import { GithubLoginButton } from './GithubLoginButton';
 import { GoogleLoginButton } from './GoogleLoginButton';
 import SignForm from './SignForm';
+
+export const metadata: Metadata = {
+  title: 'Hana Login Page',
+  description: 'Generat...',
+};
 
 export default function SignPage({
   searchParams,
@@ -14,7 +20,7 @@ export default function SignPage({
 
   return (
     <div className="mx-auto w-96 rounded-md border p-5">
-      <h1 className="text-center font-semibold text-xl mb-5">Sign In</h1>
+      <h1 className="mb-5 text-center font-semibold text-xl">Sign In</h1>
       <form className="flex gap-3">
         <input
           type="hidden"
