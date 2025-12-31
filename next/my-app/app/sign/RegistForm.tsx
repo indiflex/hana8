@@ -1,32 +1,17 @@
 'use client';
 
-import type { Route } from 'next';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useActionState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { loginEmail } from '@/lib/sign.action';
-import type { ValidError } from '@/lib/validator';
+import { regist } from '@/lib/sign.action';
 
-export default function SignForm() {
-  const router = useRouter();
+export default function RegistForm() {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('callbackUrl') || '/hello';
 
-  const [validError, login, isPending] = useActionState(
-    async (_: ValidError | undefined, formData: FormData) => {
-      const [err, data] = await loginEmail(formData);
-      console.log('🚀 ~ err:', err, data);
-      if (err) {
-        return err as ValidError;
-      }
-
-      console.log('🚀 ~ redirectTo:', redirectTo);
-      router.push(redirectTo as Route);
-    },
-    undefined,
-  );
+  const [validError, login, isPending] = useActionState(regist, undefined);
 
   return (
     <div className="grid place-items-center">
@@ -49,6 +34,21 @@ export default function SignForm() {
         </div>
 
         <div className="space-y-1">
+          <Label htmlFor="name">name</Label>
+          <Input
+            id="name"
+            name="name"
+            type="text"
+            defaultValue={validError?.data.name || ''}
+            placeholder="nickname..."
+            className="w-full"
+          />
+          {validError?.error.name && (
+            <p className="text-red-500">{validError.error.name}</p>
+          )}
+        </div>
+
+        <div className="space-y-1">
           <Label htmlFor="passwd">password</Label>
           <Input
             id="passwd"
@@ -61,13 +61,39 @@ export default function SignForm() {
             <p className="text-red-500">{validError.error.passwd}</p>
           )}
         </div>
+        <div className="space-y-1">
+          <Label htmlFor="passwd2">password2</Label>
+          <Input
+            id="passwd2"
+            name="passwd2"
+            type="password"
+            defaultValue={validError?.data.passwd2 || ''}
+            placeholder="password2..."
+          />
+          {validError?.error.passwd2 && (
+            <p className="text-red-500">{validError.error.passwd2}</p>
+          )}
+        </div>
+
+        <div className="space-y-1">
+          <Label htmlFor="image">Profile Image</Label>
+          <Input
+            id="image"
+            name="image"
+            type="file"
+            placeholder="profile image..."
+          />
+          {validError?.error.image && (
+            <p className="text-red-500">{validError.error.image}</p>
+          )}
+        </div>
 
         <div className="flex justify-center gap-5">
           <Button variant={'outline'} type="reset">
             Cancel
           </Button>
           <Button type="submit" disabled={isPending}>
-            LogIn{isPending && '...'}
+            Regist {isPending && '...'}
           </Button>
         </div>
       </form>

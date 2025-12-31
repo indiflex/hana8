@@ -1,10 +1,12 @@
 'use server';
 
+import { redirect } from 'next/navigation';
 import { AuthError } from 'next-auth';
 import z from 'zod';
 import { signIn, signOut } from './auth';
 import { isErrorWithMessage } from './errors';
 import { prisma } from './prisma';
+import { saveProfile, type ValidError, validate } from './validator';
 
 export type Provider = 'google' | 'github' | 'credentials';
 
@@ -15,26 +17,6 @@ export const logout = async () => {
 const login = async (provider: Provider, formData: FormData) => {
   const redirectTo = formData.get('redirectTo') as string;
   await signIn(provider, { redirectTo });
-};
-
-export type ValidError = {
-  error: Record<string, string | undefined>;
-  data: Record<string, string | undefined>;
-};
-
-const validate = <T extends z.ZodObject>(zobj: T, formData: FormData) => {
-  const data = Object.fromEntries(formData.entries()) as ValidError['data'];
-  const validator = zobj.safeParse(data);
-  if (!validator.success) {
-    const verr = z.treeifyError(validator.error).properties || {};
-    const validError: ValidError = { error: {}, data };
-    for (const [k, v] of Object.entries(verr)) {
-      validError.error[k] = v?.errors[0];
-    }
-    return [validError] as const;
-  }
-
-  return [undefined, validator.data] as const;
 };
 
 export const loginEmail = async (formData: FormData) => {
@@ -68,13 +50,20 @@ export const loginGoogle = async (formData: FormData) =>
 export const loginGithub = async (formData: FormData) =>
   login('github', formData);
 
-export const regist = async (_: ValidError | undefined, formData: FormData) => {
+export const regist = async (
+  _: ValidError | undefined,
+  formData: FormData,
+): Promise<ValidError | undefined> => {
+  const image = await saveProfile(formData.get('image') as File);
+  if (image) formData.set('image', image);
+
   const zobj = z
     .object({
       name: z.string().min(1).max(30),
       email: z.email(),
       passwd: z.string().min(3),
       passwd2: z.string().min(3),
+      image: z.nullable(z.string()),
     })
     .refine(
       ({ passwd, passwd2 }) => passwd === passwd2,
@@ -83,33 +72,32 @@ export const regist = async (_: ValidError | undefined, formData: FormData) => {
 
   const [err, data] = validate(zobj, formData);
   console.log('🚀 ~ err:', err, data);
-  if (err) return [err];
+  if (err) return err;
 
-  const { email } = data;
+  const { email, name, passwd, image } = data;
   try {
     const user = await prisma.user.findUnique({
       where: { email },
     });
 
     if (user)
-      return [
-        { error: { email: 'This email is already exists!' }, data },
-      ] satisfies [ValidError];
+      return {
+        error: { email: 'This email is already exists!' },
+        data,
+      } satisfies ValidError;
 
-    const newUser = await prisma.user.create({
-      data,
+    await prisma.user.create({
+      data: { email, name, passwd, image },
       select: { id: true, name: true, email: true, isadmin: true },
     });
 
-    return [undefined, newUser];
+    redirect('/sign');
   } catch (err) {
-    return [
-      {
-        error: {
-          email: isErrorWithMessage(err) ? err.message : JSON.stringify(err),
-        },
-        data,
+    return {
+      error: {
+        email: isErrorWithMessage(err) ? err.message : JSON.stringify(err),
       },
-    ];
+      data,
+    };
   }
 };
