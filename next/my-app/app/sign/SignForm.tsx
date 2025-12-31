@@ -6,11 +6,7 @@ import { useActionState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  type EmailPasswd,
-  loginEmail,
-  type ValidError,
-} from '@/lib/sign.action';
+import { loginEmail, type ValidError } from '@/lib/sign.action';
 
 export default function SignForm() {
   const router = useRouter();
@@ -18,11 +14,11 @@ export default function SignForm() {
   const redirectTo = searchParams.get('callbackUrl') || '/hello';
 
   const [validError, login, isPending] = useActionState(
-    async (_: ValidError<EmailPasswd> | undefined, formData: FormData) => {
+    async (_: ValidError | undefined, formData: FormData) => {
       const [err, data] = await loginEmail(formData);
       console.log('🚀 ~ err:', err, data);
       if (err) {
-        return err;
+        return err as ValidError;
       }
 
       console.log('🚀 ~ redirectTo:', redirectTo);
