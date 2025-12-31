@@ -54,8 +54,8 @@ export const regist = async (
   _: ValidError | undefined,
   formData: FormData,
 ): Promise<ValidError | undefined> => {
-  const image = await saveProfile(formData.get('image') as File);
-  if (image) formData.set('image', image);
+  const imageFile = await saveProfile(formData.get('image') as File);
+  if (imageFile) formData.set('image', imageFile);
 
   const zobj = z
     .object({
