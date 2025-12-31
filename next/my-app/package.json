@@ -11,6 +11,7 @@
     "db:push": "prisma db push",
     "db:gen": "prisma generate",
     "db:seed": "prisma db seed",
+    "db:mig": "prisma migrate dev",
     "format": "biome format --write"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@tabler/icons-react": "^3.36.0",
     "@tanstack/react-table": "^8.21.3",
+    "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",
