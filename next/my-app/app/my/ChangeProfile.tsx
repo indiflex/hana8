@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import type { Session } from 'next-auth';
 import { useSession } from 'next-auth/react';
 import { useActionState } from 'react';
@@ -11,14 +12,16 @@ import type { ValidError } from '@/lib/validator';
 
 export default function ChangeProfile({ session }: { session: Session }) {
   const { update } = useSession();
+  const router = useRouter();
 
   const {
-    user: { email, name },
+    user: { email, name, image },
   } = session;
+  console.log('🚀 ~ email:', email, name, image);
 
   const defaultError =
     process.env.NODE_ENV === 'development'
-      ? { error: {}, data: { email, name } }
+      ? { error: {}, data: { email, name, image } }
       : undefined;
 
   const [validError, change, isPending] = useActionState(
@@ -26,11 +29,15 @@ export default function ChangeProfile({ session }: { session: Session }) {
       const [err, data] = await changeProfile(formData);
       if (err) return err;
       await update(data);
+      router.refresh();
+      // alert("Your profile's updated");
+      const { email, name, image } = data;
+      return { error: {}, data: { email, name, image } };
     },
     defaultError,
   );
   return (
-    <form action={change}>
+    <form action={change} className="mt-3 space-y-2 rounded-md border p-3">
       <input type="hidden" name="prevEmail" defaultValue={email || ''} />
 
       <div className="space-y-1">
@@ -60,6 +67,19 @@ export default function ChangeProfile({ session }: { session: Session }) {
         />
         {validError?.error.name && (
           <p className="text-red-500">{validError.error.name}</p>
+        )}
+      </div>
+
+      <div className="space-y-1">
+        <Label htmlFor="image">Profile Image {validError?.data.image}</Label>
+        <Input
+          id="image"
+          name="image"
+          type="file"
+          placeholder="profile image..."
+        />
+        {validError?.error.image && (
+          <p className="text-red-500">{validError.error.image}</p>
         )}
       </div>
 

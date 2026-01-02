@@ -12,6 +12,7 @@ import {
   saveProfile,
   type ValidError,
   validate,
+  validateAsync,
 } from './validator';
 
 export type Provider = 'google' | 'github' | 'credentials';
@@ -155,7 +156,7 @@ export const changePassword = async (formData: FormData) => {
         });
     });
 
-  const [err, data] = validate(zobj, formData);
+  const [err, data] = await validateAsync(zobj, formData);
   console.log('🚀 ~ err:', err, data);
   if (err) return [err] as [ValidError];
 
@@ -245,9 +246,9 @@ export const changeProfile = async (formData: FormData) => {
     }
     return [
       {
-        error: { email: message, name: '' },
+        error: { email: message, name: '', image: '' },
         data,
       },
-    ];
+    ] as const;
   }
 };

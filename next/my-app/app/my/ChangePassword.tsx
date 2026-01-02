@@ -1,7 +1,7 @@
 'use client';
 
+import { KeyIcon } from 'lucide-react';
 import type { Session } from 'next-auth';
-import { useSession } from 'next-auth/react';
 import { useActionState, useReducer } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,22 +10,24 @@ import { changePassword } from '@/lib/sign.action';
 import type { ValidError } from '@/lib/validator';
 
 export default function ChangePassword({ session }: { session: Session }) {
-  const { update } = useSession();
   const [isEditing, toggleEditing] = useReducer((p) => !p, false);
 
   const [validError, change, isPending] = useActionState(
     async (_: ValidError | undefined, formData: FormData) => {
-      const [err, data] = await changePassword(formData);
+      const [err] = await changePassword(formData);
       if (err) return err;
-      await update(data);
+      toggleEditing();
     },
     undefined,
   );
 
   return (
-    <>
+    <div className="mt-5">
       {isEditing ? (
-        <form action={change}>
+        <form
+          action={change}
+          className="space-y-2 rounded-md border-2 border-red-300 p-3"
+        >
           <input
             type="hidden"
             name="email"
@@ -72,17 +74,22 @@ export default function ChangePassword({ session }: { session: Session }) {
             )}
           </div>
 
-          <div className="text-center">
+          <div className="mt-3 space-x-3 text-center">
+            <Button onClick={toggleEditing} type="reset" variant={'outline'}>
+              Cancel
+            </Button>
             <Button type="submit" disabled={isPending}>
               Save Password {isPending && '...'}
             </Button>
           </div>
         </form>
       ) : (
-        <Button onClick={toggleEditing} variant={'destructive'}>
-          Change Password
-        </Button>
+        <div className="text-right">
+          <Button onClick={toggleEditing} variant={'destructive'}>
+            Change Password <KeyIcon />
+          </Button>
+        </div>
       )}
-    </>
+    </div>
   );
 }

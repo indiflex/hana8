@@ -1,4 +1,4 @@
-'use cache';
+// 'use cache';
 
 import Image from 'next/image';
 import Link from 'next/link';

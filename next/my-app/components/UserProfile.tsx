@@ -16,7 +16,7 @@ const DummyProfileImage = '/profile_dummy.png';
 
 export default function UserProfile({ data }: { data: Session }) {
   // const { data } = useSession();
-  console.log('🚀 ~ UserProfile - session:', data);
+  // console.log('🚀 ~ UserProfile - session:', data);
   if (!data || !data.user) redirect('/sign');
 
   const router = useRouter();
@@ -46,7 +46,10 @@ export default function UserProfile({ data }: { data: Session }) {
           className="touch-none md:pointer-events-auto md:touch-auto"
         >
           <Avatar>
-            <AvatarImage src={isMobile ? profileImg : undefined} />
+            <AvatarImage
+              src={isMobile ? profileImg : undefined}
+              alt={data.user.name || 'guest'}
+            />
             <AvatarFallback className="text-xl uppercase">
               {'guest'.substring(0, 2)}
             </AvatarFallback>
@@ -57,7 +60,11 @@ export default function UserProfile({ data }: { data: Session }) {
         <div className="flex justify-between gap-1">
           <div className="w-20">
             <Avatar className="h-16 w-16">
-              <AvatarImage src={profileImg} className="" />
+              <AvatarImage
+                src={profileImg}
+                alt={data.user.name || 'guest'}
+                className=""
+              />
               <AvatarFallback>DP</AvatarFallback>
             </Avatar>
           </div>

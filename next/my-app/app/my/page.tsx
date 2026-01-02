@@ -8,12 +8,12 @@ export default async function My() {
   if (!session || !session.user) redirect('/sign');
 
   return (
-    <>
+    <div className="mx-auto w-96">
       <h1 className="text-center text-xl">My</h1>
 
       <ChangeProfile session={session} />
 
       <ChangePassword session={session} />
-    </>
+    </div>
   );
 }

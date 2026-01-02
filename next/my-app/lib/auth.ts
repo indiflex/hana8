@@ -72,25 +72,29 @@ export const {
 
       return true;
     },
-    async jwt({ token, user, trigger }) {
+    async jwt({ token, user, trigger, session }) {
       // console.log('🚀 jwt - token:', token);
       // console.log('🚀 jwt - user:', user);
-      if (trigger) console.log('🚀 jwt - trigger:', trigger);
-      if (user) {
-        token.id = user.id;
-        token.email = user.email;
-        token.name = user.name;
-        token.isadmin = user.isadmin;
+      // if (trigger) console.log('🚀 jwt - trigger:', trigger, session);
+      const userData = trigger === 'update' ? session : user;
+      if (userData) {
+        token.id = userData.id;
+        token.email = userData.email;
+        token.name = userData.name;
+        token.image = userData.image;
+        token.isadmin = userData.isadmin;
       }
       return token;
     },
-    async session({ session, user }) {
-      if (user) {
-        session.user.id = user.id;
-        session.user.email = user.email;
-        session.user.name = user.name;
-        session.user.isadmin = user.isadmin;
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = String(token.id);
+        session.user.email = String(token.email);
+        session.user.name = token.name;
+        session.user.image = String(token.image || token.picture);
+        session.user.isadmin = token.isadmin;
       }
+      // console.log('🚀 ~ session:', session);
       return session;
     },
   },
