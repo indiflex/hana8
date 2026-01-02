@@ -1,7 +1,7 @@
 'use client';
 
 import { redirect } from 'next/navigation';
-import { useSession } from 'next-auth/react';
+import type { Session } from 'next-auth';
 // import Image from 'next/image';
 // import d from '@/public/profile_dummy.png';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -13,8 +13,8 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 
 const DummyProfileImage = '/profile_dummy.png';
 
-export default function UserProfile() {
-  const { data } = useSession();
+export default function UserProfile({ data }: { data: Session }) {
+  // const { data } = useSession();
   console.log('🚀 ~ UserProfile - session:', data);
   if (!data || !data.user) redirect('/sign');
 

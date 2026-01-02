@@ -2,6 +2,8 @@ import NextAuth, { AuthError } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Github from 'next-auth/providers/github';
 import Google from 'next-auth/providers/google';
+import { prisma } from './prisma';
+import { comparePassword } from './validator';
 
 export const {
   handlers: { GET, POST },
@@ -24,9 +26,7 @@ export const {
         console.log('🚀 ~ credentials:', credentials);
         const { email, passwd } = credentials;
         return {
-          id: '1',
           email: email as string,
-          name: 'HONG',
           passwd: passwd as string,
         };
       },
@@ -39,13 +39,36 @@ export const {
       console.log('🚀 ~ account:', account);
       // console.log('🚀 signIn - profile:', profile);
       console.log('🚀 signIn - user:', user);
+      const { email, passwd, name, image } = user;
+      let oldUser =
+        email && (await prisma.user.findUnique({ where: { email } }));
+      console.log('🚀 ~ oldUser:', oldUser);
 
       if (account?.provider === 'credentials') {
-        if (user.email === 'jade@gmail.com')
-          throw makeAuthError('EmailSignInError', 'Not Exists Email!');
+        if (!oldUser)
+          throw makeAuthError('EmailSignInError', 'Not Exists Email');
 
-        if (!user.passwd) return false;
+        if (
+          passwd &&
+          oldUser.passwd &&
+          !(await comparePassword(passwd, oldUser.passwd))
+        )
+          throw makeAuthError('EmailSignInError', 'Invalid Email or Password');
+      } else {
+        if (!oldUser) {
+          if (!email || !name)
+            throw makeAuthError('OAuthAccountNotLinked', 'Need email and name');
+
+          oldUser = await prisma.user.create({
+            data: { email, name, image },
+          });
+        }
       }
+
+      user.id = String(oldUser.id);
+      user.name = oldUser.name;
+      user.image = oldUser.image;
+      user.isadmin = oldUser.isadmin;
 
       return true;
     },
