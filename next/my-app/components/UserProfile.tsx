@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import type { Session } from 'next-auth';
 // import Image from 'next/image';
@@ -63,6 +64,7 @@ export default function UserProfile({ data }: { data: Session }) {
             <Button onClick={logout} variant={'outline'}>
               LogOut
             </Button>
+            <Link href="/my">My Info.</Link>
           </div>
         </div>
       </Comp.content>

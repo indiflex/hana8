@@ -3,7 +3,7 @@
 import { redirect } from 'next/navigation';
 import { AuthError } from 'next-auth';
 import z from 'zod';
-import { signIn, signOut } from './auth';
+import { auth, signIn, signOut } from './auth';
 import { isErrorWithMessage } from './errors';
 import { prisma } from './prisma';
 import {
@@ -109,5 +109,70 @@ export const regist = async (
       error: { email: message },
       data,
     };
+  }
+};
+
+export const changeProfile = async (formData: FormData) => {
+  // ): Promise<[ValidError] | [undefined, z.output]> => {
+  const session = await auth();
+  if (!session?.user) throw new Error('Need Login!');
+
+  const imageFile = await saveProfile(formData.get('image') as File);
+  console.log('🚀 ~ imageFile:', imageFile);
+  formData.set('image', imageFile || '');
+
+  const zobj = z.object({
+    name: z.string().min(1, 'Input the name!').max(30),
+    prevEmail: z.email(),
+    email: z.email(),
+    image: z.nullable(z.string()),
+  });
+
+  const [err, data] = validate(zobj, formData);
+  console.log('🚀 ~ err:', err, data);
+  if (err) return [err] as const;
+
+  const { email, prevEmail, name, image } = data;
+  try {
+    const oldUser = await prisma.user.findUnique({
+      where: { email: prevEmail },
+    });
+
+    if (!oldUser)
+      return {
+        error: { email: 'Invalid Previous Email!' },
+        data,
+      } satisfies ValidError;
+
+    if (email !== prevEmail) {
+      const user = await prisma.user.findUnique({
+        where: { email },
+      });
+
+      if (user)
+        return {
+          error: { email: 'This email is already exists!' },
+          data,
+        } satisfies ValidError;
+    }
+
+    const newer = await prisma.user.update({
+      where: { email: prevEmail },
+      data: { email, name, image },
+    });
+
+    return [undefined, newer] as const;
+  } catch (err) {
+    let message = JSON.stringify(err);
+    if (isErrorWithMessage(err)) {
+      if (err.message === 'NEXT_REDIRECT') redirect('/sign');
+      message = err.message;
+    }
+    return [
+      {
+        error: { email: message },
+        data,
+      },
+    ];
   }
 };
