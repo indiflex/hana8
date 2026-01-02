@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import type { Session } from 'next-auth';
+import { useReducer } from 'react';
 // import Image from 'next/image';
 // import d from '@/public/profile_dummy.png';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -19,6 +19,9 @@ export default function UserProfile({ data }: { data: Session }) {
   console.log('🚀 ~ UserProfile - session:', data);
   if (!data || !data.user) redirect('/sign');
 
+  const router = useRouter();
+  const [isOpen, toggleOpen] = useReducer((p) => !p, false);
+
   const profileImg = data.user.image || DummyProfileImage;
   const isMobile = useIsMobile();
 
@@ -30,8 +33,12 @@ export default function UserProfile({ data }: { data: Session }) {
     ? { comp: Popover, trigger: PopoverTrigger, content: PopoverContent }
     : { comp: HoverCard, trigger: HoverCardTrigger, content: HoverCardContent };
 
+  const goToMyInfo = () => {
+    toggleOpen();
+    router.push('/my');
+  };
   return (
-    <Comp.comp>
+    <Comp.comp open={isOpen} onOpenChange={toggleOpen}>
       {/* <Image src={d} width={200} height={200} alt="xx" /> */}
       <Comp.trigger asChild>
         <Button
@@ -64,7 +71,9 @@ export default function UserProfile({ data }: { data: Session }) {
             <Button onClick={logout} variant={'outline'}>
               LogOut
             </Button>
-            <Link href="/my">My Info.</Link>
+            <Button onClick={goToMyInfo} variant={'outline'} className="ml-3">
+              My Info.
+            </Button>
           </div>
         </div>
       </Comp.content>

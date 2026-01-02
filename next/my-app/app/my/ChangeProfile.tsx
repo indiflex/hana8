@@ -1,17 +1,20 @@
 'use client';
 
+import type { Session } from 'next-auth';
+import { useSession } from 'next-auth/react';
 import { useActionState } from 'react';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { changeProfile } from '@/lib/sign.action';
 import type { ValidError } from '@/lib/validator';
 
-export default function ChangeProfile() {
+export default function ChangeProfile({ session }: { session: Session }) {
   const { update } = useSession();
 
-  // const {
-  //   user: { email, name },
-  // } = session;
+  const {
+    user: { email, name },
+  } = session;
 
   const defaultError =
     process.env.NODE_ENV === 'development'
@@ -19,14 +22,17 @@ export default function ChangeProfile() {
       : undefined;
 
   const [validError, change, isPending] = useActionState(
-    (_: ValidError | undefined, formData: FormData) => {
-      const [err, data] = changeProfile(formData);
+    async (_: ValidError | undefined, formData: FormData) => {
+      const [err, data] = await changeProfile(formData);
       if (err) return err;
+      await update(data);
     },
     defaultError,
   );
   return (
-    <form action="">
+    <form action={change}>
+      <input type="hidden" name="prevEmail" defaultValue={email || ''} />
+
       <div className="space-y-1">
         <Label htmlFor="email">email</Label>
         <Input
@@ -55,6 +61,12 @@ export default function ChangeProfile() {
         {validError?.error.name && (
           <p className="text-red-500">{validError.error.name}</p>
         )}
+      </div>
+
+      <div className="text-center">
+        <Button type="submit" disabled={isPending}>
+          Save Profile {isPending && '...'}
+        </Button>
       </div>
     </form>
   );
