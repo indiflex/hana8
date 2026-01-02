@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   // basePath: '/post',
   reactCompiler: true,
-  cacheComponents: true,
+  // cacheComponents: true,
   experimental: {
     typedEnv: true,
   },

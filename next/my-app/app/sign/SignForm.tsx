@@ -14,6 +14,17 @@ export default function SignForm() {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('callbackUrl') || '/hello';
 
+  const defaultError =
+    process.env.NODE_ENV === 'development'
+      ? {
+          error: {},
+          data: {
+            email: 'sico@gmail.com',
+            passwd: '1212',
+          },
+        }
+      : undefined;
+
   const [validError, login, isPending] = useActionState(
     async (_: ValidError | undefined, formData: FormData) => {
       const [err, data] = await loginEmail(formData);
@@ -25,7 +36,7 @@ export default function SignForm() {
       console.log('🚀 ~ redirectTo:', redirectTo);
       router.push(redirectTo as Route);
     },
-    undefined,
+    defaultError,
   );
 
   return (

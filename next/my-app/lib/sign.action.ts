@@ -3,10 +3,17 @@
 import { redirect } from 'next/navigation';
 import { AuthError } from 'next-auth';
 import z from 'zod';
-import { signIn, signOut } from './auth';
+import { auth, signIn, signOut } from './auth';
 import { isErrorWithMessage } from './errors';
 import { prisma } from './prisma';
-import { saveProfile, type ValidError, validate } from './validator';
+import {
+  comparePassword,
+  encryptPassword,
+  saveProfile,
+  type ValidError,
+  validate,
+  validateAsync,
+} from './validator';
 
 export type Provider = 'google' | 'github' | 'credentials';
 
@@ -55,27 +62,29 @@ export const regist = async (
   formData: FormData,
 ): Promise<ValidError | undefined> => {
   const imageFile = await saveProfile(formData.get('image') as File);
-  if (imageFile) formData.set('image', imageFile);
+  console.log('🚀 ~ imageFile:', imageFile);
+  formData.set('image', imageFile || '');
 
   const zobj = z
     .object({
-      name: z.string().min(1).max(30),
+      name: z.string().min(1, 'Input the name!').max(30),
       email: z.email(),
       passwd: z.string().min(3),
       passwd2: z.string().min(3),
       image: z.nullable(z.string()),
     })
-    .refine(
-      ({ passwd, passwd2 }) => passwd === passwd2,
-      'Not equals the passwd and passwd2!',
-    );
+    .refine(({ passwd, passwd2 }) => passwd === passwd2, {
+      path: ['passwd2'],
+      message: 'Not equals the passwd and passwd2!',
+    });
 
   const [err, data] = validate(zobj, formData);
   console.log('🚀 ~ err:', err, data);
   if (err) return err;
 
-  const { email, name, passwd, image } = data;
+  const { email, name, image } = data;
   try {
+    const passwd = await encryptPassword(data.passwd);
     const user = await prisma.user.findUnique({
       where: { email },
     });
@@ -93,11 +102,153 @@ export const regist = async (
 
     redirect('/sign');
   } catch (err) {
+    let message = JSON.stringify(err);
+    if (isErrorWithMessage(err)) {
+      if (err.message === 'NEXT_REDIRECT') redirect('/sign');
+      message = err.message;
+    }
     return {
-      error: {
-        email: isErrorWithMessage(err) ? err.message : JSON.stringify(err),
-      },
+      error: { email: message },
       data,
     };
+  }
+};
+
+export const changePassword = async (formData: FormData) => {
+  const session = await auth();
+  if (!session?.user) throw new Error('Need Login!');
+
+  const zobj = z
+    .object({
+      email: z.email(),
+      curr_passwd: z.nullable(z.string().min(3)),
+      passwd: z.string().min(3),
+      passwd2: z.string().min(3),
+    })
+    .superRefine(async ({ email, curr_passwd, passwd, passwd2 }, ctx) => {
+      const oldUser = await prisma.user.findUnique({
+        where: { email },
+      });
+
+      if (!oldUser) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['email'],
+          message: 'Not exists user!',
+        });
+      }
+
+      if (oldUser?.passwd) {
+        if (!(await comparePassword(curr_passwd || '', oldUser.passwd))) {
+          ctx.addIssue({
+            code: 'custom',
+            path: ['curr_passwd'],
+            message: 'Invalid current password!',
+          });
+        }
+      }
+
+      if (passwd !== passwd2)
+        ctx.addIssue({
+          code: 'custom',
+          path: ['passwd2'],
+          message: 'Not equals the passwd and passwd2!',
+        });
+    });
+
+  const [err, data] = await validateAsync(zobj, formData);
+  console.log('🚀 ~ err:', err, data);
+  if (err) return [err] as [ValidError];
+
+  const { email } = data;
+  try {
+    const passwd = await encryptPassword(data.passwd);
+    const newer = await prisma.user.update({
+      where: { email },
+      data: { passwd },
+      select: { id: true, name: true, email: true, isadmin: true },
+    });
+
+    return [undefined, newer] as const;
+  } catch (err) {
+    let message = JSON.stringify(err);
+    if (isErrorWithMessage(err)) {
+      if (err.message === 'NEXT_REDIRECT') redirect('/sign');
+      message = err.message;
+    }
+    return [
+      {
+        error: { email: message, curr_passwd: '', passwd: '', passwd2: '' },
+        data,
+      },
+    ];
+  }
+};
+
+export const changeProfile = async (formData: FormData) => {
+  const session = await auth();
+  if (!session?.user) throw new Error('Need Login!');
+
+  const imageFile = await saveProfile(formData.get('image') as File);
+  console.log('🚀 ~ imageFile:', imageFile);
+  formData.set('image', imageFile || '');
+
+  const zobj = z.object({
+    name: z.string().min(1, 'Input the name!').max(30),
+    prevEmail: z.email(),
+    email: z.email(),
+    image: z.nullable(z.string()),
+  });
+
+  const [err, data] = validate(zobj, formData);
+  console.log('🚀 ~ err:', err, data);
+  if (err) return [err] as const;
+
+  const { email, prevEmail, name, image } = data;
+  try {
+    const oldUser = await prisma.user.findUnique({
+      where: { email: prevEmail },
+    });
+
+    if (!oldUser)
+      return [
+        {
+          error: { email: 'Invalid Previous Email!' },
+          data,
+        },
+      ] as [ValidError];
+
+    if (email !== prevEmail) {
+      const user = await prisma.user.findUnique({
+        where: { email },
+      });
+
+      if (user)
+        return [
+          {
+            error: { email: 'This email is already exists!' },
+            data,
+          },
+        ] as [ValidError];
+    }
+
+    const newer = await prisma.user.update({
+      where: { email: prevEmail },
+      data: { email, name, image },
+    });
+
+    return [undefined, newer] as const;
+  } catch (err) {
+    let message = JSON.stringify(err);
+    if (isErrorWithMessage(err)) {
+      if (err.message === 'NEXT_REDIRECT') redirect('/sign');
+      message = err.message;
+    }
+    return [
+      {
+        error: { email: message, name: '', image: '' },
+        data,
+      },
+    ] as const;
   }
 };

@@ -74,7 +74,7 @@ export default function RootLayout({
 
               <div className="flex items-center">
                 <ModeToggle />
-                {session?.user && <UserProfile />}
+                {session?.user && <UserProfile data={session} />}
               </div>
             </nav>
             <div className="border p-3">{children}</div>

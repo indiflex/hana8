@@ -2,6 +2,8 @@ import NextAuth, { AuthError } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Github from 'next-auth/providers/github';
 import Google from 'next-auth/providers/google';
+import { prisma } from './prisma';
+import { comparePassword } from './validator';
 
 export const {
   handlers: { GET, POST },
@@ -24,9 +26,7 @@ export const {
         console.log('🚀 ~ credentials:', credentials);
         const { email, passwd } = credentials;
         return {
-          id: '1',
           email: email as string,
-          name: 'HONG',
           passwd: passwd as string,
         };
       },
@@ -39,35 +39,62 @@ export const {
       console.log('🚀 ~ account:', account);
       // console.log('🚀 signIn - profile:', profile);
       console.log('🚀 signIn - user:', user);
+      const { email, passwd, name, image } = user;
+      let oldUser =
+        email && (await prisma.user.findUnique({ where: { email } }));
+      console.log('🚀 ~ oldUser:', oldUser);
 
       if (account?.provider === 'credentials') {
-        if (user.email === 'jade@gmail.com')
-          throw makeAuthError('EmailSignInError', 'Not Exists Email!');
+        if (!oldUser)
+          throw makeAuthError('EmailSignInError', 'Not Exists Email');
 
-        if (!user.passwd) return false;
+        if (
+          passwd &&
+          oldUser.passwd &&
+          !(await comparePassword(passwd, oldUser.passwd))
+        )
+          throw makeAuthError('EmailSignInError', 'Invalid Email or Password');
+      } else {
+        if (!oldUser) {
+          if (!email || !name)
+            throw makeAuthError('OAuthAccountNotLinked', 'Need email and name');
+
+          oldUser = await prisma.user.create({
+            data: { email, name, image },
+          });
+        }
       }
+
+      user.id = String(oldUser.id);
+      user.name = oldUser.name;
+      user.image = oldUser.image;
+      user.isadmin = oldUser.isadmin;
 
       return true;
     },
-    async jwt({ token, user, trigger }) {
+    async jwt({ token, user, trigger, session }) {
       // console.log('🚀 jwt - token:', token);
       // console.log('🚀 jwt - user:', user);
-      if (trigger) console.log('🚀 jwt - trigger:', trigger);
-      if (user) {
-        token.id = user.id;
-        token.email = user.email;
-        token.name = user.name;
-        token.isadmin = user.isadmin;
+      // if (trigger) console.log('🚀 jwt - trigger:', trigger, session);
+      const userData = trigger === 'update' ? session : user;
+      if (userData) {
+        token.id = userData.id;
+        token.email = userData.email;
+        token.name = userData.name;
+        token.image = userData.image;
+        token.isadmin = userData.isadmin;
       }
       return token;
     },
-    async session({ session, user }) {
-      if (user) {
-        session.user.id = user.id;
-        session.user.email = user.email;
-        session.user.name = user.name;
-        session.user.isadmin = user.isadmin;
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = String(token.id);
+        session.user.email = String(token.email);
+        session.user.name = token.name;
+        session.user.image = String(token.image || token.picture);
+        session.user.isadmin = token.isadmin;
       }
+      // console.log('🚀 ~ session:', session);
       return session;
     },
   },

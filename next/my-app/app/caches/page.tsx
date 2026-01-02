@@ -1,7 +1,7 @@
 import { cacheLife, cacheTag, revalidateTag, updateTag } from 'next/cache';
 
 async function RandomValue() {
-  'use cache';
+  // 'use cache';
   cacheLife({
     stale: 5,
     revalidate: 10,
