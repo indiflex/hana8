@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/public/profile
 
 # next.js
 /.next/
