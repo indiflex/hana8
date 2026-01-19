@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { SessionProvider } from 'next-auth/react';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 import Nav from './Nav';
@@ -31,16 +32,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} mx-5 antialiased`}
       >
         <SessionProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Nav />
-            <div className="border p-3">{children}</div>
-            <footer className="text-center">Footer</footer>
-          </ThemeProvider>
+          <NuqsAdapter>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Nav />
+              <div className="border p-3">{children}</div>
+              <footer className="text-center">Footer</footer>
+            </ThemeProvider>
+          </NuqsAdapter>
         </SessionProvider>
       </body>
     </html>

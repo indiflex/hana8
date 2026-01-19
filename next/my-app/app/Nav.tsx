@@ -1,5 +1,6 @@
 // 'use client';
 
+import { headers } from 'next/headers';
 import Link from 'next/link';
 // import { useSession } from 'next-auth/react';
 import { ModeToggle } from '@/components/ModeToggle';
@@ -8,9 +9,11 @@ import { Separator } from '@/components/ui/separator';
 import { auth } from '@/lib/auth';
 
 export default async function Nav() {
+  const header = await headers();
+  const hostname = header.get('host') || '';
   const session = await auth();
   // const { data: session } = useSession();
-  console.log('🚀 Nav - session:', session?.user);
+  console.log('🚀 Nav - session:', session?.user, hostname);
 
   return (
     <nav className="flex items-center justify-between">
@@ -28,7 +31,11 @@ export default async function Nav() {
         <Separator orientation="vertical" />
         <Link href="/photos">Photos</Link>
         <Separator orientation="vertical" />
+        <Link href="/about">about</Link>
+        <Separator orientation="vertical" />
         <Link href="/caches">caches</Link>
+        <Separator orientation="vertical" />
+        <Link href="/adm">Adm</Link>
         <Separator orientation="vertical" />
         {session?.user ? (
           <Link href="/api/auth/signout">{session.user.name}</Link>

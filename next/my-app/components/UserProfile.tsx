@@ -51,7 +51,7 @@ export default function UserProfile({ data }: { data: Session }) {
               alt={data.user.name || 'guest'}
             />
             <AvatarFallback className="text-xl uppercase">
-              {'guest'.substring(0, 2)}
+              {(data.user.name || 'guest').substring(0, 2)}
             </AvatarFallback>
           </Avatar>
         </Button>
