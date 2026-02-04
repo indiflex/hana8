@@ -13,11 +13,13 @@ public class ScanScore {
 			// scan...
 			String name = names[i];
 			int score = scores[i];
+
 			totScore += score;
 			if (score > bestScore) {
 				bestScore = score;
 				bestMember = name;
 			}
 		}
+
 	}
 }
