@@ -2,7 +2,7 @@
 node_modules
 .env*
 tmp
-tmp
+ttt
 dist
 mysql
 coverage
