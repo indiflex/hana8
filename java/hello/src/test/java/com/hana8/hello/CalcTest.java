@@ -1,5 +1,6 @@
 package com.hana8.hello;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -20,11 +21,17 @@ class CalcTest {
 	void add() {
 		assertEquals(3, c1.add());
 		assertEquals(8, c2.add());
+
+		assertThat(c1.add()).isEqualTo(3);
+		assertThat(c2.add()).isEqualTo(8);
 	}
 
 	@Test
 	void sub() {
 		assertEquals(1, c1.sub());
 		assertEquals(2, c2.sub());
+
+		assertThat(c1.sub()).isEqualTo(1);
+		assertThat(c2.sub()).isEqualTo(2);
 	}
 }
