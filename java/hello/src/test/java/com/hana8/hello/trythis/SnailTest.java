@@ -19,6 +19,10 @@ class SnailTest {
 		int[] arr5 = {1, 2, 12, 3, 13, 11, 4, 14, 15, 10, 5, 6, 7, 8, 9};
 		int[] arr6 = {1, 2, 15, 3, 16, 14, 4, 17, 21, 13, 5, 18, 19, 20, 12, 6, 7, 8, 9, 10, 11};
 
+		// arr6.indexOf(15);
+		// Arrays.asList(arr6).indexOf(15);
+		// List<Integer> lst = new ArrayList<>(List.of(arr6))
+
 		assertArrayEquals(arr4, Snail.makeTriangleSnail(4));
 		assertArrayEquals(arr5, Snail.makeTriangleSnail(5));
 		assertArrayEquals(arr6, Snail.makeTriangleSnail(6));
