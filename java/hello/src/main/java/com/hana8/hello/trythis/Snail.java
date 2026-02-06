@@ -46,27 +46,37 @@ public class Snail {
 	}
 
 	public static int[] makeTriangleSnail(int N) {
-		int[] results = new int[N];
-		/*
-		1 0 0
-        2 6 0
-        3 4 5
-		 */
+		int[] results = new int[N * (N + 1) / 2];
+		int[][] snails = new int[N][N];
 		int garo = 0;
-		int sero = 0;
+		int sero = -1;
 		int val = 0;
 		// 0 -> 1 -> 2 -> 3
 		for (int i = 0; i < N; i++) {
-			for (int j = i; j < N + 1; j++) {
-				if (i % 3 == 0)
+			for (int j = i; j < N; j++) {
+				if (i % 3 == 0) {
 					sero++;
-				else if (i % 3 == 1)
+				} else if (i % 3 == 1) {
 					garo++;
-				else {
+				} else {
 					sero--;
 					garo--;
 				}
+
+				// System.out.printf("sero,garo = %d,%d (%d)%n", sero, garo, val + 1);
+				snails[sero][garo] = ++val;
 			}
+		}
+		// System.out.println("Arrays.deepToString(snails) = " + Arrays.deepToString(snails));
+
+		int idx = 0;
+		for (int i = 0; i < N; i++) {
+			System.out.print(" ".repeat(N - i - 1));
+			for (int j = 0; j <= i; j++) {
+				System.out.printf("%3d", snails[i][j]);
+				results[idx++] = snails[i][j];
+			}
+			System.out.println();
 		}
 
 		return results;
