@@ -9,7 +9,7 @@ public class Snail {
 		makeSnail(7);
 	}
 
-	private static void makeSnail(int N) {
+	public static int[] makeSnail(int N) {
 		int[][] snails = new int[N][N];
 
 		int val = 0;
@@ -32,12 +32,43 @@ public class Snail {
 			flag *= -1;
 		}
 
-		System.out.println("snails = " + Arrays.deepToString(snails));
+		int[] results = new int[N * N];
+		int idx = 0;
 		for (int[] _arr : snails) {
 			for (int n : _arr) {
 				System.out.printf("%3d", n);
+				results[idx++] = n;
 			}
 			System.out.println();
 		}
+		System.out.println("results = " + Arrays.toString(results));
+		return results;
+	}
+
+	public static int[] makeTriangleSnail(int N) {
+		int[] results = new int[N];
+		/*
+		1 0 0
+        2 6 0
+        3 4 5
+		 */
+		int garo = 0;
+		int sero = 0;
+		int val = 0;
+		// 0 -> 1 -> 2 -> 3
+		for (int i = 0; i < N; i++) {
+			for (int j = i; j < N + 1; j++) {
+				if (i % 3 == 0)
+					sero++;
+				else if (i % 3 == 1)
+					garo++;
+				else {
+					sero--;
+					garo--;
+				}
+			}
+		}
+
+		return results;
 	}
 }
