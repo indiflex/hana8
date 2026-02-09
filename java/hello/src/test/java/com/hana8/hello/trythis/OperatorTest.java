@@ -44,6 +44,9 @@ class OperatorTest {
 		BigDecimal v0 = BigDecimal.valueOf(0);
 		BigDecimal v1 = BigDecimal.valueOf(1);
 		BigDecimal v2 = BigDecimal.valueOf(2);
+		BigDecimal v01 = BigDecimal.valueOf(0.1);
+		BigDecimal v02 = BigDecimal.valueOf(0.2);
+		BigDecimal v03 = BigDecimal.valueOf(0.3);
 
 		Operation operDiv = Operator.getOperation(scanner);
 		Assertions.assertThat(operDiv.apply(v2, v1)).isEqualTo(v2.divide(v1, RoundingMode.HALF_UP));
@@ -54,6 +57,7 @@ class OperatorTest {
 		Operation operPlus = Operator.getOperation(scanner);
 		Assertions.assertThat(operPlus).isEqualTo(Operation.PLUS);
 		Assertions.assertThat(operPlus.apply(v1, v2)).isEqualTo(v1.add(v2));
+		Assertions.assertThat(operPlus.apply(v01, v02)).isEqualTo(v03);
 		scanner.close();
 	}
 }
