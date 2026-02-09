@@ -1,41 +1,9 @@
 package com.hana8.hello.trythis;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Scanner;
 
-enum Operation {
-	PLUS('+') {
-		public BigDecimal apply(BigDecimal v1, BigDecimal v2) {
-			return v1.add(v2);
-		}
-	}, MINUS('-') {
-		public BigDecimal apply(BigDecimal v1, BigDecimal v2) {
-			return v1.subtract(v2);
-		}
-	}, MULTIPLY('*') {
-		public BigDecimal apply(BigDecimal v1, BigDecimal v2) {
-			return v1.multiply(v2);
-		}
-	}, DIVIDE('/') {
-		@Override
-		public BigDecimal apply(BigDecimal v1, BigDecimal v2) {
-			return v1.divide(v2, RoundingMode.HALF_UP);
-		}
-	};
-
-	private final char cmd;
-
-	Operation(char cmd) {
-		this.cmd = cmd;
-	}
-
-	public boolean isMe(char cmd) {
-		return this.cmd == cmd;
-	}
-
-	public abstract BigDecimal apply(BigDecimal v1, BigDecimal v2);
-}
+import com.hana8.hello.Operation;
 
 public class Operator {
 	// overload
@@ -61,7 +29,7 @@ public class Operator {
 		}
 	}
 
-	private static Operation getOperation(Scanner scanner) {
+	public static Operation getOperation(Scanner scanner) {
 		while (true) {
 			System.out.print("연사자(+, -, *, /) ");
 			char cmd = scanner.nextLine().charAt(0);
