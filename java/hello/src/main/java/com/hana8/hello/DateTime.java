@@ -13,6 +13,7 @@ import java.time.temporal.ChronoUnit;
 
 public class DateTime {
 	public static void main(String[] args) {
+
 		LocalDate nowLd = LocalDate.now();
 		System.out.println("nowLd = " + nowLd);
 		LocalTime nowLt = LocalTime.now();
@@ -74,5 +75,6 @@ public class DateTime {
 		System.out.println("hours = " + hours);
 		long months = ChronoUnit.MONTHS.between(ldtStart, LocalDateTime.now());
 		System.out.println("months = " + months);
+
 	}
 }
