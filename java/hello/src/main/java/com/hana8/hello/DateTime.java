@@ -1,12 +1,15 @@
 package com.hana8.hello;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class DateTime {
 	public static void main(String[] args) {
@@ -51,5 +54,25 @@ public class DateTime {
 		Instant epoch = Instant.ofEpochSecond(0);
 		System.out.println("epoch = " + epoch);
 		System.out.println(LocalDate.now().plusMonths(1).atStartOfDay());
+
+		LocalDate ldStart = LocalDate.of(2025, 10, 28);
+		LocalDateTime ldtStart = LocalDateTime.of(2025, 10, 28, 9, 0, 0);
+		System.out.println("ldtStart = " + ldtStart);
+
+		Period btDate = Period.between(ldStart, LocalDate.now());
+		System.out.println("btDate = " + btDate);
+		System.out.printf("%d년 %d개월 %d일%n", btDate.getYears(), btDate.getMonths(), btDate.getDays());
+		Duration dDate = Duration.between(ldtStart, LocalDateTime.now());
+		System.out.println("dDate = " + dDate.getSeconds() / 86400);
+		System.out.println("dDate = " + dDate.getSeconds() % 86400);
+		System.out.println("dDate = " + (dDate.getSeconds() % 86400) / 3600);
+		System.out.println("dDate = " + ((dDate.getSeconds() % 86400) % 3600) / 60);
+
+		long days = ChronoUnit.DAYS.between(ldtStart, LocalDateTime.now());
+		System.out.println("days = " + days);
+		long hours = ChronoUnit.HOURS.between(ldtStart, LocalDateTime.now());
+		System.out.println("hours = " + hours);
+		long months = ChronoUnit.MONTHS.between(ldtStart, LocalDateTime.now());
+		System.out.println("months = " + months);
 	}
 }
