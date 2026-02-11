@@ -67,6 +67,9 @@ public class CollectionPlay {
 
 		// Map<Integer, String> map = new HashMap<>();
 		Map<Integer, String> map = new TreeMap<>();
+		String orDefault = map.getOrDefault(4, "");
+		map.put(4, orDefault);
+		System.out.println("mapxxxxxxxxxx = " + map);
 		map.put(4, "Kim");
 		map.put(11, "Choi");
 		map.put(100, "Choi");
