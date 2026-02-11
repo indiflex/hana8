@@ -11,6 +11,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class Birthday {
 	// List<LocalDate> holidays = Arrays.asList(new LocalDate[]{LocalDate.of(2026, 3, 25)});
@@ -70,6 +71,20 @@ public class Birthday {
 		}
 
 		System.out.println("workHour = " + workHour);
+		// var set = new TreeSet<>();
+		var set = new PriorityQueue<>();
+		set.add(4);
+		System.out.println("set = " + set);
+		set.add(5);
+		System.out.println("set = " + set);
+		set.add(1);
+		System.out.println("set = " + set);
+		set.add(2);
+		System.out.println("set = " + set);
+		set.add(3);
+		System.out.println("set = " + set);
+		set.add(2);
+		System.out.println("set = " + set);
 	}
 
 	private static boolean isWeekendOrHoliday(LocalDate ld) {
