@@ -43,7 +43,12 @@ class MyLambdaTest {
 		int sum3 = reducer(numbers, 10, (a, b) -> a * b);               // 3628800
 		assertThat(sum1).isEqualTo(145);
 		assertThat(sum11).isEqualTo(numbers.stream().reduce((a, b) -> a * b).orElse(-1));
-		assertThat(sum2).isEqualTo(0);
+		assertThat(sum11).isEqualTo(numbers.stream().reduce(1, (a, b) -> a * b));
+		assertThat(sum2).isEqualTo(numbers.stream().reduce(0, (a, b) -> a * b));
 		assertThat(sum3).isEqualTo(3628800);
+		assertThat(sum3).isEqualTo(numbers.stream().reduce(10, (a, b) -> a * b));
+
+		System.out.println("numbers.parallelStream().reduce(10, (a, b) -> a * b) = " + numbers.stream()
+			.reduce(10, (a, b) -> a * b));
 	}
 }

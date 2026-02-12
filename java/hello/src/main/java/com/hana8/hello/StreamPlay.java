@@ -54,5 +54,17 @@ public class StreamPlay {
 
 		System.out.println("length.apply(\"Str\") = " + length.apply("Str"));
 		print.accept("Jade");
+
+		int[] array = IntStream.range(1, 10).skip(3).limit(5).toArray();
+		System.out.println("array = " + Arrays.toString(array));
+
+		Map<Integer, List<String>> collect1 = list.stream()
+			.collect(Collectors.groupingBy(String::length));
+
+		List<Integer> list2 = list.stream().map(String::length).toList();
+		List<List<Integer>> list3 = list.stream().map(s -> List.of(s.length(), s.length() + 1)).toList();
+		System.out.println("list3 = " + list3);
+		List<Integer> list4 = list.stream().flatMap(s -> Stream.of(s.length(), s.length() + 1)).toList();
+		System.out.println("list4 = " + list4);
 	}
 }
