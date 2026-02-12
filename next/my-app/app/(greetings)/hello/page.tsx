@@ -1,8 +1,12 @@
 'use client';
 
-import type { Route } from 'next';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { parseAsInteger, useQueryState, useQueryStates } from 'nuqs';
 import { Suspense } from 'react';
+// import type { Route } from 'next';
+// import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import SayHello from './SayHello';
 
 export default function HelloPage() {
@@ -24,20 +28,35 @@ export default function HelloPage() {
 }
 
 function SearchParamId() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
+  // const router = useRouter();
+  // const pathname = usePathname();
+  // const searchParams = useSearchParams();
+  // const params = new URLSearchParams(searchParams.toString());
+  // const id = searchParams.get('id');
+  // const make200 = () => {
+  //   params.set('id', `200`);
+  //   router.push(`${pathname}?${params.toString()}` as Route);
+  // };
+  // const [id, setId] = useQueryState('id', parseAsInteger.withDefault(0));
+  const [{ id }, setId] = useQueryStates({ id: parseAsInteger.withDefault(0) });
 
-  const id = searchParams.get('id');
   // const name = searchParams.get('name');
+  const [name, setName] = useQueryState('name', {
+    defaultValue: '',
+  });
+  console.log('🚀 ~ name:', name, id);
 
-  const router = useRouter();
-
-  const make200 = () => {
-    params.set('id', `200`);
-    router.push(`${pathname}?${params.toString()}` as Route);
-    // router.push('/');
-  };
-
-  return <button onClick={make200}>ID: {id}</button>;
+  return (
+    <>
+      <h1 className="text-2xl">Hello</h1>
+      <Input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <Button onClick={() => setId({ id: id + 1 })}>
+        ID/Name: {id}/{name}
+      </Button>
+    </>
+  );
 }

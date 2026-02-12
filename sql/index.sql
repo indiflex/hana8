@@ -66,6 +66,7 @@ show variables like 'innodb_ft_aux%';
 
 set global innodb_ft_aux_table = 'testdb/Notice'; 
 
+-- StopWord 등이 변경되었을 때 다시 optimize table 해줘야 적용됨! 
 SET GLOBAL innodb_optimize_fulltext_only = ON;
 OPTIMIZE TABLE testdb.Notice;
 SET GLOBAL innodb_optimize_fulltext_only = OFF;

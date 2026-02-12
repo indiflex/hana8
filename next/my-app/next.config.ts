@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   experimental: {
     typedEnv: true,
   },
-  typedRoutes: true,
+  // typedRoutes: true,
   images: {
     remotePatterns: [{ hostname: 'picsum.photos' }],
   },

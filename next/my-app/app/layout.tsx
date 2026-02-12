@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import Link from 'next/link';
 import { SessionProvider } from 'next-auth/react';
-import { use } from 'react';
-import { ModeToggle } from '@/components/ModeToggle';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { ThemeProvider } from '@/components/theme-provider';
-import UserProfile from '@/components/UserProfile';
-import { Separator } from '@/components/ui/separator';
-import { auth } from '@/lib/auth';
 import './globals.css';
+import Nav from './Nav';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,56 +26,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = use(auth());
-  // console.log('🚀 ~ session:', session?.user);
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} mx-5 antialiased`}
       >
-        <SessionProvider session={session}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <nav className="flex items-center justify-between">
-              <div className="flex h-5 [&>div.shrink-0]:m-1 [&>div.shrink-0]:bg-red-500">
-                Navigator
-                <Link href="/hello">Hello</Link>
-                <Separator
-                  orientation="vertical"
-                  className="bg-secondary-foreground"
-                />
-                <Link href="/hi">Hi</Link>
-                <Separator orientation="vertical" />
-                <Link href="/shop/123">123</Link>
-                <Separator orientation="vertical" />
-                <Link href="/shop/123/456">456</Link>
-                <Separator orientation="vertical" />
-                <Link href="/intercept">Intercept</Link>
-                <Separator orientation="vertical" />
-                <Link href="/photos">Photos</Link>
-                <Separator orientation="vertical" />
-                <Link href="/caches">caches</Link>
-                <Separator orientation="vertical" />
-                {session?.user ? (
-                  <Link href="/api/auth/signout">{session.user.name}</Link>
-                ) : (
-                  <Link href="/sign">sign</Link>
-                )}
-              </div>
-
-              <div className="flex items-center">
-                <ModeToggle />
-                {session?.user && <UserProfile data={session} />}
-              </div>
-            </nav>
-            <div className="border p-3">{children}</div>
-            <footer className="text-center">Footer</footer>
-          </ThemeProvider>
+        <SessionProvider>
+          <NuqsAdapter>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Nav />
+              <div className="border p-3">{children}</div>
+              <footer className="text-center">Footer</footer>
+            </ThemeProvider>
+          </NuqsAdapter>
         </SessionProvider>
       </body>
     </html>
