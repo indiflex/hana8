@@ -52,7 +52,7 @@ class OperatorTest {
 		Assertions.assertThat(operDiv.apply(v2, v1)).isEqualTo(v2.divide(v1, RoundingMode.HALF_UP));
 		Assertions.assertThatThrownBy(() -> operDiv.apply(v2, v0))
 			.isInstanceOf(ArithmeticException.class)
-			.hasMessageContaining("/");
+			.hasMessageContaining("zero");
 
 		Operation operPlus = Operator.getOperation(scanner);
 		Assertions.assertThat(operPlus).isEqualTo(Operation.PLUS);

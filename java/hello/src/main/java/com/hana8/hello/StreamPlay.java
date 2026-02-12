@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -46,5 +48,11 @@ public class StreamPlay {
 
 		Collections.swap(list, 1, 2);
 		System.out.println("list = " + list);
+
+		Function<String, Integer> length = String::length;
+		Consumer<String> print = System.out::println;
+
+		System.out.println("length.apply(\"Str\") = " + length.apply("Str"));
+		print.accept("Jade");
 	}
 }
