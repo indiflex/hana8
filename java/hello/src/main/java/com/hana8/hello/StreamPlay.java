@@ -98,5 +98,27 @@ public class StreamPlay {
 		System.out.println("IntStream.rangeClosed(1, 10).sum() = " + IntStream.rangeClosed(1, 10).sum());
 		System.out.println("random 5개의 평균");
 
+		System.out.println(
+			"ttlist.stream()\n\t\t\t.limit(5)\n\t\t\t.mapToDouble(i -> Math.random()).average() = " + ttlist.stream()
+				.limit(5)
+				.mapToDouble(i -> Math.random()).average());
+
+		System.out.println("IntStream.range(1,6).mapToDouble(i -> Math.random()).average() = " + IntStream.range(1, 6)
+			.mapToDouble(i -> Math.random())
+			.average());
+
+		System.out.println(
+			"Stream.generate(Math::random).mapToDouble(Double::valueOf).average() = " + Stream.generate(Math::random)
+				.limit(5)
+				.mapToDouble(Double::valueOf)
+				.average()
+				.orElse(-1));
+
+		System.out.println(
+			"Stream.generate(Math::random)\n\t\t\t.mapToDouble(Double::valueOf) = " + Stream.generate(Math::random)
+				.limit(5)
+				.mapToDouble(d -> Math.round(d * 100.0) / 100.0).boxed()
+				.toList());
+
 	}
 }
