@@ -5,4 +5,5 @@ import lombok.ToString;
 @ToString
 public class Parent {
 	protected int id;
+	protected Integer age;
 }

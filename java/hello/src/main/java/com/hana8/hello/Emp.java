@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -24,6 +25,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(exclude = {"score"})
 @AllArgsConstructor
+@NoArgsConstructor
 public class Emp {
 	String name;
 	@ToString.Exclude
