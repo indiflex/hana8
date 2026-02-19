@@ -4,6 +4,9 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 
 public class Reflects {
+	public static void validate(Object obj) {
+	}
+
 	public static void makeNotNullFields(Object obj) {
 		Class<?> cls = obj.getClass();
 		makeNotNullFields(cls, obj);
