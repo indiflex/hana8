@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import com.hana8.hello.annotaions.AnnotationException;
+import com.hana8.hello.annotaions.In;
 import com.hana8.hello.annotaions.Max;
 import com.hana8.hello.annotaions.Min;
 import com.hana8.hello.annotaions.NotNull;
@@ -24,43 +24,29 @@ public class Reflects {
 				Annotation[] annotations = f.getAnnotations();
 				if (annotations.length == 0)
 					continue;
-				// for (Annotation ann : annotations) {
-				// 	System.out.println(f.getName() + " = " + ann.annotationType().getSimpleName());
-				// }
 
 				String fname = f.getName();
 				Object fval = f.get(obj);
+				for (Annotation ann : annotations) {
+					String msg = switch (ann.annotationType().getSimpleName()) {
+						case "NotNull" -> {
+							if (fval != null)
+								yield null;
+							NotNull annotation = f.getAnnotation(NotNull.class);
+							yield annotation.value();
+						}
+						case "Min" -> Min.Validate.validate(f, fval);
+						case "Max" -> Max.Validate.validate(f, fval);
+						case "In" -> In.Validate.validate(f, fval);
+						default -> throw new AnnotationException("Unknown Annotation!");
+					};
 
-				if (fval == null && f.isAnnotationPresent(NotNull.class)) {
-					NotNull annotation = f.getAnnotation(NotNull.class);
-					msgs.computeIfAbsent(fname, k -> new ArrayList<>());
-					msgs.get(fname).add(annotation.value());
-				}
-
-				if (f.isAnnotationPresent(Min.class)) {
-					Min annotation = f.getAnnotation(Min.class);
-					int value = annotation.value();
-					int v = fval instanceof Number ? ((Number)fval).intValue()
-						: Optional.ofNullable(fval).orElse("").toString().length();
-
-					if (v < value) {
-						String msg = annotation.msg();
+					if (msg != null) {
 						msgs.computeIfAbsent(fname, k -> new ArrayList<>());
-						msgs.get(fname).add(String.format(msg, value));
+						msgs.get(fname).add(msg);
 					}
 				}
-				if (f.isAnnotationPresent(Max.class)) {
-					Max annotation = f.getAnnotation(Max.class);
-					int value = annotation.value();
-					int v = fval instanceof Number ? ((Number)fval).intValue()
-						: Optional.ofNullable(fval).orElse("").toString().length();
 
-					if (v > value) {
-						String msg = annotation.msg();
-						msgs.computeIfAbsent(fname, k -> new ArrayList<>());
-						msgs.get(fname).add(String.format(msg, value));
-					}
-				}
 			}
 		} catch (Exception e) {
 			throw new AnnotationException(e.getMessage());
@@ -124,7 +110,8 @@ public class Reflects {
 		System.out.println("after = " + r);
 
 		System.out.println("============================");
-		Reflection r2 = new Reflection(5, "Kim");
+		Reflection r2 = new Reflection(6, "Kimm");
+		r2.setRate(2.9);
 		// Reflection r2 = new Reflection(null, null);
 		Map<String, List<String>> msgs = Reflects.validate(r2);
 		System.out.println("msgs = " + msgs);

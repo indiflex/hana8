@@ -38,4 +38,5 @@ public class Reflection extends Parent {
 		this.deptId = deptId;
 		this.name = name;
 	}
+
 }
