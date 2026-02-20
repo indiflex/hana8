@@ -1,4 +1,4 @@
-package com.hana8.hello;
+package com.hana8.hello.annotaions;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,8 +7,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.PARAMETER})
-public @interface Min {
-	int value();
+public @interface In {
+	String[] value() default {};
 
-	String msg() default "%d 보다는 커야합니다!";
+	String msg() default "%s만 가능합니다!";
 }

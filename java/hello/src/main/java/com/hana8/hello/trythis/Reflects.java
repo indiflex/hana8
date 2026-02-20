@@ -1,10 +1,14 @@
 package com.hana8.hello.trythis;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class Reflects {
 	public static void validate(Object obj) {
+		Annotation a = null;
 	}
 
 	public static void makeNotNullFields(Object obj) {
@@ -60,5 +64,8 @@ public class Reflects {
 
 		Reflects.makeNotNullFields(r);
 		System.out.println("after = " + r);
+
+		Reflection r2 = new Reflection(5, "");
+		Map<String, List<String>> msgs = Reflects.validate(r2);
 	}
 }
