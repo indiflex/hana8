@@ -18,8 +18,10 @@ public class IOStream {
 		os.close();
 
 		InputStream is = new FileInputStream("t.txt");
-		byte[] buf = new byte[100];
-		int read = is.read(buf);
-		System.out.println("read + \":\" + new String(buf) = " + read + ":" + new String(buf));
+		byte[] buf = new byte[10];
+		int read = 0;
+		while ((read = is.read(buf)) != -1) {
+			System.out.println("read + \":\" + new String(buf) = " + read + ":" + new String(buf, 0, read));
+		}
 	}
 }
