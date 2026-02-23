@@ -13,8 +13,31 @@ public class Nio {
 
 	public static void main(String[] args) throws IOException {
 		// smallFile();
-		bigFileWrite();
-		bigFileRead();
+		// bigFileWrite();
+		// bigFileRead();
+
+		readAndWrite();
+	}
+
+	private static void readAndWrite() {
+		// Path srcPath = Path.of("src");
+		Path srcPath = Path.of("")
+			.resolve("src")
+			.resolve("main/java")
+			.resolve("com/hana8/hello/io")
+			.resolve("Nio.java");
+		System.out.println("srcPath.toAbsolutePath() = " + srcPath.toAbsolutePath());
+		System.out.println("Files.exists(srcPath) = " + Files.exists(srcPath));
+
+		try (BufferedReader br = Files.newBufferedReader(srcPath); BufferedWriter bw = Files.newBufferedWriter(path)) {
+			String ln;
+			while ((ln = br.readLine()) != null) {
+				bw.write(ln);
+				bw.newLine();
+			}
+		} catch (Exception e) {
+			e.printStackTrace(System.out);
+		}
 	}
 
 	private static void bigFileWrite() {
