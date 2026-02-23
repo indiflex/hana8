@@ -38,8 +38,10 @@ public class Vote {
 		System.out.println("\n\n\n\n\n\n\n"); // 공간 확보
 		System.out.print("\033[5A"); // 위로 이동
 		for (String area : areas) {
-			Thread t = new Thread(myRun, area);
-			t.start();
+			// Thread t = new Thread(myRun, area);
+			// t.start();
+			// Thread.ofPlatform().start(myRun);
+			Thread.ofVirtual().start(myRun);
 			// t.join();
 		}
 	}
