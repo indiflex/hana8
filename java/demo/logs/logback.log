@@ -1,0 +1,8 @@
+[11:38:41] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 23245 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[11:38:41] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[11:38:41] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[11:38:41] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.79 seconds (process running for 1.088)
+[11:38:58] INFO  com.hana8.demo.HelloController - INFO: Jade - 123
+[11:38:58] DEBUG com.hana8.demo.HelloController - DEBUG: 
+[11:38:58] WARN  com.hana8.demo.HelloController - WARN: warn
+[11:38:58] ERROR com.hana8.demo.HelloController - ERROR!!
