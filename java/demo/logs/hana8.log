@@ -406,3 +406,34 @@
 [2026-02-24 15:31:36:3871][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
 [2026-02-24 15:31:36:3872][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
 [2026-02-24 15:31:36:3984][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.131 seconds (process running for 4.249)
+[2026-02-24 16:04:54:37290][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36285 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:04:54:37290][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:04:54:37290][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:04:56:38810][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36285 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:04:56:38810][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:04:56:38810][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:04:56:38900][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.117 seconds (process running for 39.119)
+[2026-02-24 16:05:04:351][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:05:04:352][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:05:04:352][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:05:04:878][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.81 seconds (process running for 1.095)
+[2026-02-24 16:07:18:134391][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:07:18:134391][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:07:18:134391][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:07:18:134491][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.114 seconds (process running for 134.707)
+[2026-02-24 16:07:53:169263][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:07:53:169264][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:07:53:169264][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:07:53:169341][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.093 seconds (process running for 169.557)
+[2026-02-24 16:07:57:173855][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:07:57:173855][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:07:57:173855][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:07:57:173934][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.092 seconds (process running for 174.15)
+[2026-02-24 16:07:59:398][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36464 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:07:59:400][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:07:59:400][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:07:59:936][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.85 seconds (process running for 1.19)
+[2026-02-24 16:08:02:3812][restartedMain] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36464 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[2026-02-24 16:08:02:3812][restartedMain] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[2026-02-24 16:08:02:3812][restartedMain] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[2026-02-24 16:08:02:3905][restartedMain] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.108 seconds (process running for 4.159)
