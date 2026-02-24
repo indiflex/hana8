@@ -1,0 +1,899 @@
+[11:38:41] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 23245 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[11:38:41] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[11:38:41] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[11:38:41] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.79 seconds (process running for 1.088)
+[11:38:58] INFO  com.hana8.demo.controller.HelloController - INFO: Jade - 123
+[11:38:58] DEBUG com.hana8.demo.controller.HelloController - DEBUG:
+[11:38:58] WARN  com.hana8.demo.controller.HelloController - WARN: warn
+[11:38:58] ERROR com.hana8.demo.controller.HelloController - ERROR!!
+[13:05:23] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 25850 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[13:05:23] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[13:05:23] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[13:05:24] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 1.081 seconds (process running for 1.559)
+[13:05:40] INFO  com.hana8.demo.controller.HelloController - INFO: Hong - 123
+[13:05:40] DEBUG com.hana8.demo.controller.HelloController - DEBUG:
+[13:05:40] WARN  com.hana8.demo.controller.HelloController - WARN: warn
+[13:05:40] ERROR com.hana8.demo.controller.HelloController - ERROR!!
+[13:06:27] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 25850 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[13:06:27] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[13:06:27] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[13:06:27] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.168 seconds (process running for 64.711)
+[14:07:23] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29308 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:07:23] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:07:23] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:07:23] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.097 seconds (process running for 15.745)
+[14:07:40] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29308 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:07:40] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:07:40] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:07:40] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.094 seconds (process running for 31.915)
+[14:08:33] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29308 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:08:33] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:08:33] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:08:33] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.119 seconds (process running for 85.549)
+[14:08:36] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29308 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:08:36] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:08:36] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:08:36] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.095 seconds (process running for 88.126)
+[14:08:38] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29308 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:08:38] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:08:38] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:08:38] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.096 seconds (process running for 90.71)
+[14:08:40] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29308 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:08:40] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:08:40] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:08:40] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.094 seconds (process running for 92.275)
+[14:11:04] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29308 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:11:04] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:11:04] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:11:04] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.125 seconds (process running for 236.403)
+[14:11:07] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29626 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:11:07] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:11:07] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:11:08] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 1.009 seconds (process running for 1.405)
+[14:11:11] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29626 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:11:11] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:11:11] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:11:11] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.124 seconds (process running for 4.394)
+[14:11:21] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [No adapter for handler [com.hana8.demo.controller.UserController@69bd81ad]: The DispatcherServlet configuration needs to include a HandlerAdapter that supports this handler] with root cause
+jakarta.servlet.ServletException: No adapter for handler [com.hana8.demo.controller.UserController@69bd81ad]: The DispatcherServlet configuration needs to include a HandlerAdapter that supports this handler
+	at org.springframework.web.servlet.DispatcherServlet.getHandlerAdapter(DispatcherServlet.java:1193)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[14:12:10] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29626 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:12:10] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:12:10] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:12:10] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.099 seconds (process running for 63.563)
+[14:12:14] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29752 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:12:14] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:12:14] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:12:15] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.872 seconds (process running for 1.23)
+[14:12:17] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29752 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:12:17] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:12:17] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:12:18] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.122 seconds (process running for 4.211)
+[14:15:28] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 29752 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:15:28] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:15:28] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:15:28] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.104 seconds (process running for 194.719)
+[14:15:30] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30002 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:15:30] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:15:30] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:15:30] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.932 seconds (process running for 1.262)
+[14:15:33] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30002 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:15:33] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:15:33] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:15:33] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.12 seconds (process running for 3.843)
+[14:16:04] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30002 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:16:04] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:16:04] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:16:05] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.121 seconds (process running for 35.717)
+[14:17:08] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30002 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:17:08] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:17:08] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:17:08] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.136 seconds (process running for 98.903)
+[14:17:45] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30002 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:17:45] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:17:45] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:17:45] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.099 seconds (process running for 135.764)
+[14:17:47] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30169 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:17:47] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:17:47] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:17:48] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.935 seconds (process running for 1.345)
+[14:19:01] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30169 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:19:01] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:19:01] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:19:01] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.147 seconds (process running for 74.03)
+[14:24:03] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30169 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:24:03] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:24:03] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:24:03] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.106 seconds (process running for 376.493)
+[14:24:42] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30169 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:24:42] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:24:42] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:24:42] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.101 seconds (process running for 415.416)
+[14:25:04] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+[14:25:04] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+[14:25:06] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30169 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:25:06] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:25:06] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:25:06] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.089 seconds (process running for 439.165)
+[14:25:30] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30169 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:25:30] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:25:30] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:25:30] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.094 seconds (process running for 462.916)
+[14:25:32] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30605 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:25:32] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:25:32] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:25:32] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.91 seconds (process running for 1.311)
+[14:25:35] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30605 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:25:35] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:25:35] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:25:35] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.132 seconds (process running for 4.311)
+[14:25:42] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30627 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:25:42] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:25:42] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:25:43] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.88 seconds (process running for 1.186)
+[14:25:49] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.hana8.demo.dto.User]] with root cause
+tools.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.hana8.demo.dto.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); byte offset: #4]
+	at tools.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:70)
+	at tools.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1950)
+	at tools.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:448)
+	at tools.jackson.databind.DeserializationContext.handleMissingInstantiator(DeserializationContext.java:1480)
+	at tools.jackson.databind.deser.bean.BeanDeserializerBase.deserializeFromObjectUsingNonDefault(BeanDeserializerBase.java:1432)
+	at tools.jackson.databind.deser.bean.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:480)
+	at tools.jackson.databind.deser.bean.BeanDeserializer.deserialize(BeanDeserializer.java:200)
+	at tools.jackson.databind.deser.DeserializationContextExt.readRootValue(DeserializationContextExt.java:265)
+	at tools.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:1646)
+	at tools.jackson.databind.ObjectReader.readValue(ObjectReader.java:1171)
+	at org.springframework.http.converter.AbstractJacksonHttpMessageConverter.readJavaType(AbstractJacksonHttpMessageConverter.java:352)
+	at org.springframework.http.converter.AbstractJacksonHttpMessageConverter.read(AbstractJacksonHttpMessageConverter.java:319)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:203)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:156)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:224)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:174)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[14:26:20] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.hana8.demo.dto.User]] with root cause
+tools.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.hana8.demo.dto.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); byte offset: #4]
+	at tools.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:70)
+	at tools.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1950)
+	at tools.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:448)
+	at tools.jackson.databind.DeserializationContext.handleMissingInstantiator(DeserializationContext.java:1480)
+	at tools.jackson.databind.deser.bean.BeanDeserializerBase.deserializeFromObjectUsingNonDefault(BeanDeserializerBase.java:1432)
+	at tools.jackson.databind.deser.bean.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:480)
+	at tools.jackson.databind.deser.bean.BeanDeserializer.deserialize(BeanDeserializer.java:200)
+	at tools.jackson.databind.deser.DeserializationContextExt.readRootValue(DeserializationContextExt.java:265)
+	at tools.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:1646)
+	at tools.jackson.databind.ObjectReader.readValue(ObjectReader.java:1171)
+	at org.springframework.http.converter.AbstractJacksonHttpMessageConverter.readJavaType(AbstractJacksonHttpMessageConverter.java:352)
+	at org.springframework.http.converter.AbstractJacksonHttpMessageConverter.read(AbstractJacksonHttpMessageConverter.java:319)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:203)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:156)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:224)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:174)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[14:26:50] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30730 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:26:50] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:26:50] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:26:51] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.841 seconds (process running for 1.506)
+[14:26:53] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30730 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:26:53] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:26:53] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:26:53] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.122 seconds (process running for 4.09)
+[14:27:01] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.hana8.demo.dto.User]] with root cause
+tools.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.hana8.demo.dto.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); byte offset: #4]
+	at tools.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:70)
+	at tools.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1950)
+	at tools.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:448)
+	at tools.jackson.databind.DeserializationContext.handleMissingInstantiator(DeserializationContext.java:1480)
+	at tools.jackson.databind.deser.bean.BeanDeserializerBase.deserializeFromObjectUsingNonDefault(BeanDeserializerBase.java:1432)
+	at tools.jackson.databind.deser.bean.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:480)
+	at tools.jackson.databind.deser.bean.BeanDeserializer.deserialize(BeanDeserializer.java:200)
+	at tools.jackson.databind.deser.DeserializationContextExt.readRootValue(DeserializationContextExt.java:265)
+	at tools.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:1646)
+	at tools.jackson.databind.ObjectReader.readValue(ObjectReader.java:1171)
+	at org.springframework.http.converter.AbstractJacksonHttpMessageConverter.readJavaType(AbstractJacksonHttpMessageConverter.java:352)
+	at org.springframework.http.converter.AbstractJacksonHttpMessageConverter.read(AbstractJacksonHttpMessageConverter.java:319)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:203)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:156)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:224)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:174)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[14:27:38] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30730 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:27:38] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:27:38] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:27:38] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.1 seconds (process running for 49.064)
+[14:27:41] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30827 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:27:41] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:27:41] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:27:42] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.985 seconds (process running for 1.329)
+[14:27:45] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30827 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:27:45] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:27:45] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:27:45] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.126 seconds (process running for 4.322)
+[14:27:47] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot map `null` into type `int` (set DeserializationConfig.DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES to 'false' to allow)]
+[14:27:47] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot map `null` into type `int` (set DeserializationConfig.DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES to 'false' to allow)]
+[14:28:15] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30827 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:28:15] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:28:15] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:28:15] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.101 seconds (process running for 34.155)
+[14:28:57] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30960 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:28:57] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:28:57] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:28:58] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.866 seconds (process running for 1.257)
+[14:29:01] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30960 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:29:01] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:29:01] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:29:01] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.125 seconds (process running for 4.257)
+[14:29:56] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30960 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:29:56] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:29:56] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:29:56] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.113 seconds (process running for 59.331)
+[14:30:10] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30960 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:30:10] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:30:10] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:30:10] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.097 seconds (process running for 74.013)
+[14:30:13] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 30960 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:30:13] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:30:13] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:30:13] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.093 seconds (process running for 76.574)
+[14:30:30] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31097 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:30:30] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:30:30] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:30:30] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.991 seconds (process running for 1.361)
+[14:31:46] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:31:46] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:31:46] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:31:47] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.866 seconds (process running for 1.178)
+[14:36:27] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:36:27] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:36:27] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:36:27] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.146 seconds (process running for 281.498)
+[14:38:37] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:38:37] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:38:37] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:38:37] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.103 seconds (process running for 411.452)
+[14:38:41] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:38:41] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:38:41] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:38:41] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.236 seconds (process running for 415.198)
+[14:38:50] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:38:50] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:38:50] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:38:50] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.098 seconds (process running for 424.247)
+[14:38:58] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:38:58] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:38:58] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:38:59] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.111 seconds (process running for 432.875)
+[14:40:02] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:40:02] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:40:02] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:40:02] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.116 seconds (process running for 495.974)
+[14:42:21] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:42:21] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:42:21] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:42:21] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.091 seconds (process running for 635.736)
+[14:42:38] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:42:38] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:42:38] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:42:38] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.078 seconds (process running for 652.403)
+[14:42:46] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:42:46] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:42:46] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:42:46] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.086 seconds (process running for 659.979)
+[14:43:20] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:43:20] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:43:20] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:43:20] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.078 seconds (process running for 694.829)
+[14:43:35] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:43:35] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:43:35] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:43:35] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.075 seconds (process running for 709.484)
+[14:44:55] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31201 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:44:55] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:44:55] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:44:55] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.102 seconds (process running for 789.778)
+[14:45:01] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:45:01] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:45:01] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:45:01] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.886 seconds (process running for 1.222)
+[14:45:04] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:45:04] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:45:04] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:45:04] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.147 seconds (process running for 4.22)
+[14:45:34] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/octet-stream' is not supported]
+[14:45:34] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/octet-stream' is not supported]
+[14:45:48] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot map `null` into type `int` (set DeserializationConfig.DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES to 'false' to allow)]
+[14:45:48] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot map `null` into type `int` (set DeserializationConfig.DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES to 'false' to allow)]
+[14:46:23] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+[14:46:23] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+[14:47:26] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:47:26] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:47:26] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:47:26] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.125 seconds (process running for 146.176)
+[14:47:37] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:47:37] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:47:37] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:47:37] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.103 seconds (process running for 156.831)
+[14:47:40] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[14:47:40] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[14:47:40] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[14:47:41] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.093 seconds (process running for 160.426)
+[15:06:24] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:06:24] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:06:24] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:06:24] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.072 seconds (process running for 1284.408)
+[15:06:40] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:06:40] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:06:40] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:06:40] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.073 seconds (process running for 1300.097)
+[15:06:51] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 31964 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:06:51] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:06:51] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:06:51] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.128 seconds (process running for 1310.829)
+[15:17:36] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:17:36] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:17:36] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:17:36] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.924 seconds (process running for 1.245)
+[15:17:40] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:17:40] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:17:40] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:17:40] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.119 seconds (process running for 4.824)
+[15:19:07] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.util.ConcurrentModificationException] with root cause
+java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1687)
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+	at com.hana8.demo.repository.UserRepository.deleteUser(UserRepository.java:50)
+	at com.hana8.demo.service.UserService.removeUser(UserService.java:31)
+	at com.hana8.demo.controller.UserController.withdraw(UserController.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[15:20:41] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:20:41] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:20:41] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:20:41] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.134 seconds (process running for 186.133)
+[15:20:46] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:20:46] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:20:46] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:20:46] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.104 seconds (process running for 190.711)
+[15:21:13] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.util.ConcurrentModificationException] with root cause
+java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1687)
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+	at com.hana8.demo.repository.UserRepository.deleteUser(UserRepository.java:51)
+	at com.hana8.demo.service.UserService.removeUser(UserService.java:31)
+	at com.hana8.demo.controller.UserController.withdraw(UserController.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[15:21:34] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:21:34] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:21:34] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:21:34] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.114 seconds (process running for 238.754)
+[15:21:56] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:21:56] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:21:56] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:21:56] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.092 seconds (process running for 261.504)
+[15:21:59] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:21:59] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:21:59] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:21:59] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.105 seconds (process running for 264.066)
+[15:22:00] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:22:00] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:22:00] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:22:01] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.09 seconds (process running for 265.615)
+[15:22:23] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:22:23] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:22:23] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:22:23] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.085 seconds (process running for 288.388)
+[15:23:01] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:23:01] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:23:01] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:23:01] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.087 seconds (process running for 326.299)
+[15:23:10] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 33891 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:23:10] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:23:10] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:23:10] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.085 seconds (process running for 334.89)
+[15:23:17] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:23:17] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:23:17] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:23:18] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.925 seconds (process running for 1.316)
+[15:23:21] DEBUG c.h.demo.repository.UserRepository - delId = 1
+[15:23:21] DEBUG c.h.demo.repository.UserRepository - istream=java.util.stream.ReferencePipeline$3@140653d4
+[15:23:35] DEBUG c.h.demo.repository.UserRepository - delId = 1
+[15:23:35] DEBUG c.h.demo.repository.UserRepository - istream=java.util.stream.ReferencePipeline$3@340690ea
+[15:23:35] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.util.ConcurrentModificationException] with root cause
+java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1687)
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+	at com.hana8.demo.repository.UserRepository.deleteUser(UserRepository.java:57)
+	at com.hana8.demo.service.UserService.removeUser(UserService.java:31)
+	at com.hana8.demo.controller.UserController.withdraw(UserController.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[15:24:13] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:24:13] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:24:13] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:24:13] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.115 seconds (process running for 56.371)
+[15:29:11] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:29:11] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:29:11] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:29:11] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.104 seconds (process running for 354.844)
+[15:29:14] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:29:14] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:29:14] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:29:14] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.094 seconds (process running for 357.401)
+[15:29:32] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:29:32] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:29:32] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:29:32] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.095 seconds (process running for 375.104)
+[15:30:26] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:30:26] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:30:26] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:30:26] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.09 seconds (process running for 429.17)
+[15:30:55] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:30:55] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:30:55] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:30:55] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.089 seconds (process running for 458.001)
+[15:30:59] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:30:59] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:30:59] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:30:59] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.094 seconds (process running for 462.592)
+[15:31:25] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34344 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:31:25] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:31:25] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:31:25] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.082 seconds (process running for 488.341)
+[15:31:32] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34841 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:31:32] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:31:32] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:31:33] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.912 seconds (process running for 1.25)
+[15:31:36] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 34841 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[15:31:36] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[15:31:36] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[15:31:36] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.131 seconds (process running for 4.249)
+[16:04:54] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36285 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:04:54] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:04:54] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:04:54] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [/Users/jade/workspace/hana8/java/demo/build/classes/java/main/com/hana8/demo/controller/UserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userService': Resolution of declared constructors on bean Class [com.hana8.demo.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@300d7f7e] failed
+[16:04:54] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [/Users/jade/workspace/hana8/java/demo/build/classes/java/main/com/hana8/demo/controller/UserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userService': Resolution of declared constructors on bean Class [com.hana8.demo.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@300d7f7e] failed
+[16:04:54] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [/Users/jade/workspace/hana8/java/demo/build/classes/java/main/com/hana8/demo/controller/UserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userService': Resolution of declared constructors on bean Class [com.hana8.demo.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@300d7f7e] failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1382)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1221)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.hana8.demo.DemoApplication.main(DemoApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Resolution of declared constructors on bean Class [com.hana8.demo.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@300d7f7e] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/hana8/demo/repository/UserRepository
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549)
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:363)
+	... 37 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.hana8.demo.repository.UserRepository
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:534)
+	at java.base/java.lang.Class.forName(Class.java:513)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:123)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 41 common frames omitted
+[16:04:54] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [/Users/jade/workspace/hana8/java/demo/build/classes/java/main/com/hana8/demo/controller/UserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userService': Resolution of declared constructors on bean Class [com.hana8.demo.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@300d7f7e] failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1382)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1221)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.hana8.demo.DemoApplication.main(DemoApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Resolution of declared constructors on bean Class [com.hana8.demo.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@300d7f7e] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/hana8/demo/repository/UserRepository
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549)
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:363)
+	... 37 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.hana8.demo.repository.UserRepository
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:534)
+	at java.base/java.lang.Class.forName(Class.java:513)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:123)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 41 common frames omitted
+[16:04:56] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36285 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:04:56] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:04:56] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:04:56] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.117 seconds (process running for 39.119)
+[16:05:04] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:05:04] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:05:04] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:05:04] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.81 seconds (process running for 1.095)
+[16:07:18] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:07:18] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:07:18] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:07:18] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.114 seconds (process running for 134.707)
+[16:07:53] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:07:53] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:07:53] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:07:53] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.093 seconds (process running for 169.557)
+[16:07:57] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36365 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:07:57] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:07:57] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:07:57] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.092 seconds (process running for 174.15)
+[16:07:59] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36464 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:07:59] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:07:59] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:07:59] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.85 seconds (process running for 1.19)
+[16:08:02] INFO  com.hana8.demo.DemoApplication - Starting DemoApplication using Java 21.0.7 with PID 36464 (/Users/jade/workspace/hana8/java/demo/build/classes/java/main started by jade in /Users/jade/workspace/hana8/java/demo)
+[16:08:02] DEBUG com.hana8.demo.DemoApplication - Running with Spring Boot v4.0.3, Spring v7.0.5
+[16:08:02] INFO  com.hana8.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[16:08:02] INFO  com.hana8.demo.DemoApplication - Started DemoApplication in 0.108 seconds (process running for 4.159)

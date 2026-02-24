@@ -1,0 +1,11 @@
+spring.application.name=demo
+#logging.level.root=info
+#logging.level.com.hana8=debug
+#logging.level.org.springframework=WARN
+#logging.file.name=logs/application.log
+#logging.pattern.console=%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
+#logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %class{36} - %msg%n
+
+spring.devtools.livereload.enabled=true
+spring.devtools.restart.enabled=true
+spring.devtools.restart.additional-paths=src/main/java
