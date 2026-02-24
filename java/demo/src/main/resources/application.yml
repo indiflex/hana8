@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: demo
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+      additional-paths: src/main/java
