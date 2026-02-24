@@ -11,17 +11,32 @@ POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
+  "id": 0,
   "username": "Hong",
   "email": "hong@mail.com",
   "tel": "010-1234-5678"
 }
 
-### user-update
-PUT {{baseUrl}}/users/1
+### user-regist
+POST {{baseUrl}}/users
+Content-Type: application/json
 
 {
-  "username": "Hong",
-  "email": "hong@mail.com",
+  "id": 0,
+  "username": "Kim",
+  "email": "kim@mail.com",
+  "tel": "010-1234-5678"
+}
+
+
+### user-update
+PUT {{baseUrl}}/users/1
+Content-Type: application/json
+
+{
+  "id": 0,
+  "username": "Hongx",
+  "email": "hongx@mail.com",
   "tel": "010-1234-5678"
 }
 

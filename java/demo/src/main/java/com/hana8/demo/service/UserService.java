@@ -9,14 +9,25 @@ import com.hana8.demo.repository.UserRepository;
 
 @Service
 public class UserService {
-	// @Autowired
-	private UserRepository repository;
+	private final UserRepository repository;
 
-	// public UserService() {
-	// 	this.repository = new UserRepository();
-	// }
+	public UserService(UserRepository repository) {
+		this.repository = repository;
+	}
 
 	public List<User> getUsers() {
 		return repository.findAllUsers();
+	}
+
+	public Integer registerUser(User user) {
+		return repository.createUser(user);
+	}
+
+	public User editUser(User user) {
+		return repository.updateUser(user);
+	}
+
+	public Integer removeUser(Integer id) {
+		return repository.deleteUser(id);
 	}
 }
