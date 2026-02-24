@@ -3,9 +3,6 @@
 ### user list
 GET {{baseUrl}}/users
 
-### user-info
-GET {{baseUrl}}/users/1
-
 ### user-regist
 POST {{baseUrl}}/users
 Content-Type: application/json
@@ -27,6 +24,9 @@ Content-Type: application/json
   "email": "kim@mail.com",
   "tel": "010-1234-5678"
 }
+
+### user-info
+GET {{baseUrl}}/users/1
 
 
 ### user-update

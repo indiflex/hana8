@@ -30,4 +30,8 @@ public class UserService {
 	public Integer removeUser(Integer id) {
 		return repository.deleteUser(id);
 	}
+
+	public User getUser(Integer id) {
+		return repository.findUserById(id);
+	}
 }

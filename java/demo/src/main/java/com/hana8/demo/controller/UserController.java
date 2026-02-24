@@ -32,11 +32,12 @@ public class UserController {
 	}
 
 	@GetMapping("/{id}")
-	public User getUser()
+	public User getUser(@PathVariable("id") Integer id) {
+		return service.getUser(id);
+	}
 
 	@PostMapping("")
 	public Integer addUser(@RequestBody User user) {
-		System.out.println("user = " + user);
 		user.setId(0);
 		return service.registerUser(user);
 	}
