@@ -4,9 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.Primary;
 
-@Repository
+// @Repository
+@Primary
 public class PostRepositoryImpl implements PostRepository {
 	private final Map<Long, Post> posts = new HashMap<>();
 

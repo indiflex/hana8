@@ -1,4 +1,5 @@
 @baseUrl=http://localhost:8080/posts
+#@baseUrl=http://localhost:8080/posts/list
 
 ### post list
 GET {{baseUrl}}/

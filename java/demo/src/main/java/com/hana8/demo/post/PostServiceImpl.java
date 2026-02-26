@@ -2,37 +2,47 @@ package com.hana8.demo.post;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-@Service
+// @Service
 @RequiredArgsConstructor
+@Setter
+// @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class PostServiceImpl implements PostService {
 	private final PostRepository repository;
+	private final PostRepository repositoryList;
+
+	// @Autowired
+	// public PostServiceImpl(PostRepository repository, PostRepository repositoryList) {
+	// 	this.repository = repository;
+	// 	this.repositoryList = repositoryList;
+	// }
+
+	// private boolean isList;
 
 	@Override
-	public List<Post> getList() {
-		return repository.findAll();
+	public List<Post> getList(boolean isList) {
+		return isList ? repositoryList.findAll() : repository.findAll();
 	}
 
 	@Override
-	public Post getPost(Long id) {
-		return repository.find(id);
+	public Post getPost(Long id, boolean isList) {
+		return isList ? repositoryList.find(id) : repository.find(id);
 	}
 
 	@Override
-	public Post addPost(PostAddDTO post) {
-		return repository.createPost(post);
+	public Post addPost(PostAddDTO post, boolean isList) {
+		return isList ? repositoryList.createPost(post) : repository.createPost(post);
 	}
 
 	@Override
-	public Post editPost(PostEditDTO post) {
-		return repository.updatePost(post);
+	public Post editPost(PostEditDTO post, boolean isList) {
+		return isList ? repositoryList.updatePost(post) : repository.updatePost(post);
 	}
 
 	@Override
-	public int removePost(Long id) {
-		return repository.deletePost(id);
+	public int removePost(Long id, boolean isList) {
+		return isList ? repositoryList.deletePost(id) : repository.deletePost(id);
 	}
 }

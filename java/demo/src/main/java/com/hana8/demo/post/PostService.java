@@ -3,13 +3,13 @@ package com.hana8.demo.post;
 import java.util.List;
 
 public interface PostService {
-	public List<Post> getList();
+	public List<Post> getList(boolean isList);
 
-	public Post getPost(Long id);
+	public Post getPost(Long id, boolean isList);
 
-	public Post addPost(PostAddDTO post);
+	public Post addPost(PostAddDTO post, boolean isList);
 
-	public Post editPost(PostEditDTO post);
+	public Post editPost(PostEditDTO post, boolean isList);
 
-	public int removePost(Long id);
+	public int removePost(Long id, boolean isList);
 }
