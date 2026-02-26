@@ -38,6 +38,7 @@ public class UserController {
 
 	@PostMapping("")
 	public Integer addUser(@RequestBody User user) {
+		user.setId(0);
 		return service.registerUser(user);
 	}
 
