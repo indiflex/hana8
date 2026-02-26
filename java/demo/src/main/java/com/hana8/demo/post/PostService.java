@@ -7,9 +7,9 @@ public interface PostService {
 
 	public Post getPost(Long id);
 
-	public Long addPost();
+	public Post addPost(PostAddDTO post);
 
-	public Long editPost();
+	public Post editPost(PostEditDTO post);
 
-	public Long removePost();
+	public int removePost(Long id);
 }
