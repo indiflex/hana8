@@ -9,6 +9,7 @@ logs
 ttt
 tmp
 
+db.properties
 *security.properties
 *security.yml
 
