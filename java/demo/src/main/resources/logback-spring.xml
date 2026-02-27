@@ -37,6 +37,9 @@
     <logger name="com.hana8.demo" level="DEBUG">
         <appender-ref ref="FILE2"/>
     </logger>
+    <logger name="com.hana8.demo.DemoApplication" level="INFO">
+        <appender-ref ref="FILE2"/>
+    </logger>
 
     <root level="WARN">
         <appender-ref ref="FILE"/>

@@ -2,7 +2,9 @@ package com.hana8.demo.dto;
 
 import java.time.LocalDate;
 
+import com.hana8.demo.common.serializer.CardnoSerializer;
 import com.hana8.demo.common.serializer.TelnoSerializer;
+import com.hana8.demo.common.validator.Cardno;
 import com.hana8.demo.common.validator.Telno;
 
 import jakarta.validation.constraints.Email;
@@ -38,7 +40,14 @@ public class User {
 	@JsonSerialize(using = TelnoSerializer.class)
 	private String tel;
 
-	public void replaceTelno() {
+	@Cardno
+	@JsonSerialize(using = CardnoSerializer.class)
+	private String creditCard;
+
+	public void replaceSpaceAndHyphen() {
 		this.tel = this.tel.replaceAll("[\\s-]", "");
+
+		if (this.creditCard != null)
+			this.creditCard = this.creditCard.replaceAll("[\\s-]", "");
 	}
 }
