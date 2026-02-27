@@ -37,6 +37,8 @@ public class PostController {
 
 	@PutMapping("/{id}")
 	public Post editPost(HttpServletRequest req, @PathVariable Long id, @RequestBody PostEditDTO post) {
+		if (id == 0L)
+			throw new IllegalArgumentException("게시글 id는 0보다 커야합니다!");
 		post.setId(id);
 		return service.editPost(post, isList(req));
 	}

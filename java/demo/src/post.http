@@ -29,7 +29,7 @@ GET {{baseUrl}}/1
 
 
 ### post-update
-PUT {{baseUrl}}/1
+PUT {{baseUrl}}/0
 Content-Type: application/json
 
 {
