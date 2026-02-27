@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class PostDTO {
-	@NotNull(groups = OnUpdate.class)
+	@NotNull(groups = OnUpdate.class, message = "수정할 게시글 id를 입력하세요!")
 	private Long id;
 
 	@NotBlank(message = "제목은 필수값입니다!")

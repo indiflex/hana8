@@ -11,6 +11,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import jakarta.validation.ConstraintViolationException;
+
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 	@ExceptionHandler(IllegalArgumentException.class)
@@ -30,6 +32,17 @@ public class ControllerExceptionHandler {
 					(existing, newValue) -> existing + ", " + newValue,
 					LinkedHashMap::new)
 			);
+		return ResponseEntity.badRequest().body(map);
+	}
+
+	@ExceptionHandler(ConstraintViolationException.class)
+	public ResponseEntity<Map<String, String>> handleViolationExceptionHandler(ConstraintViolationException e) {
+		Map<String, String> map = e.getConstraintViolations().stream().collect(
+			Collectors.toMap(v -> v.getPropertyPath().toString(),
+				v -> Objects.toString(v.getMessage(), "Violation Value!"),
+				(existing, newValue) -> existing + ", " + newValue)
+		);
+
 		return ResponseEntity.badRequest().body(map);
 	}
 

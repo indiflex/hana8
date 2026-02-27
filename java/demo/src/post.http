@@ -33,7 +33,7 @@ PUT {{baseUrl}}/1
 Content-Type: application/json
 
 {
-  "title": "title 1xxx",
+  "title": "title 1x",
   "body": "body 1xxx",
   "writer": "Hongxxx"
 }
