@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 // @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class EagerCallService {
-	public EagerCallService() {
-		System.out.println("------------ EagerCallService!");
-	}
+	// public EagerCallService() {
+	// 	System.out.println("------------ EagerCallService!");
+	// }
 }

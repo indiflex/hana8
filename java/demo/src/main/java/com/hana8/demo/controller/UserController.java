@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hana8.demo.dto.User;
 import com.hana8.demo.service.UserService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -37,7 +38,7 @@ public class UserController {
 	}
 
 	@PostMapping("")
-	public Integer addUser(@RequestBody User user) {
+	public Integer addUser(@Valid @RequestBody User user) {
 		user.setId(0);
 		return service.registerUser(user);
 	}

@@ -15,10 +15,10 @@ public class HelpCallService implements GreetingService {
 	}
 
 	public void initialize() {
-		System.out.println("HelpCall Initialization!");
+		// System.out.println("HelpCall Initialization!");
 	}
 
 	public void destroy() {
-		System.out.println("HelpCall Destroyment!");
+		// System.out.println("HelpCall Destroyment!");
 	}
 }

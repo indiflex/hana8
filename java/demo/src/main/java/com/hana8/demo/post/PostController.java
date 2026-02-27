@@ -2,6 +2,7 @@ package com.hana8.demo.post;
 
 import java.util.List;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,38 +12,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping({"/posts", "/posts/list"})
 @RequiredArgsConstructor
 public class PostController {
 	private final PostService service;
 
 	@GetMapping("")
-	public List<Post> getPosts() {
-		return service.getList();
+	public List<Post> getPosts(HttpServletRequest req) {
+		return service.getList(isList(req));
 	}
 
 	@PostMapping("")
-	public Post addPost(@RequestBody PostAddDTO post) {
-		return service.addPost(post);
+	public Post addPost(HttpServletRequest req, @Validated(PostDTO.OnCreate.class) @RequestBody PostDTO post) {
+		return service.addPost(post, isList(req));
 	}
 
 	@GetMapping("/{id}")
-	public Post getPost(@PathVariable Long id) {
-		return service.getPost(id);
+	public Post getPost(HttpServletRequest req, @PathVariable Long id) {
+		return service.getPost(id, isList(req));
 	}
 
 	@PutMapping("/{id}")
-	public Post editPost(@PathVariable Long id, @RequestBody PostEditDTO post) {
+	public Post editPost(HttpServletRequest req, @PathVariable Long id,
+		@Validated(PostDTO.OnUpdate.class) @RequestBody PostDTO post) {
+		if (id == 0L)
+			throw new IllegalArgumentException("게시글 id는 0보다 커야합니다!");
 		post.setId(id);
-		return service.editPost(post);
+		return service.editPost(post, isList(req));
 	}
 
 	@DeleteMapping("/{id}")
-	public Integer removePost(@PathVariable Long id) {
-		return service.removePost(id);
+	public Integer removePost(HttpServletRequest req, @PathVariable Long id) {
+		return service.removePost(id, isList(req));
 	}
 
+	private boolean isList(HttpServletRequest req) {
+		return req.getRequestURI().contains("/list");
+	}
 }

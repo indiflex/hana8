@@ -1,6 +1,9 @@
 spring:
   application:
     name: demo
+  web:
+    resources:
+      add-mappings: false
 
   devtools:
     livereload:
