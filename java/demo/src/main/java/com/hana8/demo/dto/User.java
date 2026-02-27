@@ -2,6 +2,9 @@ package com.hana8.demo.dto;
 
 import java.time.LocalDate;
 
+import com.hana8.demo.common.serializer.TelnoSerializer;
+import com.hana8.demo.common.validator.Telno;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +13,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import tools.jackson.databind.annotation.JsonSerialize;
 
 @Data
 @AllArgsConstructor
@@ -30,5 +34,11 @@ public class User {
 	private LocalDate birthdt;
 
 	@NotNull
+	@Telno
+	@JsonSerialize(using = TelnoSerializer.class)
 	private String tel;
+
+	public void replaceTelno() {
+		this.tel = this.tel.replaceAll("[\\s-]", "");
+	}
 }
