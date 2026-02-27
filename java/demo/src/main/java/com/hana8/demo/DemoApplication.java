@@ -6,7 +6,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.hana8.demo.controller.GreetingController;
 import com.hana8.demo.controller.HelloController;
-import com.hana8.demo.service.EagerCallService;
 import com.hana8.demo.service.HelloService;
 import com.hana8.demo.service.HelpCallService;
 import com.hana8.demo.service.LazyCallService;
@@ -36,12 +35,12 @@ public class DemoApplication {
 		HelpCallService help = ctx.getBean(HelpCallService.class);
 		log.debug("help = {}", help.call());
 
-		System.out.println(
-			"ctx.getBean(EagerCallService.class).hashCode() = " + ctx.getBean(EagerCallService.class).hashCode());
-		System.out.println(
-			"ctx.getBean(EagerCallService.class).hashCode() = " + ctx.getBean(EagerCallService.class).hashCode());
-		System.out.println(
-			"ctx.getBean(EagerCallService.class).hashCode() = " + ctx.getBean(EagerCallService.class).hashCode());
+		// System.out.println(
+		// 	"ctx.getBean(EagerCallService.class).hashCode() = " + ctx.getBean(EagerCallService.class).hashCode());
+		// System.out.println(
+		// 	"ctx.getBean(EagerCallService.class).hashCode() = " + ctx.getBean(EagerCallService.class).hashCode());
+		// System.out.println(
+		// 	"ctx.getBean(EagerCallService.class).hashCode() = " + ctx.getBean(EagerCallService.class).hashCode());
 
 		LazyCallService lazy = ctx.getBean(LazyCallService.class);
 		log.debug("lazy = {}", lazy.call());

@@ -7,9 +7,9 @@ public interface PostRepository {
 
 	public Post find(Long id);
 
-	public Post createPost(PostAddDTO post);
+	public Post createPost(PostDTO post);
 
-	public Post updatePost(PostEditDTO post);
+	public Post updatePost(PostDTO post);
 
 	public int deletePost(Long id);
 }

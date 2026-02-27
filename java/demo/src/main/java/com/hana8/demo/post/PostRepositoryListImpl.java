@@ -18,17 +18,19 @@ public class PostRepositoryListImpl implements PostRepository {
 	}
 
 	@Override
-	public Post createPost(PostAddDTO post) {
+	public Post createPost(PostDTO post) {
 		Long id = posts.stream().mapToLong(Post::getId).max().orElse(0) + 1;
 
-		Post newer = Post.builder().id(id).title(post.getTitle()).body(post.getBody()).build();
+		Post newer = Post.builder().id(id).title(post.getTitle()).body(post.getBody())
+			.writer(post.getWriter())
+			.build();
 		posts.add(newer);
 
 		return newer;
 	}
 
 	@Override
-	public Post updatePost(PostEditDTO post) {
+	public Post updatePost(PostDTO post) {
 		Post oldPost = find(post.getId());
 		if (oldPost == null)
 			return null;

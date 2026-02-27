@@ -32,12 +32,12 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public Post addPost(PostAddDTO post, boolean isList) {
+	public Post addPost(PostDTO post, boolean isList) {
 		return isList ? repositoryList.createPost(post) : repository.createPost(post);
 	}
 
 	@Override
-	public Post editPost(PostEditDTO post, boolean isList) {
+	public Post editPost(PostDTO post, boolean isList) {
 		return isList ? repositoryList.updatePost(post) : repository.updatePost(post);
 	}
 

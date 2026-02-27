@@ -2,6 +2,7 @@ package com.hana8.demo.post;
 
 import java.util.List;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +27,7 @@ public class PostController {
 	}
 
 	@PostMapping("")
-	public Post addPost(HttpServletRequest req, @RequestBody PostAddDTO post) {
+	public Post addPost(HttpServletRequest req, @Validated @RequestBody PostDTO post) {
 		return service.addPost(post, isList(req));
 	}
 
@@ -36,7 +37,7 @@ public class PostController {
 	}
 
 	@PutMapping("/{id}")
-	public Post editPost(HttpServletRequest req, @PathVariable Long id, @RequestBody PostEditDTO post) {
+	public Post editPost(HttpServletRequest req, @PathVariable Long id, @RequestBody PostDTO post) {
 		if (id == 0L)
 			throw new IllegalArgumentException("게시글 id는 0보다 커야합니다!");
 		post.setId(id);

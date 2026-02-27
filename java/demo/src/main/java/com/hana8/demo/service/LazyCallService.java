@@ -27,7 +27,7 @@ public class LazyCallService {
 	private String emailPassword;
 
 	public LazyCallService() {
-		System.out.println("------------ LazyCallService!");
+		// System.out.println("------------ LazyCallService!");
 	}
 
 	public String call() {
