@@ -10,11 +10,13 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
     show-sql: true
+    defer-datasource-initialization: true
+
     properties:
       hibernate:
         jdbc:
@@ -24,8 +26,12 @@ spring:
         format_sql: true
         use_sql_comments: true
 
+  sql:
+    init:
+      mode: always
+
   flyway:
-    enabled: true
+    enabled: false
     baseline-on-migrate: true
 
 

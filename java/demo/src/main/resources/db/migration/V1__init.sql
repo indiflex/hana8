@@ -1,9 +1,12 @@
-create table User
+CREATE TABLE `User`
 (
-    createdAt datetime(6)  null,
-    id        int unsigned auto_increment primary key,
-    updatedAt datetime(6)  null,
-    username  varchar(31)  not null,
-    email     varchar(255) not null,
-    constraint UKe6gkqunxajvyxl5uctpl2vl2p unique (email)
+    `id`        int unsigned NOT NULL AUTO_INCREMENT,
+    `createdAt` datetime(6) DEFAULT NULL,
+    `updatedAt` datetime(6) DEFAULT NULL,
+    `telno`     varchar(12)  NOT NULL,
+    `username`  varchar(31)  NOT NULL,
+    `email`     varchar(255) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `uniq_User_email` (`email`),
+    UNIQUE KEY `uniq_User_username_telno` (`username`, `telno`)
 );
