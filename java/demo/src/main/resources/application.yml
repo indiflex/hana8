@@ -24,6 +24,10 @@ spring:
         format_sql: true
         use_sql_comments: true
 
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
 
   web:
     resources:
