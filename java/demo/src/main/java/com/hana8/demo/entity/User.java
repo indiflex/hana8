@@ -1,12 +1,8 @@
 package com.hana8.demo.entity;
 
 import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.LocalDateTime;
 
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import com.hana8.demo.common.enums.BloodType;
 
@@ -23,10 +19,14 @@ import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -40,7 +40,7 @@ import lombok.NoArgsConstructor;
 		columnNames = {"username", "telno"}
 	)
 })
-public class User {
+public class User extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, columnDefinition = "int unsigned")
@@ -57,12 +57,6 @@ public class User {
 
 	@Enumerated(EnumType.STRING)
 	private BloodType bloodType;
-
-	@CreationTimestamp
-	private Instant createdAt;
-
-	@UpdateTimestamp
-	private LocalDateTime updatedAt;
 
 	@Column(precision = 8, scale = 2, nullable = false)
 	@ColumnDefault("0.0")
