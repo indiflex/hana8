@@ -16,7 +16,7 @@ import lombok.ToString;
 @MappedSuperclass
 public class BaseEntity {
 	@CreationTimestamp
-	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", nullable = false)
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", nullable = false, updatable = false)
 	private Instant createdAt;
 
 	@UpdateTimestamp
