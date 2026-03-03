@@ -41,6 +41,9 @@
         <appender-ref ref="FILE2"/>
     </logger>
 
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.type" level="TRACE"/>
+
     <root level="WARN">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>

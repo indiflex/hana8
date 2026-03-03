@@ -9,9 +9,20 @@ spring:
     password: Hana8db!!
 
   jpa:
-    hibernate.ddl-auto: validate
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
     show-sql: true
-    properties.hibernate.format_sql: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        format_sql: true
+        use_sql_comments: true
 
 
   web:
