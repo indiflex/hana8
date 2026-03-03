@@ -1,13 +1,47 @@
 spring:
   application:
     name: demo
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/testdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: hana8
+    password: Hana8db!!
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+    show-sql: true
+    defer-datasource-initialization: true
+
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        format_sql: true
+        use_sql_comments: true
+
+  sql:
+    init:
+      mode: always
+
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+
+
   web:
     resources:
       add-mappings: false
 
-  devtools:
-    livereload:
-      enabled: true
-    restart:
-      enabled: true
-      additional-paths: src/main/java
+#  devtools:
+#    livereload:
+#      enabled: true
+#    restart:
+#      enabled: true
+#      additional-paths: src/main/java

@@ -1,7 +1,7 @@
 @baseUrl=http://localhost:8080
 
 ### user list
-GET {{baseUrl}}/users/xxx/yyy
+GET {{baseUrl}}/users
 
 ### user-regist
 POST {{baseUrl}}/users
@@ -12,7 +12,7 @@ Content-Type: application/json
   "email": "hong@mail.com",
   "comail": "hong@hanabank.com",
   "tel": "010-123-5678",
-  "creditCard": "1234 1234 5678 5678"
+  "creditCard": "7234567890123459"
 }
 
 ### user-regist
