@@ -10,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
@@ -29,9 +29,9 @@ spring:
     resources:
       add-mappings: false
 
-  devtools:
-    livereload:
-      enabled: true
-    restart:
-      enabled: true
-      additional-paths: src/main/java
+#  devtools:
+#    livereload:
+#      enabled: true
+#    restart:
+#      enabled: true
+#      additional-paths: src/main/java
