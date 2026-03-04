@@ -39,10 +39,3 @@ spring:
   web:
     resources:
       add-mappings: false
-
-#  devtools:
-#    livereload:
-#      enabled: true
-#    restart:
-#      enabled: true
-#      additional-paths: src/main/java

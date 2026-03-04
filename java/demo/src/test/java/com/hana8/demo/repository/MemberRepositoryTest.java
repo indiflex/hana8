@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.hana8.demo.common.enums.BloodType;
@@ -20,36 +22,80 @@ import com.hana8.demo.entity.Member;
 @ActiveProfiles("test")
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Rollback(false)
 class MemberRepositoryTest {
+	private static long id;
+	private static long orgCount = 0;
+
+	private final Member newMember = Member.builder()
+		.email("tester1@gmail.com")
+		.nickname("tester1")
+		.bloodType(BloodType.O)
+		.isActive(true)
+		.build();
+
 	@Autowired
 	private MemberRepository repository;
+
+	@BeforeEach
+	void setOrgCount() {
+		if (orgCount == 0)
+			orgCount = repository.count();
+	}
+
+	@Test
+	@Order(1)
+	void writeTest() {
+		Member savedMember = repository.save(newMember);
+
+		assertThat(savedMember).usingRecursiveComparison()
+			.ignoringFields("id", "createdAt", "updatedAt")
+			.isEqualTo(newMember);
+
+		Member foundMember = repository.findById(savedMember.getId()).orElseThrow();
+		assertThat(savedMember).isEqualTo(foundMember);
+
+		id = savedMember.getId();
+		System.out.println("foundMember = " + foundMember);
+		System.out.println("this.id00000 = " + id);
+	}
 
 	@Test
 	@Order(2)
 	void readTest() {
 		List<Member> all = repository.findAll();
 		System.out.println("all = " + all);
-		System.out.println("repository.count() = " + repository.count());
-		assertThat(repository.count()).isEqualTo(all.size());
+		long cnt = repository.count();
+		assertThat(cnt).isEqualTo(all.size());
+
+		Member m = all.get((int)(cnt - 1));
+		assertThat(m).usingRecursiveComparison()
+			.ignoringFields("id", "createdAt", "updatedAt")
+			.isEqualTo(newMember);
 	}
 
 	@Test
-	@Order(1)
-	void writeTest() {
-		Member m = Member.builder()
-			.email("tester@mail.com")
-			.nickname("tester")
-			.bloodType(BloodType.O)
-			.isActive(true)
-			.build();
-		System.out.println("m = " + m);
-
-		Member savedMember = repository.save(m);
-		System.out.println("savedMember = " + savedMember);
-
-		assertThat(savedMember.getNickname()).isEqualTo(m.getNickname());
-		assertThat(savedMember).usingRecursiveComparison()
-			.ignoringFields("id", "createdAt", "updatedAt")
-			.isEqualTo(m);
+	@Order(3)
+	void updateTest() {
+		Member member = repository.findById(id).orElseThrow();
+		member.setNickname(member.getNickname() + "xxx");
+		repository.save(member);
 	}
+
+	@Test
+	@Order(4)
+	void deleteTest() {
+		Member member = repository.findById(id).orElseThrow();
+		assertThat(member.getNickname())
+			.isEqualTo(newMember.getNickname() + "xxx");
+
+		repository.deleteById(id);
+	}
+
+	@Test
+	@Order(5)
+	void finalCheck() {
+		assertThat(repository.count()).isEqualTo(orgCount);
+	}
+
 }
