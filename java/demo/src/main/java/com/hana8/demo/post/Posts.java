@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Post {
+public class Posts {
 	private Long id;
 	private String title;
 	private String body;

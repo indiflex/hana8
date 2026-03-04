@@ -1,5 +1,7 @@
 SET FOREIGN_KEY_CHECKS = 0;
 truncate table User;
+truncate table Member;
+truncate table Post;
 SET FOREIGN_KEY_CHECKS = 1;
 
 SET time_zone = 'Asia/Seoul';

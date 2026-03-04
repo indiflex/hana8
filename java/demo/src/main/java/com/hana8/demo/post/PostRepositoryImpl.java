@@ -8,35 +8,40 @@ import org.springframework.context.annotation.Primary;
 
 // @Repository
 @Primary
-public class PostRepositoryImpl implements PostRepository {
-	private final Map<Long, Post> posts = new HashMap<>();
+public class PostRepositoryImpl implements PostsRepository {
+	private final Map<Long, Posts> posts = new HashMap<>();
 
 	@Override
-	public List<Post> findAll() {
+	public List<Posts> findAll() {
 		return this.posts.values().stream().toList();
 	}
 
 	@Override
-	public Post find(Long id) {
+	public Posts find(Long id) {
 		return this.posts.get(id);
 	}
 
 	@Override
-	public Post createPost(PostDTO post) {
+	public Posts createPost(PostsDTO post) {
 		Long id = posts.keySet().stream().max(Long::compareTo).orElse(0L) + 1;
 		// Post newer = new Post();
 		// newer.setId(id);
 		// newer.setTitle(post.getTitle());
 
-		Post newer = Post.builder().id(id).title(post.getTitle()).body(post.getBody()).writer(post.getWriter()).build();
+		Posts newer = Posts.builder()
+			.id(id)
+			.title(post.getTitle())
+			.body(post.getBody())
+			.writer(post.getWriter())
+			.build();
 
 		posts.put(id, newer);
 		return newer;
 	}
 
 	@Override
-	public Post updatePost(PostDTO post) {
-		Post oldPost = posts.get(post.getId());
+	public Posts updatePost(PostsDTO post) {
+		Posts oldPost = posts.get(post.getId());
 		oldPost.setTitle(post.getTitle());
 		oldPost.setBody(post.getBody());
 		oldPost.setWriter(post.getWriter());
