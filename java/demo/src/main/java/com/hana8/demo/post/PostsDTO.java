@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class PostDTO {
+public class PostsDTO {
 	@NotNull(groups = OnUpdate.class, message = "수정할 게시글 id를 입력하세요!")
 	private Long id;
 
