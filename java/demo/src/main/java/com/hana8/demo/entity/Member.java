@@ -52,5 +52,5 @@ public class Member extends BaseEntity {
 	private BloodType bloodType;
 
 	@ColumnDefault("false")
-	private boolean isActive;
+	private Boolean isActive;
 }

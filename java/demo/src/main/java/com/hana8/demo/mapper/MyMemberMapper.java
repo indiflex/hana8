@@ -13,7 +13,7 @@ public class MyMemberMapper {
 			.nickname(m.getNickname())
 			.email(m.getEmail())
 			.bloodType(m.getBloodType())
-			.isActive(m.isActive())
+			.isActive(m.getIsActive())
 			.createdAt(m.getCreatedAt())
 			.updatedAt(m.getUpdatedAt())
 			.build();

@@ -8,24 +8,29 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "title": " ",
-  "body": "body 1",
-  "writer": "1"
+  "nickname": "guest",
+  "email": "guest@email.com",
+  "passwd": "xxxxxxxx",
+  "bloodType": "O",
+  "isActive": true
 }
 
 ### member-info
-GET {{baseUrl}}/1
+GET {{baseUrl}}/5
 
 
 ### post-update
-PUT {{baseUrl}}/1
+PUT {{baseUrl}}/5
 Content-Type: application/json
 
 {
-  "title": "title 1x",
-  "body": "body 1xxx",
-  "writer": "Hongxxx"
+  "id": 4,
+  "nickname": "guestxx",
+  "email": "guest@email.comxx",
+  "passwd": "xxxxxxxx",
+  "bloodType": "O",
+  "isActive": false
 }
 
-### post-remove
-DELETE {{baseUrl}}/1
+### withdraw member
+DELETE {{baseUrl}}/5

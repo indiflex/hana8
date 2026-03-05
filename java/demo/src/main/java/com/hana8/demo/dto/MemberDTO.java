@@ -2,6 +2,7 @@ package com.hana8.demo.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.hana8.demo.common.enums.BloodType;
 
 import jakarta.validation.constraints.Email;
@@ -34,7 +35,10 @@ public class MemberDTO {
 	// @JsonProperty("bt")
 	private BloodType bloodType;
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private LocalDateTime createdAt;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private LocalDateTime updatedAt;
 
 	private Boolean isActive;
@@ -44,7 +48,4 @@ public class MemberDTO {
 
 	public interface OnUpdate {
 	}
-
-	// entityToDTO()
-	// dtoToEntity
 }
