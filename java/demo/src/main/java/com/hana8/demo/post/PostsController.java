@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping({"/posts", "/posts/list"})
 @RequiredArgsConstructor
-public class PostController {
+public class PostsController {
 	private final PostsService service;
 
 	@GetMapping("")

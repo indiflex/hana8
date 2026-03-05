@@ -17,8 +17,8 @@ public class InitLoader implements ApplicationRunner {
 
 	@Override
 	public void run(@Nullable ApplicationArguments args) {
-		postRepository.save(new Post("Title1"));
-		postRepository.save(new Post("Title2"));
-		postRepository.save(new Post("Title3"));
+		postRepository.save(new Post("Title1", "hong"));
+		postRepository.save(new Post("Title2", "kim"));
+		postRepository.save(new Post("Title3", "lee"));
 	}
 }
