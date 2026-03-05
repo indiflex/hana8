@@ -14,3 +14,8 @@ insert into Member (nickname, email, passwd, isActive, bloodType)
 values ('hong', 'hong@gmail.com', null, 1, 'A'),
        ('kim', 'kim@gmail.com', null, 1, 'B'),
        ('lee', 'lee@gmail.com', null, 1, 'AB');
+
+insert into Post(title, writer, body)
+values ('Title1', 'hong', 'body of Title1'),
+       ('Title2', 'kim', 'body of Title2'),
+       ('Title3', 'lee', 'body of Title3');

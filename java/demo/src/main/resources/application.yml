@@ -15,7 +15,7 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
     show-sql: true
-    defer-datasource-initialization: true
+    defer-datasource-initialization: false # true
 
     properties:
       hibernate:
@@ -29,7 +29,7 @@ spring:
 
   sql:
     init:
-      mode: always
+      mode: never # always
 
   flyway:
     enabled: false

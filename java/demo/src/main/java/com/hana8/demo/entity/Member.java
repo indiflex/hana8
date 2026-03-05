@@ -53,5 +53,4 @@ public class Member extends BaseEntity {
 
 	@ColumnDefault("false")
 	private boolean isActive;
-
 }

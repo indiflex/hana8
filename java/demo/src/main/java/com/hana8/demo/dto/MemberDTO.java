@@ -1,5 +1,7 @@
 package com.hana8.demo.dto;
 
+import java.time.LocalDateTime;
+
 import com.hana8.demo.common.enums.BloodType;
 
 import jakarta.validation.constraints.Email;
@@ -29,9 +31,13 @@ public class MemberDTO {
 	@Size(min = 8, max = 16)
 	private String passwd;
 
+	// @JsonProperty("bt")
 	private BloodType bloodType;
 
-	private boolean isActive;
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
+
+	private Boolean isActive;
 
 	public interface OnCreate {
 	}

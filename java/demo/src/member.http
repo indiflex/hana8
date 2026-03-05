@@ -13,17 +13,7 @@ Content-Type: application/json
   "writer": "1"
 }
 
-### post-regist
-POST {{baseUrl}}
-Content-Type: application/json
-
-{
-  "title": "title - kim",
-  "body": "body - kim",
-  "writer": "Kim"
-}
-
-### post-info
+### member-info
 GET {{baseUrl}}/1
 
 
