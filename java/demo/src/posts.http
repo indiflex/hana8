@@ -1,31 +1,35 @@
-@baseUrl=http://localhost:8080/api/posts
+@baseUrl=http://localhost:8080/posts
+#@baseUrl=http://localhost:8080/posts/list
 
 ### post list
 GET {{baseUrl}}/
-
-### post list
-GET {{baseUrl}}?page=1
-
-### post list
-GET {{baseUrl}}?page=2&pageSize=15
-
 
 ### post-regist
 POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "title": "xxxxxxxx",
+  "title": " ",
   "body": "body 1",
   "writer": "1"
 }
 
+### post-regist
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "title": "title - kim",
+  "body": "body - kim",
+  "writer": "Kim"
+}
+
 ### post-info
-GET {{baseUrl}}/104
+GET {{baseUrl}}/1
 
 
 ### post-update
-PUT {{baseUrl}}/104
+PUT {{baseUrl}}/1
 Content-Type: application/json
 
 {
@@ -35,4 +39,4 @@ Content-Type: application/json
 }
 
 ### post-remove
-DELETE {{baseUrl}}/104
+DELETE {{baseUrl}}/1
