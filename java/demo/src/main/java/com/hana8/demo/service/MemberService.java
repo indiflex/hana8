@@ -1,13 +1,18 @@
 package com.hana8.demo.service;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.hana8.demo.dto.MemberDTO;
+import com.hana8.demo.dto.MemberSearchDTO;
 import com.hana8.demo.entity.Member;
+import com.hana8.demo.entity.QMember;
 import com.hana8.demo.mapper.MemberMapper;
 import com.hana8.demo.repository.MemberRepository;
+import com.querydsl.core.BooleanBuilder;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,6 +27,24 @@ public class MemberService {
 		List<Member> members = repository.findAll();
 
 		return members.stream().map(mapper::toDTO).toList();
+	}
+
+	public List<MemberDTO> searchMembers(MemberSearchDTO dto) {
+		System.out.println("dto = " + dto);
+		QMember member = QMember.member;
+
+		BooleanBuilder bb = new BooleanBuilder();
+		bb.and(member.isActive.eq(dto.getIsActive()));
+
+		if (StringUtils.hasText(dto.getBloodType()))
+			bb.and(member.bloodType.stringValue().contains(dto.getBloodType()));
+
+		// List<Member> data = (List<Member>)repository.findAll(bb));
+		// return data.stream().map(mapper::toDTO).toList();
+
+		return StreamSupport.stream(repository.findAll(bb).spliterator(), false)
+			.map(mapper::toDTO)
+			.toList();
 	}
 
 	public MemberDTO getMember(Long id) {
@@ -55,4 +78,5 @@ public class MemberService {
 		repository.deleteById(id);
 		return 1;
 	}
+
 }

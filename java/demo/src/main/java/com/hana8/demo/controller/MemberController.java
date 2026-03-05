@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hana8.demo.dto.MemberDTO;
+import com.hana8.demo.dto.MemberSearchDTO;
 import com.hana8.demo.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,11 @@ public class MemberController {
 	@GetMapping("")
 	List<MemberDTO> getMembers() {
 		return service.getMemers();
+	}
+
+	@GetMapping("/search")
+	List<MemberDTO> searchMembers(MemberSearchDTO dto) {
+		return service.searchMembers(dto);
 	}
 
 	@GetMapping("/{id}")
