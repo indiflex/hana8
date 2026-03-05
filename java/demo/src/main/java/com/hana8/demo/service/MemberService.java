@@ -34,10 +34,21 @@ public class MemberService {
 		QMember member = QMember.member;
 
 		BooleanBuilder bb = new BooleanBuilder();
-		bb.and(member.isActive.eq(dto.getIsActive()));
+
+		if (dto.getIsActive() != null)
+			bb.and(member.isActive.eq(dto.getIsActive()));
 
 		if (StringUtils.hasText(dto.getBloodType()))
-			bb.and(member.bloodType.stringValue().contains(dto.getBloodType()));
+			bb.and(member.bloodType.stringValue().eq(dto.getBloodType()));
+
+		if (StringUtils.hasText(dto.getNickname()))
+			bb.and(member.nickname.contains(dto.getNickname()));
+
+		if (StringUtils.hasText(dto.getDatetime())) {
+			bb.and(member.updatedAt.after(
+				dto.parseDatetime()
+			));
+		}
 
 		// List<Member> data = (List<Member>)repository.findAll(bb));
 		// return data.stream().map(mapper::toDTO).toList();

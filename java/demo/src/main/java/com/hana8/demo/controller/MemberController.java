@@ -16,6 +16,7 @@ import com.hana8.demo.dto.MemberDTO;
 import com.hana8.demo.dto.MemberSearchDTO;
 import com.hana8.demo.service.MemberService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -30,7 +31,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/search")
-	List<MemberDTO> searchMembers(MemberSearchDTO dto) {
+	List<MemberDTO> searchMembers(@Valid MemberSearchDTO dto) {
 		return service.searchMembers(dto);
 	}
 

@@ -13,10 +13,17 @@ GET {{baseUrl}}/search?isActive=0
 GET {{baseUrl}}/search?isActive=1&bloodType=B
 
 ### member list
-GET {{baseUrl}}/search?nickname=hong
+GET {{baseUrl}}/search?nickname=kim
 
 ### member list
-GET {{baseUrl}}/search?datetime=2026-03-05 09:16:25
+GET {{baseUrl}}/search?datetime=2026-03-05 15:16:25
+
+### member list
+GET {{baseUrl}}/search?datetime=2026-03-05
+
+### member list
+GET {{baseUrl}}/search?datetime=2026-03-05 09:16
+
 
 
 
