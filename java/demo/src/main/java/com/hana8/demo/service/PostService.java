@@ -13,6 +13,7 @@ import com.hana8.demo.dto.PostDTO;
 import com.hana8.demo.dto.PostListDTO;
 import com.hana8.demo.entity.Post;
 import com.hana8.demo.entity.QPost;
+import com.hana8.demo.mapper.PostBodyMapper;
 import com.hana8.demo.mapper.PostMapper;
 import com.hana8.demo.repository.PostRepository;
 import com.querydsl.core.BooleanBuilder;
@@ -24,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class PostService {
 	private final PostRepository repository;
 	private final PostMapper mapper;
+	private final PostBodyMapper bodyMapper;
 
 	public List<PostDTO> getPosts(PostListDTO dto) {
 		System.out.println("dto = " + dto);
@@ -35,7 +37,7 @@ public class PostService {
 			bb.and(post.title.contains(dto.getTitle()));
 
 		if (StringUtils.hasText(dto.getBody()))
-			bb.and(post.body.contains(dto.getBody()));
+			bb.and(post.body.body.contains(dto.getBody()));
 
 		if (StringUtils.hasText(dto.getWriter()))
 			bb.and(post.writer.eq(dto.getWriter()));
@@ -73,7 +75,7 @@ public class PostService {
 			.orElseThrow(() -> new IllegalArgumentException("Post #%d is not found!".formatted(post.getId())));
 
 		oldPost.setTitle(post.getTitle());
-		oldPost.setBody(post.getBody());
+		oldPost.setBody(bodyMapper.toEntity(post.getBody()));
 		oldPost.setWriter(post.getWriter());
 
 		return mapper.toDTO(repository.save(oldPost));

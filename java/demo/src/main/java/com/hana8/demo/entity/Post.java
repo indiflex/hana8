@@ -1,10 +1,12 @@
 package com.hana8.demo.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,8 +37,9 @@ public class Post extends BaseEntity {
 	@Column(nullable = false)
 	private String title;
 
-	@Column(length = 2000)
-	private String body;
+	// @OneToOne(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@OneToOne(mappedBy = "post", cascade = CascadeType.ALL)
+	private PostBody body;
 
 	@Column(nullable = false, length = 31)
 	private String writer;
@@ -44,6 +47,12 @@ public class Post extends BaseEntity {
 	public Post(String title, String writer) {
 		this.title = title;
 		this.writer = writer;
-		this.body = "body of " + title;
+		setBody(new PostBody("body of " + title));
+	}
+
+	public void setBody(PostBody body) {
+		this.body = body;
+		if (body != null)
+			body.setPost(this);
 	}
 }

@@ -25,6 +25,14 @@ create table Post
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP not null,
     title     varchar(255)                                                    not null,
     writer    varchar(31)                                                     not null,
-    body      varchar(2000),
     primary key (id)
+);
+
+create table PostBody
+(
+    post      int unsigned                                                    not null,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP                             not null,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP not null,
+    body      text                                                            not null,
+    primary key (post)
 )
