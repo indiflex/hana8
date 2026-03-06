@@ -1,16 +1,21 @@
 package com.hana8.demo.service;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.hana8.demo.dto.PostDTO;
 import com.hana8.demo.dto.PostListDTO;
 import com.hana8.demo.entity.Post;
+import com.hana8.demo.entity.QPost;
 import com.hana8.demo.mapper.PostMapper;
 import com.hana8.demo.repository.PostRepository;
+import com.querydsl.core.BooleanBuilder;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,9 +26,33 @@ public class PostService {
 	private final PostMapper mapper;
 
 	public List<PostDTO> getPosts(PostListDTO dto) {
+		System.out.println("dto = " + dto);
 		PageRequest pager = PageRequest.of(dto.getPage() - 1, dto.getPageSize(), Sort.by("id").descending());
 
-		List<Post> posts = repository.findAll(pager).getContent();
+		QPost post = QPost.post;
+		BooleanBuilder bb = new BooleanBuilder();
+		if (StringUtils.hasText(dto.getTitle()))
+			bb.and(post.title.contains(dto.getTitle()));
+
+		if (StringUtils.hasText(dto.getBody()))
+			bb.and(post.body.contains(dto.getBody()));
+
+		if (StringUtils.hasText(dto.getWriter()))
+			bb.and(post.writer.eq(dto.getWriter()));
+
+		if (StringUtils.hasText(dto.getWritedate())) {
+			ZoneId zone = ZoneId.of("Asia/Seoul");
+			// LocalDateTime start = dto.parseWritedate().atStartOfDay();
+			ZonedDateTime start = dto.parseWritedate().atStartOfDay(zone);
+			// LocalDateTime end = dto.parseWritedate().atTime(LocalTime.MAX);
+			// LocalDateTime end = dto.parseWritedate().plusDays(1).atStartOfDay();
+			ZonedDateTime end = dto.parseWritedate().plusDays(1).atStartOfDay(zone);
+			System.out.println("start, end = " + start + ',' + end);
+			// bb.and(post.createdAt.between(start, end));
+			bb.and(post.createdAt.goe(start.toLocalDateTime()).and(post.createdAt.lt(end.toLocalDateTime())));
+		}
+
+		List<Post> posts = repository.findAll(bb, pager).getContent();
 
 		return posts.stream().map(mapper::toDTO).toList();
 	}

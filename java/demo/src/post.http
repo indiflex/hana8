@@ -9,6 +9,20 @@ GET {{baseUrl}}?page=1
 ### post list
 GET {{baseUrl}}?page=2&pageSize=15
 
+### post search
+GET {{baseUrl}}?page=1&title=Title8
+
+### post search
+GET {{baseUrl}}?page=1&title=Title8&body=body of 8
+
+### post search
+GET {{baseUrl}}?page=1&title=Title8&writer=writer80
+
+### post search
+GET {{baseUrl}}?page=1&title=Title8&writedate=2026-03-05
+
+
+
 
 ### post-regist
 POST {{baseUrl}}
