@@ -22,15 +22,15 @@ GET {{baseUrl}}?page=1&title=Title8&writer=writer80
 GET {{baseUrl}}?page=1&title=Title8&writedate=2026-03-05
 
 
-
-
 ### post-regist
 POST {{baseUrl}}
 Content-Type: application/json
 
 {
   "title": "xxxxxxxx",
-  "body": "body 1",
+  "body": {
+    "body": "body 1"
+  },
   "writer": "1"
 }
 
@@ -39,14 +39,18 @@ GET {{baseUrl}}/104
 
 
 ### post-update
-PUT {{baseUrl}}/104
+PUT {{baseUrl}}/107
 Content-Type: application/json
 
 {
+  "id": 107,
   "title": "title 1x",
-  "body": "body 1xxx",
+  "body": {
+    "id": 104,
+    "body": "body 1xxx"
+  },
   "writer": "Hongxxx"
 }
 
 ### post-remove
-DELETE {{baseUrl}}/104
+DELETE {{baseUrl}}/107

@@ -11,15 +11,13 @@ import org.springframework.util.StringUtils;
 
 import com.hana8.demo.dto.PostDTO;
 import com.hana8.demo.dto.PostListDTO;
-import com.hana8.demo.dto.PostRequestDTO;
-import com.hana8.demo.dto.PostSaveDTO;
 import com.hana8.demo.entity.Post;
 import com.hana8.demo.entity.PostBody;
 import com.hana8.demo.entity.QPost;
-import com.hana8.demo.mapper.PostBodyMapper;
+import com.hana8.demo.entity.Reply;
 import com.hana8.demo.mapper.PostMapper;
-import com.hana8.demo.repository.PostBodyRepository;
 import com.hana8.demo.repository.PostRepository;
+import com.hana8.demo.repository.ReplyRepository;
 import com.querydsl.core.BooleanBuilder;
 
 import lombok.RequiredArgsConstructor;
@@ -28,10 +26,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PostService {
 	private final PostRepository repository;
-	private final PostBodyRepository bodyRepository;
+	private final ReplyRepository replyRepository;
 
 	private final PostMapper mapper;
-	private final PostBodyMapper bodyMapper;
 
 	public List<PostDTO> getPosts(PostListDTO dto) {
 		System.out.println("dto = " + dto);
@@ -72,17 +69,11 @@ public class PostService {
 		return mapper.toDTO(post);
 	}
 
-	public PostDTO registPost(PostSaveDTO post) {
-		Post savedPost = repository.save(mapper.toEntity((PostRequestDTO)post));
-		PostBody body = PostBody.builder().post(savedPost).body(post.getBody()).build();
-		PostBody savedBody = bodyRepository.save(body);
-		// PostDTO dto = mapper.toDTO(savedPost);
-		// dto.setBody(PostBodyDTO.builder().id(body.getId()).body(body.getBody()).build());
-		// return dto;
-
-		savedPost.setBody(savedBody);
-		return mapper.toDTO(savedPost);
-		// return mapper.toDTO(repository.save(mapper.toEntity(post)));
+	public PostDTO registPost(PostDTO dto) {
+		Post savedPost = repository.save(mapper.toEntity(dto));
+		PostBody body = mapper.toEntity(dto.getBody());
+		savedPost.setBody(body);
+		return mapper.toDTO(repository.save(savedPost));
 	}
 
 	public PostDTO editPost(PostDTO post) {
@@ -90,7 +81,7 @@ public class PostService {
 			.orElseThrow(() -> new IllegalArgumentException("Post #%d is not found!".formatted(post.getId())));
 
 		oldPost.setTitle(post.getTitle());
-		oldPost.setBody(bodyMapper.toEntity(post.getBody()));
+		oldPost.setBody(mapper.toEntity(post.getBody()));
 		oldPost.setWriter(post.getWriter());
 
 		return mapper.toDTO(repository.save(oldPost));
@@ -103,4 +94,11 @@ public class PostService {
 		return repository.deletePost(id);
 	}
 
+	public PostDTO getReplies(Long id) {
+		Post post = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Post Not Found"));
+
+		List<Reply> replies = replyRepository.findAllByPost(post);
+		post.setReplies(replies);
+		return mapper.toDTO(post);
+	}
 }
