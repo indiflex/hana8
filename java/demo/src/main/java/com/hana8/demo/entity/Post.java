@@ -1,11 +1,14 @@
 package com.hana8.demo.entity;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,6 +46,9 @@ public class Post extends BaseEntity {
 
 	@Column(nullable = false, length = 31)
 	private String writer;
+
+	@OneToMany(mappedBy = "post")
+	private List<Reply> replies;
 
 	public Post(String title, String writer) {
 		this.title = title;

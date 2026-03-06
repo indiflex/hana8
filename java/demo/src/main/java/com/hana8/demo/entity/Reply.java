@@ -10,8 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,33 +25,23 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostBody extends BaseEntity {
+public class Reply extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(columnDefinition = "int unsigned")
 	private Long id;
 
-	@OneToOne
-	// @MapsId
+	@ManyToOne()
 	@JoinColumn(name = "post", referencedColumnName = "id",
 		columnDefinition = "int unsigned not null",
-		foreignKey = @ForeignKey(name = "fk_PostBody_post"))
-	// foreignKeyDefinition = "on delete cascade on update cascade"))
+		foreignKey = @ForeignKey(name = "fk_Reply_post"))
 	@OnDelete(action = OnDeleteAction.CASCADE)
+	@ToString.Exclude
 	private Post post;
 
-	@Lob
-	@Column(columnDefinition = "text", nullable = false)
-	private String body;
+	@Column(nullable = false)
+	private String reply;
 
-	public PostBody(String body) {
-		this.body = body;
-	}
-
-	// only use when @MapsId
-	// public void setPost(Post post) {
-	// 	this.post = post;
-	// 	if (post != null)
-	// 		post.setBody(this);
-	// }
+	@Column(nullable = false, length = 31)
+	private String replyer;
 }

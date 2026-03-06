@@ -13,4 +13,6 @@ public class PostBodyDTO {
 	private Long id;
 
 	private String body;
+
+	private PostDTO post;
 }
