@@ -7,8 +7,7 @@ import com.hana8.demo.entity.PostBody;
 
 @Mapper(componentModel = "spring")
 public interface PostBodyMapper {
-	// @Mapping(source = "nickname", target = "username")
-	// @Mapping(target = "passwd", ignore = true)
+	// @Mapping(target = "post", ignore = true)
 	PostBodyDTO toDTO(PostBody post);
 
 	PostBody toEntity(PostBodyDTO dto);

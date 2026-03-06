@@ -11,10 +11,14 @@ import org.springframework.util.StringUtils;
 
 import com.hana8.demo.dto.PostDTO;
 import com.hana8.demo.dto.PostListDTO;
+import com.hana8.demo.dto.PostRequestDTO;
+import com.hana8.demo.dto.PostSaveDTO;
 import com.hana8.demo.entity.Post;
+import com.hana8.demo.entity.PostBody;
 import com.hana8.demo.entity.QPost;
 import com.hana8.demo.mapper.PostBodyMapper;
 import com.hana8.demo.mapper.PostMapper;
+import com.hana8.demo.repository.PostBodyRepository;
 import com.hana8.demo.repository.PostRepository;
 import com.querydsl.core.BooleanBuilder;
 
@@ -24,6 +28,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PostService {
 	private final PostRepository repository;
+	private final PostBodyRepository bodyRepository;
+
 	private final PostMapper mapper;
 	private final PostBodyMapper bodyMapper;
 
@@ -66,8 +72,17 @@ public class PostService {
 		return mapper.toDTO(post);
 	}
 
-	public PostDTO registPost(PostDTO post) {
-		return mapper.toDTO(repository.save(mapper.toEntity(post)));
+	public PostDTO registPost(PostSaveDTO post) {
+		Post savedPost = repository.save(mapper.toEntity((PostRequestDTO)post));
+		PostBody body = PostBody.builder().post(savedPost).body(post.getBody()).build();
+		PostBody savedBody = bodyRepository.save(body);
+		// PostDTO dto = mapper.toDTO(savedPost);
+		// dto.setBody(PostBodyDTO.builder().id(body.getId()).body(body.getBody()).build());
+		// return dto;
+
+		savedPost.setBody(savedBody);
+		return mapper.toDTO(savedPost);
+		// return mapper.toDTO(repository.save(mapper.toEntity(post)));
 	}
 
 	public PostDTO editPost(PostDTO post) {
