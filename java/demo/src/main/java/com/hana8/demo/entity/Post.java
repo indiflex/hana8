@@ -1,5 +1,6 @@
 package com.hana8.demo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -31,6 +32,9 @@ public class Post extends BaseEntity {
 	// @UuidGenerator
 	// private String id;
 
+	@OneToMany(mappedBy = "post")
+	private List<Reply> replies = new ArrayList<>();
+
 	@Id
 	// @Tsid
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,16 +43,11 @@ public class Post extends BaseEntity {
 
 	@Column(nullable = false)
 	private String title;
-
 	// @OneToOne(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@OneToOne(mappedBy = "post", cascade = CascadeType.ALL)
 	private PostBody body;
-
 	@Column(nullable = false, length = 31)
 	private String writer;
-
-	@OneToMany(mappedBy = "post")
-	private List<Reply> replies;
 
 	public Post(String title, String writer) {
 		this.title = title;

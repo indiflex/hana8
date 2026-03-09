@@ -43,5 +43,5 @@ public class Reply extends BaseEntity {
 	private String reply;
 
 	@Column(nullable = false, length = 31)
-	private String replyer;
+	private String replier;
 }

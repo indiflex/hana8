@@ -53,4 +53,32 @@ Content-Type: application/json
 }
 
 ### post-remove
-DELETE {{baseUrl}}/107
+DELETE {{baseUrl}}/102
+
+### get replies
+GET {{baseUrl}}/102/replies
+
+### add reply
+POST {{baseUrl}}/102/replies
+Content-Type: application/json
+
+{
+  "reply": "reply 1111",
+  "replier": "hong"
+}
+
+### get reply
+GET {{baseUrl}}/102/replies/5
+
+### edit reply
+PUT {{baseUrl}}/102/replies/5
+Content-Type: application/json
+
+{
+  "id": 5,
+  "reply": "reply xxxxxxx"
+}
+
+
+### delete reply
+DELETE {{baseUrl}}/102/replies/5

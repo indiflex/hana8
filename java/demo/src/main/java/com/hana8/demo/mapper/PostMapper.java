@@ -15,6 +15,7 @@ public interface PostMapper {
 	PostDTO toDTO(Post post);
 
 	@Mapping(target = "body", ignore = true)
+	@Mapping(target = "replies", ignore = true)
 	Post toEntity(PostDTO dto);
 
 	PostBody toEntity(PostBodyDTO dto);
