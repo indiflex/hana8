@@ -14,6 +14,7 @@ public interface ReplyMapper {
 	@Mapping(target = "postId", source = "post.id")
 	ReplyDTO toDTO(Reply reply);
 
+	@Mapping(target = "post", ignore = true)
 	Reply toEntity(ReplyDTO dto);
 
 	List<ReplyDTO> toDTOList(List<Reply> replies);

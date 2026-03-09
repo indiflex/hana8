@@ -36,6 +36,7 @@ public class PostDTO {
 	private PostBodyDTO body;
 
 	@JsonManagedReference
+	@Builder.Default
 	private List<ReplyDTO> replies = new ArrayList<>();
 
 	public interface OnCreate {

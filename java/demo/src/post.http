@@ -3,8 +3,8 @@
 ### post list
 GET {{baseUrl}}/
 
-### post list
-GET {{baseUrl}}?page=1
+### post list     json.replies?.length
+GET {{baseUrl}}?page=11
 
 ### post list
 GET {{baseUrl}}?page=2&pageSize=15
@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 
 ### post-info
-GET {{baseUrl}}/104
+GET {{baseUrl}}/1
 
 
 ### post-update

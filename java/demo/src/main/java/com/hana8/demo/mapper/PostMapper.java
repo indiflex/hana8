@@ -12,11 +12,16 @@ import com.hana8.demo.entity.PostBody;
 public interface PostMapper {
 	// @Mapping(source = "nickname", target = "username")
 	// @Mapping(target = "passwd", ignore = true)
+	@Mapping(target = "replies", ignore = true)
 	PostDTO toDTO(Post post);
 
 	@Mapping(target = "body", ignore = true)
 	@Mapping(target = "replies", ignore = true)
 	Post toEntity(PostDTO dto);
 
+	@Mapping(target = "post", ignore = true)
 	PostBody toEntity(PostBodyDTO dto);
+
+	// @Mapping(target = "postId", source = "post.id")
+	// ReplyDTO toDTO(Reply reply);
 }

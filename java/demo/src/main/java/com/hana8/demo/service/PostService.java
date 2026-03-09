@@ -69,7 +69,9 @@ public class PostService {
 		Post post = repository.findById(id)
 			.orElseThrow(() -> new IllegalArgumentException("Post #%d is not found!".formatted(id)));
 
-		return mapper.toDTO(post);
+		PostDTO dto = mapper.toDTO(post);
+		dto.setReplies(replyMapper.toDTOList(replyRepository.findAllByPostId(id)));
+		return dto;
 	}
 
 	public PostDTO registPost(PostDTO dto) {

@@ -33,6 +33,7 @@ public class Post extends BaseEntity {
 	// private String id;
 
 	@OneToMany(mappedBy = "post")
+	@Builder.Default
 	private List<Reply> replies = new ArrayList<>();
 
 	@Id
