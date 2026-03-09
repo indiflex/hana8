@@ -18,6 +18,7 @@ import com.hana8.demo.entity.QPost;
 import com.hana8.demo.entity.Reply;
 import com.hana8.demo.mapper.PostMapper;
 import com.hana8.demo.mapper.ReplyMapper;
+import com.hana8.demo.repository.MemberRepository;
 import com.hana8.demo.repository.PostRepository;
 import com.hana8.demo.repository.ReplyRepository;
 import com.querydsl.core.BooleanBuilder;
@@ -29,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 public class PostService {
 	private final PostRepository repository;
 	private final ReplyRepository replyRepository;
+	private final MemberRepository memberRepository;
 
 	private final PostMapper mapper;
 	private final ReplyMapper replyMapper;
@@ -76,6 +78,9 @@ public class PostService {
 
 	public PostDTO registPost(PostDTO dto) {
 		Post savedPost = repository.save(mapper.toEntity(dto));
+
+		// Todo loginedMemberId
+		savedPost.setWriter(memberRepository.findById(dto.getWriter().getId()).orElseThrow());
 		PostBody body = mapper.toEntity(dto.getBody());
 		savedPost.setBody(body);
 		return mapper.toDTO(repository.save(savedPost));
@@ -114,6 +119,7 @@ public class PostService {
 		Post post = repository.findById(dto.getPostId()).orElseThrow();
 		Reply reply = replyMapper.toEntity(dto);
 		reply.setPost(post);
+		reply.setReplier(memberRepository.findById(dto.getReplier().getId()).orElseThrow());
 		return replyMapper.toDTO(replyRepository.save(reply));
 	}
 

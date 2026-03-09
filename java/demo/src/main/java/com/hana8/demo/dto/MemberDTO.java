@@ -1,6 +1,7 @@
 package com.hana8.demo.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.hana8.demo.common.enums.BloodType;
@@ -42,6 +43,9 @@ public class MemberDTO {
 	private LocalDateTime updatedAt;
 
 	private Boolean isActive;
+
+	private List<PostDTO> posts;
+	private Long replyCount;
 
 	public interface OnCreate {
 	}

@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 
 ### member-info
-GET {{baseUrl}}/5
+GET {{baseUrl}}/1
 
 
 ### post-update

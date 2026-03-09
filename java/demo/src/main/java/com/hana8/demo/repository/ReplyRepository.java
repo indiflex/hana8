@@ -18,4 +18,6 @@ public interface ReplyRepository extends JpaRepository<Reply, Long> {
 	@Transactional
 	@Modifying
 	int deleteByReplyId(@Param("id") Long id);
+
+	Long countByReplierId(Long replierId);
 }

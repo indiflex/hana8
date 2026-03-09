@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 import com.hana8.demo.dto.ReplyDTO;
 import com.hana8.demo.entity.Reply;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {MemberMapper.class})
 public interface ReplyMapper {
 	// @Mapping(source = "nickname", target = "username")
 	@Mapping(target = "postId", source = "post.id")
