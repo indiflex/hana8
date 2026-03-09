@@ -3,12 +3,19 @@ package com.hana8.demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -47,10 +54,16 @@ public class Post extends BaseEntity {
 	// @OneToOne(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@OneToOne(mappedBy = "post", cascade = CascadeType.ALL)
 	private PostBody body;
-	@Column(nullable = false, length = 31)
-	private String writer;
 
-	public Post(String title, String writer) {
+	// @Column(nullable = false, length = 31)
+	// private String writer;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "writer", nullable = false,
+		foreignKey = @ForeignKey(name = "fk_Post_writer_Member"))
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Member writer;
+
+	public Post(String title, Member writer) {
 		this.title = title;
 		this.writer = writer;
 		setBody(new PostBody("body of " + title));

@@ -42,6 +42,7 @@ public class Reply extends BaseEntity {
 	@Column(nullable = false)
 	private String reply;
 
-	@Column(nullable = false, length = 31)
-	private String replier;
+	// @Column(nullable = false, length = 31)
+	@ManyToOne
+	private Member replier;
 }

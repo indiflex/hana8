@@ -46,7 +46,7 @@ public class PostService {
 			bb.and(post.body.body.contains(dto.getBody()));
 
 		if (StringUtils.hasText(dto.getWriter()))
-			bb.and(post.writer.eq(dto.getWriter()));
+			bb.and(post.writer.nickname.eq(dto.getWriter()));
 
 		if (StringUtils.hasText(dto.getWritedate())) {
 			ZoneId zone = ZoneId.of("Asia/Seoul");
@@ -87,7 +87,7 @@ public class PostService {
 
 		oldPost.setTitle(post.getTitle());
 		oldPost.setBody(mapper.toEntity(post.getBody()));
-		oldPost.setWriter(post.getWriter());
+		// oldPost.setWriter(post.getWriter());
 
 		return mapper.toDTO(repository.save(oldPost));
 	}

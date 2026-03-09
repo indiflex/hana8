@@ -8,12 +8,15 @@ import com.hana8.demo.dto.PostDTO;
 import com.hana8.demo.entity.Post;
 import com.hana8.demo.entity.PostBody;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {MemberMapper.class})
 public interface PostMapper {
 	// @Mapping(source = "nickname", target = "username")
 	// @Mapping(target = "passwd", ignore = true)
 	@Mapping(target = "replies", ignore = true)
 	PostDTO toDTO(Post post);
+
+	// @Mapping(target = "passwd", ignore = true)
+	// MemberDTO toMemberDTO(Member member);
 
 	@Mapping(target = "body", ignore = true)
 	@Mapping(target = "replies", ignore = true)
