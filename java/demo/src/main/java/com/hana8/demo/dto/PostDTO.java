@@ -39,6 +39,10 @@ public class PostDTO {
 	@Builder.Default
 	private List<ReplyDTO> replies = new ArrayList<>();
 
+	@JsonManagedReference
+	@Builder.Default
+	private List<HashtagDTO> hashtags = new ArrayList<>();
+
 	public interface OnCreate {
 	}
 

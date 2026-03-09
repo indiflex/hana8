@@ -33,11 +33,16 @@ Content-Type: application/json
   },
   "writer": {
     "id": 1
-  }
+  },
+  "hashtags": [
+    {
+      "tag": "monday"
+    }
+  ]
 }
 
 ### post-info
-GET {{baseUrl}}/1
+GET {{baseUrl}}/4
 
 
 ### post-update

@@ -13,6 +13,7 @@ public interface PostMapper {
 	// @Mapping(source = "nickname", target = "username")
 	// @Mapping(target = "passwd", ignore = true)
 	@Mapping(target = "replies", ignore = true)
+	// @Mapping(target = "hashtags", ignore = true)
 	PostDTO toDTO(Post post);
 
 	// @Mapping(target = "passwd", ignore = true)

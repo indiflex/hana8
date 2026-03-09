@@ -15,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -54,6 +55,10 @@ public class Post extends BaseEntity {
 	// @OneToOne(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@OneToOne(mappedBy = "post", cascade = CascadeType.ALL)
 	private PostBody body;
+
+	@ManyToMany(mappedBy = "hashtagPosts")
+	@Builder.Default
+	private List<Hashtag> hashtags = new ArrayList<>();
 
 	// @Column(nullable = false, length = 31)
 	// private String writer;
