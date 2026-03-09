@@ -3,12 +3,16 @@ package com.hana8.demo.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
 import com.hana8.demo.entity.Post;
 
-public interface PostRepository extends JpaRepository<Post, Long> {
+import jakarta.transaction.Transactional;
+
+public interface PostRepository extends JpaRepository<Post, Long>, QuerydslPredicateExecutor<Post> {
 	List<Post> findByTitleStartingWith(String title);
 
 	List<Post> findByIdBetween(long l, long l1);
@@ -18,4 +22,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
 	@Query("select p.createdAt, p.title from Post p where p.id between :start and :end order by p.createdAt desc, p.title")
 	List<Object[]> sortByCreatedAtAndTitle(@Param("start") int s, @Param("end") int e);
+
+	@Query("delete from Post where id = :id")
+	@Modifying
+	@Transactional
+	int deletePost(@Param("id") Long id);
 }
