@@ -67,4 +67,8 @@ public class Member extends BaseEntity {
 	@ManyToMany(mappedBy = "deptMembers")
 	@Builder.Default
 	private List<Dept> depts = new ArrayList<>();
+
+	public Member(Long id) {
+		this.id = id;
+	}
 }

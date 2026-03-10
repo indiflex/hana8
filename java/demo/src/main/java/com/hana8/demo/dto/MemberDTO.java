@@ -48,7 +48,9 @@ public class MemberDTO {
 	private List<PostDTO> posts;
 	private Long replyCount;
 
+	@Builder.Default
 	private List<DeptDTO> captainDepts = new ArrayList<>();
+	@Builder.Default
 	private List<DeptDTO> depts = new ArrayList<>();
 
 	public interface OnCreate {

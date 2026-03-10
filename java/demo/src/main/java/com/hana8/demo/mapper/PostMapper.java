@@ -21,6 +21,7 @@ public interface PostMapper {
 
 	@Mapping(target = "body", ignore = true)
 	@Mapping(target = "replies", ignore = true)
+	@Mapping(target = "hashtags", ignore = true)
 	Post toEntity(PostDTO dto);
 
 	@Mapping(target = "post", ignore = true)
