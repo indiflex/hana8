@@ -3,6 +3,7 @@ package com.hana8.demo.service;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +26,12 @@ class DeptServiceTest {
 		.captain(null)
 		.build();
 
+	private static final List<Dept> depts = List.of(
+		dept,
+		Dept.builder().id(2).name("Sales").build(),
+		Dept.builder().id(3).name("HR").build()
+	);
+
 	@MockitoBean
 	DeptRepository repository;
 
@@ -34,6 +41,20 @@ class DeptServiceTest {
 	@BeforeEach
 	void setUp() {
 		given(repository.findById(ID)).willReturn(Optional.ofNullable(dept));
+		given(repository.findAll()).willReturn(depts);
+
+		// Mockito.when(repository.findAll()).thenReturn(depts);
+	}
+
+	@Test
+	void getDeptsTest() {
+		List<DeptDTO> depts1 = service.getDepts();
+		assertThat(depts1).isNotEmpty()
+			.filteredOn(d -> d.getCaptain() == null)
+			.hasSize(depts.size())
+			.extracting(DeptDTO::getName)
+			.contains("Sales", "Dev", "HR")
+			.doesNotContain("Design");
 	}
 
 	@Test
@@ -53,5 +74,8 @@ class DeptServiceTest {
 		assertThat(dto)
 			.hasFieldOrPropertyWithValue("id", ID)
 			.hasFieldOrPropertyWithValue("name", dept.getName());
+
+		assertThatThrownBy(() -> service.getDept(99999999))
+			.hasMessageContaining("not found");
 	}
 }
