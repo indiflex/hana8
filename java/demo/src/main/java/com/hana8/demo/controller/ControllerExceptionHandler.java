@@ -55,6 +55,7 @@ public class ControllerExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<String> handleOthersExceptionHandler(Exception e) {
 		String message = e.getMessage();
+		e.printStackTrace(System.out);
 		return ResponseEntity.internalServerError().body("Error: " + message);
 	}
 }

@@ -61,6 +61,7 @@ public class Member extends BaseEntity {
 
 	@OneToMany(mappedBy = "captain")
 	@Builder.Default
+	@ToString.Exclude
 	private List<Dept> captainDepts = new ArrayList<>();
 
 	@ManyToMany(mappedBy = "deptMembers")

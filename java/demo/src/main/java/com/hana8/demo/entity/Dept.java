@@ -65,4 +65,10 @@ public class Dept extends BaseEntity {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@Builder.Default
 	private List<Member> deptMembers = new ArrayList<>();
+
+	public void addMember(Member member) {
+		if (deptMembers == null)
+			deptMembers = new ArrayList<>();
+		deptMembers.add(member);
+	}
 }

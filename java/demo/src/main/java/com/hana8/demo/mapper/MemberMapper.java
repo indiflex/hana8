@@ -1,5 +1,7 @@
 package com.hana8.demo.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -8,9 +10,16 @@ import com.hana8.demo.entity.Member;
 
 @Mapper(componentModel = "spring")
 public interface MemberMapper {
-	// @Mapping(source = "nickname", target = "username")
 	@Mapping(target = "passwd", ignore = true)
+	@Mapping(target = "posts", ignore = true)
+	@Mapping(target = "replyCount", ignore = true)
+	@Mapping(target = "captainDepts", ignore = true)
+	@Mapping(target = "depts", ignore = true)
 	MemberDTO toDTO(Member member);
 
 	Member toEntity(MemberDTO dto);
+
+	List<MemberDTO> toDTOList(List<Member> members);
+
+	List<Member> toEntityList(List<MemberDTO> members);
 }
