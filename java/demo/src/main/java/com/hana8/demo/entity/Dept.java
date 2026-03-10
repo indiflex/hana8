@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -28,8 +29,8 @@ import lombok.ToString;
 @Entity
 @Table(uniqueConstraints = {
 	@UniqueConstraint(
-		name = "uniq_Hashtag_tag",
-		columnNames = {"tag"}
+		name = "uniq_Dept_name",
+		columnNames = {"name"}
 	)
 })
 @Data
@@ -37,35 +38,31 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Hashtag extends BaseEntity {
+public class Dept extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "int unsigned")
-	private Long id;
+	@Column(columnDefinition = "smallint unsigned")
+	private Integer id;
 
 	@Column(nullable = false, length = 30)
-	private String tag;
+	private String name;
+
+	@ManyToOne
+	@JoinColumn(name = "captain", referencedColumnName = "id",
+		columnDefinition = "int unsigned",
+		foreignKey = @ForeignKey(name = "fk_Dept_captain_Member"))
+	@OnDelete(action = OnDeleteAction.SET_NULL)
+	private Member captain;
 
 	@ManyToMany
-	@JoinTable(name = "HashtagPost",
-		joinColumns = @JoinColumn(name = "hashtag",
-			foreignKey = @ForeignKey(name = "fk_HashtagPost_hashtag")),
-		inverseJoinColumns = @JoinColumn(name = "post",
-			foreignKey = @ForeignKey(name = "fk_HashtagPost_post",
-				foreignKeyDefinition = "foreign key(post) references Post(id) on delete cascade"))
+	@JoinTable(name = "DeptMember",
+		joinColumns = @JoinColumn(name = "dept",
+			foreignKey = @ForeignKey(name = "fk_DeptMember_dept")),
+		inverseJoinColumns = @JoinColumn(name = "member",
+			foreignKey = @ForeignKey(name = "fk_DeptMember_member",
+				foreignKeyDefinition = "foreign key(member) references Member(id) on delete cascade"))
 	)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@Builder.Default
-	private List<Post> hashtagPosts = new ArrayList<>();
-
-	public Hashtag(String tag) {
-		this.tag = tag;
-	}
-
-	public void addPosts(Post post) {
-		if (hashtagPosts == null)
-			hashtagPosts = new ArrayList<>();
-
-		hashtagPosts.add(post);
-	}
+	private List<Member> deptMembers = new ArrayList<>();
 }
