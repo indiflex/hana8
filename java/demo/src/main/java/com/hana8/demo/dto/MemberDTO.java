@@ -15,7 +15,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @Builder
@@ -49,7 +48,6 @@ public class MemberDTO {
 	private List<PostDTO> posts;
 	private Long replyCount;
 
-	@ToString.Exclude
 	private List<DeptDTO> captainDepts = new ArrayList<>();
 	private List<DeptDTO> depts = new ArrayList<>();
 

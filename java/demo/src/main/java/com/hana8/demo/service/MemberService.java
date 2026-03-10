@@ -10,8 +10,10 @@ import com.hana8.demo.dto.MemberDTO;
 import com.hana8.demo.dto.MemberSearchDTO;
 import com.hana8.demo.entity.Member;
 import com.hana8.demo.entity.QMember;
+import com.hana8.demo.mapper.DeptMapper;
 import com.hana8.demo.mapper.MemberMapper;
 import com.hana8.demo.mapper.PostMapper;
+import com.hana8.demo.repository.DeptRepository;
 import com.hana8.demo.repository.MemberRepository;
 import com.hana8.demo.repository.PostRepository;
 import com.hana8.demo.repository.ReplyRepository;
@@ -25,10 +27,12 @@ public class MemberService {
 	private final MemberRepository repository;
 	private final PostRepository postRepository;
 	private final ReplyRepository replyRepository;
+	private final DeptRepository deptRepository;
 
 	// private final MyMemberMapper mapper;
 	private final MemberMapper mapper;
 	private final PostMapper postMapper;
+	private final DeptMapper deptMapper;
 
 	public List<MemberDTO> getMemers() {
 		List<Member> members = repository.findAll();
@@ -72,6 +76,9 @@ public class MemberService {
 		MemberDTO dto = mapper.toDTO(member);
 		dto.setPosts(postRepository.findByWriterId(id).stream().map(postMapper::toDTO).toList());
 		dto.setReplyCount(replyRepository.countByReplierId(id));
+
+		dto.setCaptainDepts(deptMapper.toDTOList(deptRepository.findByCaptainId(id)));
+		dto.setDepts(deptMapper.toDTOList(deptRepository.findByMemberId(id)));
 		return dto;
 	}
 
