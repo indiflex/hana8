@@ -93,3 +93,7 @@ GET {{baseUrl}}/files/download/e54a267e-e851-452f-96d1-c073283441ee.jpg
 
 ### 파일 다운로드 (secure)
 GET {{baseUrl}}/files/download/thumb_91fa196b-b151-4087-8a6a-48b55bb3a406.jpg?isSecure=true
+
+
+### 파일 삭제
+DELETE {{baseUrl}}/files/delete/e54a267e-e851-452f-96d1-c073283441ee.jpg

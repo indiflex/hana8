@@ -92,4 +92,29 @@ public class FileService {
 			.header(HttpHeaders.CONTENT_DISPOSITION, disposition)
 			.body(resource);
 	}
+
+	public void delete(String filename) {
+		// /upload/../../../../usr/local/ls ==> normalize ⇒ /usr/local/ls
+		Path filePath = Paths.get(uploadPath, filename).normalize();
+
+		if (!Files.exists(filePath))
+			throw new NoSuchElementException("파일을 찾을 수 없습니다: " + filename);
+
+		// abusing checking
+		if (!filePath.startsWith(Paths.get(uploadPath)))
+			throw new IllegalArgumentException("잘못된 파일 경로입니다!");
+
+		try {
+			Files.delete(filePath);
+
+			// 썸네일도 삭제
+			Path thumbPath = Paths.get(uploadPath, "thumb_" + filename);
+			if (Files.exists(thumbPath))
+				Files.delete(thumbPath);
+
+		} catch (IOException e) {
+			throw new RuntimeException("파일 삭제 실패", e);
+		}
+	}
+
 }

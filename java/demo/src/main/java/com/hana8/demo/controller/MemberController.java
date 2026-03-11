@@ -59,6 +59,14 @@ public class MemberController {
 		return fileService.download(filename, inline, isSecure);
 	}
 
+	@DeleteMapping("/files/delete/{filename}")
+	ResponseEntity<Void> deleteFile(@PathVariable String filename) {
+		// Todo check the authentication
+
+		fileService.delete(filename);
+		return ResponseEntity.ok().build();
+	}
+
 	@GetMapping("")
 	List<MemberDTO> getMembers() {
 		return service.getMemers();
