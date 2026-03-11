@@ -61,7 +61,8 @@ Content-Type: application/json
 DELETE {{baseUrl}}/5
 
 ### 파일 업로드 http
-POST {{baseUrl}}/files/upload
+#POST {{baseUrl}}/files/upload
+POST {{baseUrl}}/files/secure/upload
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
@@ -88,4 +89,7 @@ Content-Type: image/png
 --boundary--
 
 ### 파일 다운로드
-GET {{baseUrl}}/files/download/test.jpg
+GET {{baseUrl}}/files/download/e54a267e-e851-452f-96d1-c073283441ee.jpg
+
+### 파일 다운로드 (secure)
+GET {{baseUrl}}/files/download/thumb_91fa196b-b151-4087-8a6a-48b55bb3a406.jpg?isSecure=true
