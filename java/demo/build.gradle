@@ -37,6 +37,9 @@ dependencies {
     implementation 'org.flywaydb:flyway-mysql'
     implementation 'io.hypersistence:hypersistence-utils-hibernate-70:3.15.2'
 
+//    thumbnail
+    implementation 'net.coobird:thumbnailator:0.4.21'
+
 //    QueryDSL
     implementation 'com.querydsl:querydsl-jpa::jakarta'
     annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
