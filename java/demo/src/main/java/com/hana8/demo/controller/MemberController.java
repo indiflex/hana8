@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hana8.demo.dto.MemberDTO;
 import com.hana8.demo.dto.MemberSearchDTO;
+import com.hana8.demo.dto.UploadDTO;
 import com.hana8.demo.service.FileService;
 import com.hana8.demo.service.MemberService;
 
@@ -34,6 +35,12 @@ public class MemberController {
 	@PostMapping(value = "/files/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	ResponseEntity<String> uploadFile(@RequestParam MultipartFile file) {
 		return ResponseEntity.ok(fileService.upload(file));
+	}
+
+	@PostMapping(value = "/files/upload/multiple", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	ResponseEntity<List<String>> uploadMultiple(@Valid UploadDTO dto) {
+		List<String> list = dto.getFiles().stream().map(fileService::upload).toList();
+		return ResponseEntity.ok(list);
 	}
 
 	@GetMapping("")

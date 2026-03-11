@@ -10,6 +10,8 @@ build/
 logs
 ttt
 tmp
+upload
+secure
 
 db.properties
 *security.properties

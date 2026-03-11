@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 @Service
 public class FileService {
 	@Value("${upload.path}")
@@ -31,15 +33,26 @@ public class FileService {
 
 		// UUID로 파일명 중복 방지
 		String savedFilename = UUID.randomUUID() + ext;
+		// String savedFilename = UUID.randomUUID() + "_" + originalFilename;
 
 		// 저장 경로
 		Path savePath = Paths.get(uploadPath, savedFilename);
+		Path thumbPath = Paths.get(uploadPath, "thumb_" + savedFilename);
 		try {
 			// 디렉토리 없으면 생성
 			Files.createDirectories(savePath.getParent());
 
 			// 파일 저장
 			file.transferTo(savePath);
+
+			String contentType = file.getContentType();
+			System.out.println("contentType = " + contentType);
+			if (contentType != null && contentType.startsWith(("image/"))) {
+				Thumbnails.of(savePath.toFile())
+					.size(200, 200)
+					.outputQuality(0.8)
+					.toFile(thumbPath.toFile());
+			}
 		} catch (IOException e) {
 			throw new RuntimeException("파일 저장 실패", e);
 		}

@@ -65,10 +65,10 @@ POST {{baseUrl}}/files/upload
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
-Content-Disposition: form-data; name="file"; filename="test.jpeg"
+Content-Disposition: form-data; name="file"; filename="test1.jpg"
 Content-Type: image/jpeg
 
-< /Users/jade/test.jpeg
+< /Users/jade/tmp/test1.jpg
 --boundary–
 
 ### 다중 파일 업로드
@@ -76,15 +76,15 @@ POST {{baseUrl}}/files/upload/multiple
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
-Content-Disposition: form-data; name="files"; filename="test1.jpeg"
+Content-Disposition: form-data; name="files"; filename="test1.jpg"
 Content-Type: image/jpeg
 
-< /Users/jade/test1.jpeg
+< /Users/jade/tmp/test1.jpg
 --boundary
 Content-Disposition: form-data; name="files"; filename="test2.png"
 Content-Type: image/png
 
-< /Users/jade/test2.png
+< /Users/jade/tmp/test2.png
 --boundary--
 
 ### 파일 다운로드
