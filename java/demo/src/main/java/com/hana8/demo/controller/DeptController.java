@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hana8.demo.dto.DeptDTO;
 import com.hana8.demo.service.DeptService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/depts")
 @RequiredArgsConstructor
+@Tag(name = "부서관리", description = "부서 상세에서는 ...")
 public class DeptController {
 	private final DeptService service;
 
@@ -29,6 +32,8 @@ public class DeptController {
 	}
 
 	@GetMapping("/{id}")
+	@Tag(name = "부서 상세", description = "부서 세부 정보")
+	@Operation(summary = "/api/depts/아이디 형식으로 부르세요", description = "부서 id는 Integer입니다!")
 	DeptDTO getDept(@PathVariable Integer id) {
 		return service.getDept(id);
 	}
