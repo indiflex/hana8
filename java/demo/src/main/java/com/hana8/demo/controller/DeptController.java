@@ -62,7 +62,7 @@ public class DeptController {
 		description = "부서명, 부서장, 부서원 목록을 입력받아 부서를 등록합니다."
 	)
 	@io.swagger.v3.oas.annotations.parameters.RequestBody(
-		description = "부서 정보",
+		description = "부서 정보(부서명은 중복안되게 변경하세요)",
 		content = @Content(
 			mediaType = "application/json",
 			examples = @ExampleObject(value = """
