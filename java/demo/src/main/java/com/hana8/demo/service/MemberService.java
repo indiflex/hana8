@@ -89,6 +89,9 @@ public class MemberService {
 
 		dto.setCaptainDepts(deptMapper.toDTOList(deptRepository.findByCaptainId(id)));
 		dto.setDepts(deptMapper.toDTOList(deptRepository.findByMemberId(id)));
+
+		dto.setMemberImages(mapper.toImageDTOList(imageRepository.findByMemberId(id)));
+
 		return dto;
 	}
 
@@ -112,6 +115,9 @@ public class MemberService {
 	public int withdrawMember(Long id) {
 		Member oldMember = repository.findById(id)
 			.orElseThrow(() -> new IllegalArgumentException("Member #%d is not found!".formatted(id)));
+
+		List<MemberImage> images = imageRepository.findByMemberId(id);
+		images.forEach(mi -> fileService.delete(mi.getSavename(), mi.getSavedir()));
 
 		repository.deleteById(id);
 		return 1;

@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 
 ### member-info
-GET {{baseUrl}}/2
+GET {{baseUrl}}/4
 
 
 ### post-update
@@ -58,7 +58,7 @@ Content-Type: application/json
 }
 
 ### withdraw member
-DELETE {{baseUrl}}/5
+DELETE {{baseUrl}}/4
 
 ### 파일 업로드 http
 #POST {{baseUrl}}/files/upload
@@ -99,7 +99,7 @@ GET {{baseUrl}}/files/download/thumb_91fa196b-b151-4087-8a6a-48b55bb3a406.jpg?is
 DELETE {{baseUrl}}/files/delete/e54a267e-e851-452f-96d1-c073283441ee.jpg
 
 ### Member Image 저장
-POST {{baseUrl}}/2/images
+POST {{baseUrl}}/4/images
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary

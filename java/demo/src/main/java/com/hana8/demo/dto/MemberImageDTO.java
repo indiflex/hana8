@@ -1,8 +1,5 @@
 package com.hana8.demo.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,11 +18,4 @@ public class MemberImageDTO {
 	private String savename;
 	private String savedir;
 	private String remark;
-
-	private MemberDTO captain;
-
-	@Builder.Default
-	private List<MemberDTO> deptMembers = new ArrayList<>();
-
-	private Integer memberCount;
 }

@@ -1,5 +1,7 @@
 package com.hana8.demo.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,4 +15,6 @@ public interface MemberImageRepository extends JpaRepository<MemberImage, Long> 
 	@Transactional
 	@Modifying
 	int deleteByImageId(Long id);
+
+	List<MemberImage> findByMemberId(Long id);
 }

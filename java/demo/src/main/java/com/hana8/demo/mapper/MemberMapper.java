@@ -17,6 +17,7 @@ public interface MemberMapper {
 	@Mapping(target = "replyCount", ignore = true)
 	@Mapping(target = "captainDepts", ignore = true)
 	@Mapping(target = "depts", ignore = true)
+	@Mapping(target = "memberImages", ignore = true)
 	MemberDTO toDTO(Member member);
 
 	Member toEntity(MemberDTO dto);
