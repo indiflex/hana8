@@ -2,11 +2,11 @@ spring:
   application:
     name: demo
 
+  config:
+    import: classpath:security.yml
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/testdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: hana8
-    password: Hana8db!!
 
   jpa:
     hibernate:
