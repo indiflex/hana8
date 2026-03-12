@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hana8.demo.dto.MemberDTO;
+import com.hana8.demo.dto.MemberImageRequestDTO;
 import com.hana8.demo.dto.MemberSearchDTO;
 import com.hana8.demo.dto.UploadDTO;
 import com.hana8.demo.service.FileService;
@@ -32,6 +33,37 @@ import lombok.RequiredArgsConstructor;
 public class MemberController {
 	private final MemberService service;
 	private final FileService fileService;
+
+	@GetMapping("")
+	List<MemberDTO> getMembers() {
+		return service.getMemers();
+	}
+
+	@GetMapping("/search")
+	List<MemberDTO> searchMembers(@Valid MemberSearchDTO dto) {
+		return service.searchMembers(dto);
+	}
+
+	@GetMapping("/{id}")
+	MemberDTO getMember(@PathVariable Long id) {
+		return service.getMember(id);
+	}
+
+	@PostMapping("")
+	MemberDTO registMember(@Validated(MemberDTO.OnCreate.class) @RequestBody MemberDTO member) {
+		return service.registMember(member);
+	}
+
+	@PutMapping("/{id}")
+	MemberDTO editMember(@PathVariable Long id, @Validated(MemberDTO.OnUpdate.class) @RequestBody MemberDTO member) {
+		member.setId(id);
+		return service.editMember(member);
+	}
+
+	@DeleteMapping("/{id}")
+	int withdrawMember(@PathVariable Long id) {
+		return service.withdrawMember(id);
+	}
 
 	@PostMapping(value = "/files/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	ResponseEntity<String> uploadFile(@RequestParam MultipartFile file) {
@@ -67,34 +99,19 @@ public class MemberController {
 		return ResponseEntity.ok().build();
 	}
 
-	@GetMapping("")
-	List<MemberDTO> getMembers() {
-		return service.getMemers();
+	@PostMapping(path = "/{memberId}/images", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	ResponseEntity<?> registImages(@PathVariable Long memberId,
+		@Valid() @RequestBody MemberImageRequestDTO requestDTO) {
+		requestDTO.setMemberId(memberId);
+		try {
+			return service.registImages(requestDTO);
+		} catch (IllegalArgumentException e) {
+			return ResponseEntity.status(404).body(e.getMessage());
+		}
 	}
 
-	@GetMapping("/search")
-	List<MemberDTO> searchMembers(@Valid MemberSearchDTO dto) {
-		return service.searchMembers(dto);
-	}
-
-	@GetMapping("/{id}")
-	MemberDTO getMember(@PathVariable Long id) {
-		return service.getMember(id);
-	}
-
-	@PostMapping("")
-	MemberDTO registMember(@Validated(MemberDTO.OnCreate.class) @RequestBody MemberDTO member) {
-		return service.registMember(member);
-	}
-
-	@PutMapping("/{id}")
-	MemberDTO editMember(@PathVariable Long id, @Validated(MemberDTO.OnUpdate.class) @RequestBody MemberDTO member) {
-		member.setId(id);
-		return service.editMember(member);
-	}
-
-	@DeleteMapping("/{id}")
-	int withdrawMember(@PathVariable Long id) {
-		return service.withdrawMember(id);
+	@DeleteMapping("/{memberId}/images/{id}")
+	int deleteMemberImage(@PathVariable Long id) {
+		return service.deleteImage(id);
 	}
 }

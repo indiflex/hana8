@@ -3,10 +3,12 @@ package com.hana8.demo.service;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.hana8.demo.dto.MemberDTO;
+import com.hana8.demo.dto.MemberImageRequestDTO;
 import com.hana8.demo.dto.MemberSearchDTO;
 import com.hana8.demo.entity.Member;
 import com.hana8.demo.entity.QMember;
@@ -33,6 +35,8 @@ public class MemberService {
 	private final MemberMapper mapper;
 	private final PostMapper postMapper;
 	private final DeptMapper deptMapper;
+
+	private final FileService fileService;
 
 	public List<MemberDTO> getMemers() {
 		List<Member> members = repository.findAll();
@@ -107,4 +111,10 @@ public class MemberService {
 		return 1;
 	}
 
+	public ResponseEntity<?> registImages(MemberImageRequestDTO requestDTO) {
+
+	}
+
+	public int deleteImage(Long id) {
+	}
 }
