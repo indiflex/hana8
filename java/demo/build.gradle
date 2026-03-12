@@ -63,6 +63,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-webmvc-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+//    actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
 //    JpaTest
     testImplementation 'org.springframework.boot:spring-boot-data-jpa-test'
 }

@@ -1,0 +1,11 @@
+@baseUrl=http://localhost:8080/api/public
+
+### locale list
+GET {{baseUrl}}/langs
+
+
+
+### set locale
+POST {{baseUrl}}/setlang
+Content-Type: application/json
+Accept-Language: zh

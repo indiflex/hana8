@@ -1,0 +1,15 @@
+@baseUrl=http://localhost:9001/actuator
+
+### 앱 상태 확인 (로드밸런서 헬스체크)
+GET {{baseUrl}}/health
+
+### 운영 중 로그 레벨 변경 (재시작 없이!)
+POST {{baseUrl}}/loggers/com.hana8.demo
+Content-Type: application/json
+
+{
+  "configuredLevel": "INFO"
+}
+
+### 메모리 사용량 확인
+GET {{baseUrl}}/metrics/jvm.memory.used
