@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -101,17 +102,17 @@ public class MemberController {
 
 	@PostMapping(path = "/{memberId}/images", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	ResponseEntity<?> registImages(@PathVariable Long memberId,
-		@Valid() @RequestBody MemberImageRequestDTO requestDTO) {
+		@Valid() @ModelAttribute MemberImageRequestDTO requestDTO) {
 		requestDTO.setMemberId(memberId);
 		try {
-			return service.registImages(requestDTO);
+			return ResponseEntity.ok(service.registImages(requestDTO));
 		} catch (IllegalArgumentException e) {
 			return ResponseEntity.status(404).body(e.getMessage());
 		}
 	}
 
 	@DeleteMapping("/{memberId}/images/{id}")
-	int deleteMemberImage(@PathVariable Long id) {
+	int deleteMemberImage(@PathVariable Long memberId, @PathVariable Long id) {
 		return service.deleteImage(id);
 	}
 }

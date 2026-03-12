@@ -14,5 +14,6 @@ public class MemberImageRequestDTO {
 	@NotEmpty
 	List<MultipartFile> files;
 
+	@NotEmpty
 	List<String> remarks;
 }

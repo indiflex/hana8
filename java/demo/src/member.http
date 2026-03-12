@@ -97,3 +97,31 @@ GET {{baseUrl}}/files/download/thumb_91fa196b-b151-4087-8a6a-48b55bb3a406.jpg?is
 
 ### 파일 삭제
 DELETE {{baseUrl}}/files/delete/e54a267e-e851-452f-96d1-c073283441ee.jpg
+
+### Member Image 저장
+POST {{baseUrl}}/2/images
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="files"; filename="test1.jpg"
+Content-Type: image/jpeg
+
+< /Users/jade/tmp/test1.jpg
+--boundary
+Content-Disposition: form-data; name="remarks"
+
+첫번째 파일 설명
+--boundary
+Content-Disposition: form-data; name="files"; filename="test2.png"
+Content-Type: image/png
+
+< /Users/jade/tmp/test2.png
+--boundary--
+Content-Disposition: form-data; name="remarks"
+
+두번째 파일 설명
+--boundary--
+
+
+### delete Image
+DELETE {{baseUrl}}/1/images/2

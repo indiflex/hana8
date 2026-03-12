@@ -1,21 +1,26 @@
 package com.hana8.demo.service;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hana8.demo.dto.MemberDTO;
+import com.hana8.demo.dto.MemberImageDTO;
 import com.hana8.demo.dto.MemberImageRequestDTO;
 import com.hana8.demo.dto.MemberSearchDTO;
 import com.hana8.demo.entity.Member;
+import com.hana8.demo.entity.MemberImage;
 import com.hana8.demo.entity.QMember;
 import com.hana8.demo.mapper.DeptMapper;
 import com.hana8.demo.mapper.MemberMapper;
 import com.hana8.demo.mapper.PostMapper;
 import com.hana8.demo.repository.DeptRepository;
+import com.hana8.demo.repository.MemberImageRepository;
 import com.hana8.demo.repository.MemberRepository;
 import com.hana8.demo.repository.PostRepository;
 import com.hana8.demo.repository.ReplyRepository;
@@ -30,6 +35,7 @@ public class MemberService {
 	private final PostRepository postRepository;
 	private final ReplyRepository replyRepository;
 	private final DeptRepository deptRepository;
+	private final MemberImageRepository imageRepository;
 
 	// private final MyMemberMapper mapper;
 	private final MemberMapper mapper;
@@ -111,10 +117,40 @@ public class MemberService {
 		return 1;
 	}
 
-	public ResponseEntity<?> registImages(MemberImageRequestDTO requestDTO) {
+	public List<MemberImageDTO> registImages(MemberImageRequestDTO requestDTO) {
+		List<String> orgNames = requestDTO.getFiles().stream().map(MultipartFile::getOriginalFilename).toList();
 
+		String todayPath = getTodayPath();
+		List<String> saveNames = requestDTO.getFiles().stream().map(f -> fileService.upload(f, todayPath)).toList();
+
+		Member member = repository.findById(requestDTO.getMemberId())
+			.orElseThrow(() -> new IllegalArgumentException("Member not found!"));
+
+		List<MemberImage> images = new ArrayList<>();
+		for (int i = 0; i < requestDTO.getFiles().size(); i++) {
+			images.add(imageRepository.save(MemberImage.builder()
+				.member(member)
+				.orgname(orgNames.get(i))
+				.savedir(todayPath)
+				.savename(saveNames.get(i))
+				.remark(requestDTO.getRemarks().get(i))
+				.build()));
+		}
+
+		return mapper.toImageDTOList(images);
 	}
 
 	public int deleteImage(Long id) {
+		MemberImage oldImage = imageRepository.findById(id)
+			.orElseThrow(() -> new IllegalArgumentException("MemberImage not found!"));
+		fileService.delete(oldImage.getSavename(), oldImage.getSavedir());
+		return imageRepository.deleteByImageId(id);
 	}
+
+	private String getTodayPath() {
+		LocalDateTime now = LocalDateTime.now();
+		return String.format("%4d/%02d/%02d", now.getYear(),
+			now.getMonthValue(), now.getDayOfMonth());
+	}
+
 }

@@ -6,7 +6,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.hana8.demo.dto.MemberDTO;
+import com.hana8.demo.dto.MemberImageDTO;
 import com.hana8.demo.entity.Member;
+import com.hana8.demo.entity.MemberImage;
 
 @Mapper(componentModel = "spring")
 public interface MemberMapper {
@@ -22,4 +24,6 @@ public interface MemberMapper {
 	List<MemberDTO> toDTOList(List<Member> members);
 
 	List<Member> toEntityList(List<MemberDTO> members);
+
+	List<MemberImageDTO> toImageDTOList(List<MemberImage> images);
 }

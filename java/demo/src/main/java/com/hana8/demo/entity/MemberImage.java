@@ -34,7 +34,7 @@ public class MemberImage extends BaseEntity {
 	@Column(nullable = false, length = 60)
 	private String orgname;
 
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 50)
 	private String savename;
 
 	@Column(nullable = false, length = 10)
