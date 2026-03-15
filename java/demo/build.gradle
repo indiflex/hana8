@@ -59,6 +59,16 @@ dependencies {
 //    swagger
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.1'
 
+//    SpringSecurity
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+//    for JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.boot:spring-boot-webmvc-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
