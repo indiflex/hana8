@@ -5,12 +5,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
+
+import com.hana8.demo.security.exception.CustomJwtException;
 
 import jakarta.validation.ConstraintViolationException;
 
@@ -45,6 +49,16 @@ public class ControllerExceptionHandler {
 		);
 
 		return ResponseEntity.badRequest().body(map);
+	}
+
+	@ExceptionHandler(AuthorizationDeniedException.class)
+	public ResponseEntity<Map<String, String>> handleAccessDeniedException(AuthorizationDeniedException e) {
+		return ResponseEntity.status(403).body(Map.of("error", e.getMessage()));
+	}
+
+	@ExceptionHandler(CustomJwtException.class)
+	public ResponseEntity<?> handlerJwtException(CustomJwtException e) {
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", e.getMessage()));
 	}
 
 	@ExceptionHandler(NoHandlerFoundException.class)

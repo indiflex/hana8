@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +37,7 @@ public class MemberController {
 	private final FileService fileService;
 
 	@GetMapping("")
+	@PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
 	List<MemberDTO> getMembers() {
 		return service.getMemers();
 	}
@@ -46,6 +48,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/{id}")
+	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	MemberDTO getMember(@PathVariable Long id) {
 		return service.getMember(id);
 	}

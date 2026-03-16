@@ -31,7 +31,8 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		SubscriberDTO dto = (SubscriberDTO)authentication.getPrincipal();
 		if (dto == null)
 			throw new CustomJwtException("Invalid Authentication");
-		
+
+		dto.setPwd("");
 		Map<String, Object> claims = dto.getClaims();
 		claims.put("accessToken", jwtUtil.generateToken(claims, 10));
 		claims.put("refreshToken", jwtUtil.generateToken(claims, 24 * 60));
