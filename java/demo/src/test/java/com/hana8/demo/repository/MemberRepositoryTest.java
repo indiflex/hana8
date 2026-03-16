@@ -53,7 +53,6 @@ class MemberRepositoryTest extends BaseRepositoryTest {
 	@Order(2)
 	void readTest() {
 		List<Member> all = repository.findAll();
-		System.out.println("all = " + all);
 		long cnt = repository.count();
 		assertThat(cnt).isEqualTo(all.size());
 

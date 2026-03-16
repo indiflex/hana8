@@ -2,11 +2,11 @@ spring:
   application:
     name: demo
 
+  config:
+    import: classpath:security.yml
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/testdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: hana8
-    password: Hana8db!!
 
   jpa:
     hibernate:
@@ -39,3 +39,40 @@ spring:
   web:
     resources:
       add-mappings: false
+
+  servlet:
+    multipart:
+      location: src/main/resources/static/tmp
+      max-request-size: 10MB
+      max-file-size: 2MB
+
+  messages:
+    basename: messages/message
+
+upload:
+  path: src/main/resources/static/upload
+  secure: src/main/upload/secure
+
+management:
+  server:
+    port: 9001
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: env,beans
+  endpoint:
+    metrics:
+      access: read_only
+    shutdown:
+      access: unrestricted
+    health:
+      show-details: always
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger.html
+  api-docs:
+    enabled: true
+    path: /hana8/api-docs

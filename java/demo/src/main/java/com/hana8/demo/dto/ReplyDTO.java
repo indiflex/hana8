@@ -1,7 +1,5 @@
 package com.hana8.demo.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +13,10 @@ public class ReplyDTO {
 	private Long id;
 
 	private String reply;
-	private String replier;
+	private MemberDTO replier;
 
-	@JsonBackReference
-	private PostDTO post;
+	private Long postId;
+
+	// @JsonBackReference
+	// private PostDTO post;
 }

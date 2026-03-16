@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hana8.demo.dto.PostDTO;
 import com.hana8.demo.dto.PostListDTO;
+import com.hana8.demo.dto.ReplyDTO;
 import com.hana8.demo.service.PostService;
 
 import lombok.RequiredArgsConstructor;
@@ -50,8 +51,30 @@ public class PostController {
 		return service.removePost(id);
 	}
 
-	@GetMapping("/{id}/replies")
-	PostDTO getReplies(@PathVariable Long id) {
-		return service.getReplies(id);
+	@GetMapping("/{postId}/replies")
+	List<ReplyDTO> getReplies(@PathVariable Long postId) {
+		return service.getReplies(postId);
+	}
+
+	@GetMapping("/{postId}/replies/{id}")
+	ReplyDTO getReply(@PathVariable Long postId, @PathVariable Long id) {
+		return service.getReply(id);
+	}
+
+	@PostMapping("/{postId}/replies")
+	ReplyDTO addReply(@PathVariable Long postId, @RequestBody ReplyDTO dto) {
+		dto.setPostId(postId);
+		return service.addReply(dto);
+	}
+
+	@PutMapping("/{postId}/replies/{id}")
+	ReplyDTO editReplies(@PathVariable Long postId, @RequestBody ReplyDTO dto) {
+		dto.setPostId(postId);
+		return service.editReply(dto);
+	}
+
+	@DeleteMapping("/{postId}/replies/{id}")
+	int removeReplies(@PathVariable Long postId, @PathVariable Long id) {
+		return service.removeReply(id);
 	}
 }

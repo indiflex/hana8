@@ -16,18 +16,26 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import com.hana8.demo.entity.Member;
 import com.hana8.demo.entity.Post;
 import com.hana8.demo.entity.PostBody;
 
 class PostRepositoryTest extends BaseRepositoryTest {
 	private static long id;
 	private static long orgCnt = 0;
+	private static Member member;
 
 	@Autowired
 	private PostRepository repository;
 
+	@Autowired
+	private MemberRepository memberRepository;
+
 	@BeforeEach
 	void setOrgCnt() {
+		if (member == null)
+			member = memberRepository.findById(1L).orElseThrow();
+
 		if (orgCnt == 0)
 			orgCnt = repository.count();
 	}
@@ -35,15 +43,17 @@ class PostRepositoryTest extends BaseRepositoryTest {
 	@Test
 	void createAllTest() {
 		long cnt = repository.count();
+		if (cnt > 3)
+			return;
 		List<Post> posts = LongStream.rangeClosed(4, 100)
 			.mapToObj(l -> {
 				PostBody postBody = new PostBody("body of " + l);
 				Post post = Post.builder()
 					.title("Title" + l)
 					.body(postBody)
-					.writer("writer" + l)
+					.writer(member)
 					.build();
-				
+
 				postBody.setPost(post);
 
 				return post;
@@ -119,7 +129,7 @@ class PostRepositoryTest extends BaseRepositoryTest {
 	@Test
 	@Order(1)
 	void createTest() {
-		Post savedPost = repository.save(new Post("Title 101", "writer101"));
+		Post savedPost = repository.save(new Post("Title 101", member));
 		Post post = repository.findById(savedPost.getId()).orElseThrow();
 		assertThat(post).isEqualTo(savedPost);
 		assertThat(orgCnt + 1).isEqualTo(repository.count());

@@ -27,7 +27,7 @@ public class PostDTO {
 	private String title;
 
 	@NotBlank
-	private String writer;
+	private MemberDTO writer;
 
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
@@ -36,7 +36,12 @@ public class PostDTO {
 	private PostBodyDTO body;
 
 	@JsonManagedReference
+	@Builder.Default
 	private List<ReplyDTO> replies = new ArrayList<>();
+
+	@JsonManagedReference
+	@Builder.Default
+	private List<HashtagDTO> hashtags = new ArrayList<>();
 
 	public interface OnCreate {
 	}

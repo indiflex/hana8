@@ -3,8 +3,8 @@
 ### post list
 GET {{baseUrl}}/
 
-### post list
-GET {{baseUrl}}?page=1
+### post list     json.replies?.length
+GET {{baseUrl}}?page=11
 
 ### post list
 GET {{baseUrl}}?page=2&pageSize=15
@@ -31,11 +31,18 @@ Content-Type: application/json
   "body": {
     "body": "body 1"
   },
-  "writer": "1"
+  "writer": {
+    "id": 1
+  },
+  "hashtags": [
+    {
+      "tag": "monday"
+    }
+  ]
 }
 
 ### post-info
-GET {{baseUrl}}/104
+GET {{baseUrl}}/4
 
 
 ### post-update
@@ -53,4 +60,34 @@ Content-Type: application/json
 }
 
 ### post-remove
-DELETE {{baseUrl}}/107
+DELETE {{baseUrl}}/102
+
+### get replies
+GET {{baseUrl}}/102/replies
+
+### add reply
+POST {{baseUrl}}/2/replies
+Content-Type: application/json
+
+{
+  "reply": "reply 2222",
+  "replier": {
+    "id": 1
+  }
+}
+
+### get reply
+GET {{baseUrl}}/102/replies/5
+
+### edit reply
+PUT {{baseUrl}}/102/replies/5
+Content-Type: application/json
+
+{
+  "id": 5,
+  "reply": "reply xxxxxxx"
+}
+
+
+### delete reply
+DELETE {{baseUrl}}/102/replies/5

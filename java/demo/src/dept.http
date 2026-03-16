@@ -1,0 +1,47 @@
+@baseUrl=http://localhost:8080/api/depts
+
+### list
+GET {{baseUrl}}/
+
+### regist
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Dev",
+  "captain": {
+    "id": 1
+  },
+  "deptMembers": [
+    {
+      "id": 2
+    }
+  ]
+}
+
+### member-info
+GET {{baseUrl}}/1
+
+
+### post-update
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Sales",
+  "captain": {
+    "id": 3
+  },
+  "deptMembers": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    }
+  ]
+}
+
+### withdraw member
+DELETE {{baseUrl}}/5

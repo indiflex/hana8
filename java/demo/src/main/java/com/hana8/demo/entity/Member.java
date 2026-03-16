@@ -1,5 +1,8 @@
 package com.hana8.demo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.annotations.ColumnDefault;
 
 import com.hana8.demo.common.enums.BloodType;
@@ -11,6 +14,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -53,4 +58,22 @@ public class Member extends BaseEntity {
 
 	@ColumnDefault("false")
 	private Boolean isActive;
+
+	@OneToMany(mappedBy = "captain")
+	@Builder.Default
+	@ToString.Exclude
+	private List<Dept> captainDepts = new ArrayList<>();
+
+	@ManyToMany(mappedBy = "deptMembers")
+	@Builder.Default
+	private List<Dept> depts = new ArrayList<>();
+
+	@OneToMany(mappedBy = "member")
+	@Builder.Default
+	@ToString.Exclude
+	private List<MemberImage> memberImages = new ArrayList<>();
+
+	public Member(Long id) {
+		this.id = id;
+	}
 }

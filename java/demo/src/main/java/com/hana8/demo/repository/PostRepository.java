@@ -17,6 +17,8 @@ public interface PostRepository extends JpaRepository<Post, Long>, QuerydslPredi
 
 	List<Post> findByIdBetween(long l, long l1);
 
+	List<Post> findByWriterId(Long writerId);
+
 	@Query("select p from Post p where p.id between :start and :end order by p.id desc")
 	List<Post> findByAny(@Param("start") int s, @Param("end") int e);
 

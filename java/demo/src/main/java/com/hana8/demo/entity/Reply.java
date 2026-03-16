@@ -5,6 +5,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -42,6 +43,9 @@ public class Reply extends BaseEntity {
 	@Column(nullable = false)
 	private String reply;
 
-	@Column(nullable = false, length = 31)
-	private String replyer;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "replier", nullable = false,
+		foreignKey = @ForeignKey(name = "fk_Reply_replier_Member"))
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Member replier;
 }
