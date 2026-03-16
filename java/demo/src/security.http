@@ -6,6 +6,3 @@ Content-Type: application/x-www-form-urlencoded
 
 username = sample@gmail.com &
 password = pwd00
-
-### xx
-GET {{baseUrl}}/login
