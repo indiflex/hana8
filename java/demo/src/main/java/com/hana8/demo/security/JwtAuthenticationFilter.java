@@ -36,7 +36,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		"/actuator/**",
 		"/*.html",
 		"/swagger-ui/**",
-		"/v3/api-docs/**",
+		"/hana8/api-docs/**",
 		"/broadcast/**"
 	};
 	private final JwtUtil jwtUtil;

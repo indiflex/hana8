@@ -8,9 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import com.hana8.demo.dto.SubscriberDTO;
 import com.hana8.demo.security.JwtUtil;
-import com.hana8.demo.security.exception.CustomJwtException;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,14 +26,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		Authentication authentication) throws IOException, ServletException {
 		System.out.println("*** SuccessHandler.auth=" + authentication);
 
-		SubscriberDTO dto = (SubscriberDTO)authentication.getPrincipal();
-		if (dto == null)
-			throw new CustomJwtException("Invalid Authentication");
-
-		dto.setPwd("");
-		Map<String, Object> claims = dto.getClaims();
-		claims.put("accessToken", jwtUtil.generateToken(claims, 10));
-		claims.put("refreshToken", jwtUtil.generateToken(claims, 24 * 60));
+		Map<String, Object> claims = jwtUtil.authenticationToClaims(authentication);
 
 		ObjectMapper objMapper = new ObjectMapper();
 		response.setContentType("application/json");

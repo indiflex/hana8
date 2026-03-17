@@ -48,7 +48,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('ROLE_MANAGER')")
+	@PreAuthorize("hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')")
 	MemberDTO getMember(@PathVariable Long id) {
 		return service.getMember(id);
 	}

@@ -43,7 +43,7 @@ public class JwtUtil {
 		}
 	}
 
-	public Map<String, Object> generateClaims(Authentication authentication) {
+	public Map<String, Object> authenticationToClaims(Authentication authentication) {
 		SubscriberDTO dto = (SubscriberDTO)authentication.getPrincipal();
 
 		if (dto == null) {
