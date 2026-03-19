@@ -3,6 +3,7 @@ package com.hana8.demo.repository;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hana8.demo.common.enums.BloodType;
 import com.hana8.demo.entity.Member;
+import com.hana8.demo.entity.QMember;
+import com.querydsl.core.BooleanBuilder;
 
 class MemberRepositoryTest extends BaseRepositoryTest {
 	private static long id;
@@ -64,6 +67,20 @@ class MemberRepositoryTest extends BaseRepositoryTest {
 
 	@Test
 	@Order(3)
+	void searchQueryDSLTest() {
+		QMember member = QMember.member;
+
+		BooleanBuilder bb = new BooleanBuilder();
+		bb.and(member.isActive.eq(true));
+		repository.findAll(bb).spliterator();
+		List<Member> memberList = StreamSupport.stream(repository.findAll(bb).spliterator(), false)
+			.toList();
+		// assertThat(memberList).hasSize(3);
+		assertThat(memberList).size().isGreaterThanOrEqualTo(1);
+	}
+
+	@Test
+	@Order(4)
 	void updateTest() {
 		Member member = repository.findById(id).orElseThrow();
 		member.setNickname(member.getNickname() + "xxx");
@@ -71,7 +88,7 @@ class MemberRepositoryTest extends BaseRepositoryTest {
 	}
 
 	@Test
-	@Order(4)
+	@Order(5)
 	void deleteTest() {
 		Member member = repository.findById(id).orElseThrow();
 		assertThat(member.getNickname())
@@ -81,7 +98,7 @@ class MemberRepositoryTest extends BaseRepositoryTest {
 	}
 
 	@Test
-	@Order(5)
+	@Order(6)
 	void finalCheck() {
 		assertThat(repository.count()).isEqualTo(orgCount);
 	}

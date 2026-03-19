@@ -41,3 +41,7 @@ values ('sample@gmail.com', 'sub0', '$2a$10$Y3GCnA7qjqOLOX8QkZR7zO/r5izR434eoAu6
 insert into SubscriberRole(role, email)
 values (0, 'sample@gmail.com'),
        (2, 'sample@gmail.com');
+
+insert into Dept(name, captain)
+values ('Dev', 1),
+       ('HR', 2);

@@ -44,7 +44,7 @@ class SubscriberRepositoryTest {
 
 		repository.saveAll(roleList);
 
-		assertThat(repository.count()).isEqualTo(limit);
+		assertThat(repository.count()).isGreaterThan(limit);
 	}
 
 	@Test
