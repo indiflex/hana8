@@ -1,0 +1,12 @@
+#cloud:
+#  aws:
+#    credentials:
+#      access-key: test
+#      secret-key: test
+#    region:
+#      static: ap-northeast-2
+#    s3:
+#      endpoint: http://localhost:4566
+#      bucket:
+#        public: hanax-public
+#        private: hanax-private

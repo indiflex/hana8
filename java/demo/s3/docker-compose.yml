@@ -1,0 +1,12 @@
+# s3/docker-compose.yml
+services:
+  localstack:
+    image: localstack/localstack:3.4.0
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3
+      - DEFAULT_REGION=ap-northeast-2
+    volumes:
+      - ./init-s3.sh:/etc/localstack/init/ready.d/init-s3.sh
+    mem_limit: 512m

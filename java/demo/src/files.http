@@ -1,0 +1,63 @@
+@baseUrl=http://localhost:8080/apis/files
+
+### get upload URL - static
+GET {{baseUrl}}/upload-url/static?fileName=test1.jpg&contentType=image/jpeg
+
+> {%
+    client.global.set("upload-url", response.body);
+%}
+
+
+### login
+POST http://localhost:8080/api/subscriber/login
+Content-Type: application/x-www-form-urlencoded
+
+username = sample@gmail.com &
+password = pwd00
+
+> {%
+    client.global.set("auth_token", response.body.accessToken);
+%}
+
+### get upload URL - for test1.jpg
+GET {{baseUrl}}/upload-url?fileName=test1.jpg&contentType=image/jpeg
+Authorization: Bearer {{auth_token}}
+
+> {%
+    client.global.set("upload-url", response.body);
+%}
+
+### 파일 업로드 - test1.jpg
+PUT {{upload-url}}
+Content-Type: image/jpeg
+
+< /Users/jade/tmp/test1.jpg
+
+### download-url for test1.jpg
+GET {{baseUrl}}/download-url?fileName=1752a8b9-641f-4d3b-b7d4-5fdda71ebc3a_test1.jpg
+Authorization: Bearer {{auth_token}}
+
+> {%
+    client.global.set("download-url", response.body);
+%}
+
+### download url for static
+GET {{baseUrl}}/download-url/static?fileName=92efc8a2-d2bb-4933-81c1-c6c179696569_test1.jpg
+
+### get upload URLs for multiple upload
+POST {{baseUrl}}/upload-urls
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "files": [
+    {
+      "fileName": "test1.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "fileName": "test2.png",
+      "contentType": "image/png"
+    }
+  ]
+}

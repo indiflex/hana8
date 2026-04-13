@@ -26,8 +26,6 @@ GET {{baseUrl}}/search?datetime=2026-03-05 09:16
 
 
 
-
-
 ### member-regist
 POST {{baseUrl}}
 Content-Type: application/json
