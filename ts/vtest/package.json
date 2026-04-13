@@ -1,0 +1,21 @@
+{
+  "name": "vtest",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:cov": "vitest --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "4.0.15",
+    "@vitest/ui": "4.0.15",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.15"
+  }
+}

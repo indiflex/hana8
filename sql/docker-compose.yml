@@ -1,0 +1,18 @@
+services:
+  localdb:
+    container_name: hana8db
+    image: mysql:8.0
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: TestdbRoot
+      MYSQL_DATABASE: testdb
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --log_bin_trust_function_creators=1
+      - --default-time-zone=Asia/Seoul
+      - --innodb_ft_min_token_size=2
+      - --innodb_ft_server_stopword_table=testdb/StopWord
+    volumes:
+      - ./mysql:/var/lib/mysql

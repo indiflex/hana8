@@ -1,4 +1,11 @@
+.DS_Store
 .vscode
 node_modules
 .env*
 tmp
+ttt
+dist
+mysql
+coverage
+backup
+BE

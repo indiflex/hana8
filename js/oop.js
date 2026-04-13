@@ -56,9 +56,9 @@ const proxyObj = new Proxy(hong, {
   },
 });
 
-console.log('🚀 ~ id:', kim.id);
-console.log('🚀 ~ name:', proxyObj.fullName, kim.fullName);
-console.log(proxyObj instanceof Emp);
+// console.log('🚀 ~ id:', kim.id);
+// console.log('🚀 ~ name:', proxyObj.fullName, kim.fullName);
+// console.log(proxyObj instanceof Emp);
 
 // Object.defineProperty(Emp.prototype, 'upperName', {});
 

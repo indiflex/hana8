@@ -1,0 +1,93 @@
+@baseUrl=http://localhost:8080/api/posts
+
+### post list
+GET {{baseUrl}}/
+
+### post list     json.replies?.length
+GET {{baseUrl}}?page=11
+
+### post list
+GET {{baseUrl}}?page=2&pageSize=15
+
+### post search
+GET {{baseUrl}}?page=1&title=Title8
+
+### post search
+GET {{baseUrl}}?page=1&title=Title8&body=body of 8
+
+### post search
+GET {{baseUrl}}?page=1&title=Title8&writer=writer80
+
+### post search
+GET {{baseUrl}}?page=1&title=Title8&writedate=2026-03-05
+
+
+### post-regist
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "title": "xxxxxxxx",
+  "body": {
+    "body": "body 1"
+  },
+  "writer": {
+    "id": 1
+  },
+  "hashtags": [
+    {
+      "tag": "monday"
+    }
+  ]
+}
+
+### post-info
+GET {{baseUrl}}/4
+
+
+### post-update
+PUT {{baseUrl}}/107
+Content-Type: application/json
+
+{
+  "id": 107,
+  "title": "title 1x",
+  "body": {
+    "id": 104,
+    "body": "body 1xxx"
+  },
+  "writer": "Hongxxx"
+}
+
+### post-remove
+DELETE {{baseUrl}}/102
+
+### get replies
+GET {{baseUrl}}/102/replies
+
+### add reply
+POST {{baseUrl}}/2/replies
+Content-Type: application/json
+
+{
+  "reply": "reply 2222",
+  "replier": {
+    "id": 1
+  }
+}
+
+### get reply
+GET {{baseUrl}}/102/replies/5
+
+### edit reply
+PUT {{baseUrl}}/102/replies/5
+Content-Type: application/json
+
+{
+  "id": 5,
+  "reply": "reply xxxxxxx"
+}
+
+
+### delete reply
+DELETE {{baseUrl}}/102/replies/5

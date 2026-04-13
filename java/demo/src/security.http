@@ -1,0 +1,34 @@
+@baseUrl=http://localhost:8080
+
+### login
+POST {{baseUrl}}/api/subscriber/login
+Content-Type: application/x-www-form-urlencoded
+
+username = sample@gmail.com &
+password = pwd00
+
+> {%
+    client.global.set("auth_token", response.body.accessToken);
+    client.global.set("refresh_token", response.body.refreshToken);
+%}
+
+
+
+### refresh token
+GET {{baseUrl}}/api/subscriber/refresh?refreshToken={{refresh_token}}
+Authorization: Bearer {{auth_token}}
+
+> {%
+    client.global.set("auth_token", response.body.accessToken);
+    client.global.set("refresh_token", response.body.refreshToken);
+%}
+
+
+### token valid test
+GET {{baseUrl}}/api/members
+Authorization: Bearer {{auth_token}}
+
+
+### token valid test
+GET {{baseUrl}}/api/members/3
+Authorization: Bearer {{auth_token}}

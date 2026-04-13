@@ -1,0 +1,10 @@
+@baseUrl=http://localhost:8080
+
+GET {{baseUrl}}/
+
+### hello
+GET {{baseUrl}}/hello
+
+
+### with query param
+GET {{baseUrl}}/hello-servlet?name=Hong
