@@ -9,8 +9,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    # permissions:
+    #   contents: read
 
     steps:
     - uses: actions/checkout@v4
@@ -25,6 +25,7 @@ jobs:
       run: echo "${{secrets.SECURITY_YML}}" > ./src/main/resources/security.yml
 
     - name: print info
+      working-directory: java/demo
       run: |
         pwd
         ls -al
