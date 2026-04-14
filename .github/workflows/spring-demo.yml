@@ -55,7 +55,7 @@ jobs:
 
     - name: scp jar to was
       run: |
-          scp java/demo/build/libs/*.jar ec2-user@${{ secrets.WAS }}:/home/ec2-user/workspace/hanax/hana.jar
+          scp java/demo/build/libs/*SNAPSHOT.jar ec2-user@${{ secrets.WAS }}:/home/ec2-user/workspace/hanax/hana.jar
 
     # - name: restart spring
     #   run: |
