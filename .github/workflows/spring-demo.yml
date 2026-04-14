@@ -51,5 +51,8 @@ jobs:
 
     - name: Build with Gradle Wrapper
       working-directory: java/demo
-      run: ./gradlew clean build
+      run: ./gradlew clean build -x test
 
+    - name: scp jar to was
+      run: |
+          scp java/demo/build/libs/*.jar ec2-user@${{ secrets.WAS }}:/home/ec2-user/workspace/hanax/hana.jar
