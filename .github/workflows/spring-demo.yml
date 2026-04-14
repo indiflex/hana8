@@ -34,11 +34,6 @@ jobs:
     - name: setup ssh
       run: |
           mkdir -p ~/.ssh
-          # echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          # chmod 400 ~/.ssh/id_rsa
-          # ssh-keyscan ${{ secrets.WAS }} >> ~/.ssh/known_hosts
-          # chmod 600 ~/.ssh/known_hosts
-          # echo ~/.ssh/known_hosts
 
     # - name: scp jar to was
     #   run: |
