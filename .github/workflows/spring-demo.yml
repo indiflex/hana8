@@ -22,7 +22,9 @@ jobs:
 
     - name: set props
       working-directory: java/demo
-      run: echo "${{secrets.SECURITY_YML}}" > ./src/main/resources/security.yml
+      run: |
+        echo "${{secrets.SECURITY_YML}}" > ./src/main/resources/security.yml
+        echo "${{secrets.DB_PROPERTY}}" > ./src/main/resources/db.properties
 
     - name: print info
       working-directory: java/demo
@@ -39,7 +41,6 @@ jobs:
           chmod 400 ~/.ssh/id_rsa
           ssh-keyscan ${{ secrets.WAS }} >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
-          echo ~/.ssh/known_hosts
 
     - name: scp jar to was
       working-directory: java/demo/src/main/resources
@@ -57,9 +58,9 @@ jobs:
       run: |
           scp java/demo/build/libs/*SNAPSHOT.jar ec2-user@${{ secrets.WAS }}:/home/ec2-user/workspace/hanax/hana.jar
 
-    # - name: restart spring
-    #   run: |
-    #       ssh ec2-user@${{ secrets.WAS }} '
-    #         cd /home/ec2-user/workspace/hanax &&
-    #         sudo systemctl restart springboot
-    #       '
+    - name: restart spring
+      run: |
+          ssh ec2-user@${{ secrets.WAS }} '
+            cd /home/ec2-user/workspace/hanax &&
+            sudo systemctl restart springboot
+          '
