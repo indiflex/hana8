@@ -48,3 +48,7 @@ jobs:
     - name: scp jar to was
       run: |
         scp java/demo/build/libs/*SNAPSHOT.jar ec2-user@${{ secrets.WAS }}:/home/ec2-user/workspace/hanax/hana.jar
+
+    - name: restart tomcat
+      run: |
+          ssh ec2-user@${{ secrets.WAS }} 'sudo systemctl restart springboot'
