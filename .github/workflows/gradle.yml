@@ -43,8 +43,8 @@ jobs:
 
     - name: Build with Gradle Wrapper
       working-directory: java/demo
-      run: ./gradlew build
+      run: ./gradlew test
 
-    - name: scp jar to was
-      run: |
-          scp java/demo/build/libs/*SNAPSHOT.jar ec2-user@${{ secrets.WAS }}:/home/ec2-user/workspace/hanax/hana.jar
+    # - name: scp jar to was
+    #   run: |
+    #       scp java/demo/build/libs/*SNAPSHOT.jar ec2-user@${{ secrets.WAS }}:/home/ec2-user/workspace/hanax/hana.jar
