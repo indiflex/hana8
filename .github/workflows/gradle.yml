@@ -18,7 +18,7 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: set props
+    - name: set props securities
       working-directory: java/demo
       run: |
         echo "${{secrets.SECURITY_YML}}" > ./src/main/resources/security.yml
