@@ -3,7 +3,7 @@ name: Spring demo CI
 on:
   push:
     branches: [ rrr ]
-#    branches: [ "release/spring" ]
+#    branches: [ release/spring ]
 
 jobs:
   build:
