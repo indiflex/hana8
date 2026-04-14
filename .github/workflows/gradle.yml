@@ -3,6 +3,7 @@ name: Java Spring demo CI
 on:
   push:
     branches: [ release/spring ]
+  workflow_dispatch:
 
 jobs:
   build:
